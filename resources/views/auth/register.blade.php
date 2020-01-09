@@ -1,7 +1,12 @@
-@extends('layouts.app')
+@extends('welcome')
 
 @section('content')
-<div class="container">
+
+Register Template
+@yield('form-group')
+
+@endsection
+<!--div-- class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +78,5 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</!--div-->
+

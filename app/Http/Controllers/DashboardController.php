@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = \Auth::user();
+        $mainVehicle = $user->setting->vehicle;
+
+        return view('home.home', [
+            'title' => 'Home Dashboard',
+            'vehicle' => $mainVehicle,
+            'user' => $user,
+            'currentPage' => 'home'
+        ]);
     }
 }
