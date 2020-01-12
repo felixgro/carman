@@ -1,10 +1,109 @@
 @extends('welcome')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+<h1>Create Account</h1>
 
-Register Template
-@yield('form-group')
+<form action="{{ route('register') }}" method="post">
+    @csrf
 
+
+    <fieldset class="name">
+        <div>
+
+            <label for="name">Full Name</label>
+            <p>Fill in your full Name</p>
+            @error('name')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" id="name" name="name" value="{{ old('name') }}">
+
+
+            <label for="email">Email</label>
+            <p>Enter a valid Email</p>
+            @error('email')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" id="email" name="email" value="{{ old('email') }}">
+
+        </div>
+    </fieldset>
+
+
+    <fieldset class="password">
+        <div>
+
+            <label for="password">Password</label>
+            <p>Choose a secure one</p>
+            @error('password')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="password" name="password" id="password">
+
+        </div>
+    </fieldset>
+
+
+    <fieldset class="vehicle">
+        
+        <div>
+
+            <select name="type" id="type">
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                @endforeach
+            </select>
+
+            <select name="fuel" id="type">
+                @foreach ($fuels as $fuel)
+                    <option value="{{ $fuel->id }}">{{ $fuel->title }}</option>
+                @endforeach
+            </select>
+
+            <label for="model">Model</label>
+            @error('model')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" name="model" id="model" value="{{ old('model') }}">
+
+            <label for="make">Vehicle Make</label>
+            @error('make')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" name="make" id="make" value="{{ old('make') }}">
+
+            <label for="km">Total KM</label>
+            @error('km')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" name="km" id="km" value="{{ old('km') }}">
+
+            <label for="plate">License Plate</label>
+            @error('plate')
+                <span class="form-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="text" name="plate" id="plate" value="{{ old('plate') }}">
+            
+
+        </div>
+    </fieldset>
+    <input type="submit" value="Get Started">
+
+</form>
 @endsection
 <!--div-- class="container">
     <div class="row justify-content-center">

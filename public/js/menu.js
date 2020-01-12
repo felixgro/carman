@@ -137,8 +137,16 @@
 
   var mouseLeave = function mouseLeave(event) {
     resetTooltip();
-  }; // Bewegt das Tooltip zum Icon der aktuellen Seite
+  };
 
+  var getTooltipY = function getTooltipY() {
+    var targetRowRect = document.querySelector('header section.sub').getBoundingClientRect();
+    var y = targetRowRect.y + targetRowRect.height / 2 - toolRect.height / 2 + document.body.scrollTop;
+    console.log(y);
+    return y;
+  };
+
+  var y = getTooltipY(); // Bewegt das Tooltip zum Icon der aktuellen Seite
 
   var resetTooltip = function resetTooltip() {
     for (var i = 0; i < icons.length; i++) {
@@ -179,7 +187,7 @@
   } // Setzt Tooltip zu current Page zurück
 
 
-  resetTooltip();
+  setTimeout(resetTooltip, 300);
   /* Key Menu Navigation:
    '.':              öffnet Einstellungen
   links / rechts:   main manu auswahl

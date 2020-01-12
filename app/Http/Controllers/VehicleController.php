@@ -17,8 +17,8 @@ class VehicleController extends Controller
         $user = \Auth::user();
         $mainVehicle = $user->setting->vehicle;
 
-        return view('home.vehicles', [
-            'title' => 'Home Dashboard',
+        return view('home.vehicles.all', [
+            'title' => 'Vehicle Dashboard',
             'vehicle' => $mainVehicle,
             'user' => $user,
             'currentPage' => 'vehicle'
@@ -32,7 +32,17 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        $user = \Auth::user();
+        $mainVehicle = $user->setting->vehicle;
+
+        return view('home.vehicles.create', [
+            'title' => 'Home Dashboard',
+            'vehicle' => $mainVehicle,
+            'user' => $user,
+            'currentPage' => 'vehicle',
+            'types' => \App\VehicleType::all(),
+            'fuels' => \App\VehicleFuel::all()
+        ]);
     }
 
     /**
@@ -43,7 +53,19 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validated($request);
+
+        \DB::table('vehicles')->insert([
+            'user_id' => \Auth::user()->id,
+            'vehicle_type_id' => $data['type'],
+            'vehicle_fuel_id' => $data['fuel'],
+            'make' => $data['make'],
+            'model' => $data['model'],
+            'km' => $data['km'],
+            'plate' => $data['plate']
+        ]);
+
+        return redirect('vehicles');
     }
 
     /**
@@ -89,5 +111,17 @@ class VehicleController extends Controller
     public function destroy(Vehicle $vehicle)
     {
         //
+    }
+
+    protected function validated($request)
+    {
+        return $request->validate([
+            'type' => 'required|integer',
+            'fuel' => 'required|integer',
+            'model' => 'required',
+            'make' => 'required',
+            'km' => 'required|integer',
+            'plate' => 'required'
+        ]);
     }
 }

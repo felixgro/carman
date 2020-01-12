@@ -29,7 +29,7 @@
     const keyTimeout = 10;
 
     // Header Zeile inder sich das Tooltip bewegen soll
-    const targetRowRect = document.querySelector('header section.sub').getBoundingClientRect();
+    let targetRowRect = document.querySelector('header section.sub').getBoundingClientRect();
 
     // Wird ausgeführt, wenn der Cursor ein Icon überlapt
     const mouseEnter = (event) => {
@@ -43,6 +43,16 @@
     const mouseLeave = (event) => {
         resetTooltip();
     }
+
+    const getTooltipY = () => {
+        let targetRowRect = document.querySelector('header section.sub').getBoundingClientRect();
+        let y = targetRowRect.y + (targetRowRect.height / 2) - (toolRect.height / 2) + document.body.scrollTop;
+        console.log(y);
+        return y;
+    }
+
+
+    let y = getTooltipY();
 
     // Bewegt das Tooltip zum Icon der aktuellen Seite
     const resetTooltip = () => {
@@ -86,7 +96,7 @@
     }
 
     // Setzt Tooltip zu current Page zurück
-    resetTooltip();
+    setTimeout(resetTooltip, 300);
 
     /* Key Menu Navigation:
 

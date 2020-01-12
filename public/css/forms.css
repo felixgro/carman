@@ -1,0 +1,35 @@
+form {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #eee;
+}
+
+form input,
+form label,
+form select,
+form span {
+  display: block;
+}
+
+form fieldset {
+  padding: 0;
+  border: solid;
+  margin: 30px 0;
+}
+
+form input {
+  height: 35px;
+  width: 99%;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form p {
+  margin: 0;
+}
+

@@ -14,12 +14,6 @@
 Route::get('/', 'WelcomeController@index')->name('landing');
 
 
-Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'Auth\LoginController@login');
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/home', 'DashboardController@index')->name('home');
 
@@ -27,6 +21,10 @@ Route::get('/settings', 'DashboardController@index')->name('settings');
 
 // Vehicle Routes
 Route::get('/vehicles', 'VehicleController@index')->name('vehicles');
+Route::get('/vehicles/new', 'VehicleController@create');
+Route::post('/vehicles', 'VehicleController@store');
+Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('vehicle');
+Route::put('/vehicles/{vehicle}', 'VehicleController@update')->middleware('vehicle');
 
 // Route Routes
 Route::get('/routes', 'RouteController@index')->name('routes');
@@ -37,7 +35,7 @@ Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 // Dependency Routes
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
 
-// Auth::routes() inkludiert folgende Routen + Controller:
+Auth::routes();
 /*
 +--------+----------+------------------------+------------------+------------------------------------------------------------------------+--------------+
 | Domain | Method   | URI                    | Name             | Action                                                                 | Middleware   |
