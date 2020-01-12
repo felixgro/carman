@@ -8,11 +8,11 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16pt;
   letter-spacing: 2px;
+  line-height: 1.6;
 }
 
 body a {
   text-decoration: none;
-  color: #111;
 }
 
 header {
@@ -50,12 +50,12 @@ header section.top a.logout {
   color: #aaa;
   font-weight: 900;
   font-size: 0.6em;
-  -webkit-transition: color 100ms ease-out;
-  transition: color 100ms ease-out;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
 }
 
 header section.top a.logout:hover {
-  color: #111;
+  color: #222;
 }
 
 header section.top a.logout i {
@@ -92,8 +92,8 @@ header section.mid i {
   padding: 8px;
   margin: 8px;
   opacity: 1;
-  -webkit-transition: color 100ms ease-out;
-  transition: color 100ms ease-out;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
 }
 
 header section.mid i.current {
@@ -123,12 +123,12 @@ header section.sub a {
   padding: 10px 0;
   font-size: 0.6em;
   margin-left: 20px;
-  -webkit-transition: color 100ms ease-out;
-  transition: color 100ms ease-out;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
 }
 
 header section.sub a:hover {
-  color: #111;
+  color: #222;
 }
 
 header section.sub a.settings {
@@ -144,15 +144,15 @@ header section.sub i {
   font-size: 0.6em;
   opacity: 0.9;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 700;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: none;
   z-index: 1100;
   color: #222;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
 }
 
 .content {
@@ -171,6 +171,15 @@ header section.sub i {
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 20px;
+  background: none;
+}
+
+.content main h1 {
+  margin-bottom: 13px;
+}
+
+.content main p {
+  line-height: 30px;
 }
 
 .content aside {

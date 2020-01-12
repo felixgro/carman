@@ -16,10 +16,15 @@ class VehicleController extends Controller
     {
         $user = \Auth::user();
         $mainVehicle = $user->setting->vehicle;
+        $userVehicles = \DB::table('vehicles')
+                            ->where('user_id', '=', \Auth::user()->id)
+                            ->orderBy('make', 'desc')
+                            ->get();
 
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
             'vehicle' => $mainVehicle,
+            'userVehicles' => $userVehicles,
             'user' => $user,
             'currentPage' => 'vehicle'
         ]);

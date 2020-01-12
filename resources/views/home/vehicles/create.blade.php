@@ -37,49 +37,49 @@
             <div>
                 <label for="model">Model</label>
                 <p>Your Vehicle's model name ('A7' from Audi f.e.)</p>
+                <input type="text" name="model" id="model" value="{{ old('model') }}" @error('model') class="error" @enderror('plate')>
                 @error('model')
-                    <span class="form-error" role="alert">
+                    <p class="form-error" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                 @enderror
-                <input type="text" name="model" id="model" value="{{ old('model') }}">
             </div>
 
             <div>
                 <label for="make">Vehicle Make</label>
                 <p>Your Vehicle's producer ('Audi' f.e.)</p>
+                <input type="text" name="make" id="make" value="{{ old('make') }}" @error('make') class="error" @enderror('plate')>
                 @error('make')
-                    <span class="form-error" role="alert">
+                    <p class="form-error" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                 @enderror
-                <input type="text" name="make" id="make" value="{{ old('make') }}">
             </div>
 
             <div>
                 <label for="km">Milage</label>
                 <p>The total distance your Vehicle drove ('21 280' f.e.)</p>
+                <input type="text" name="km" id="km" value="{{ old('km') }}" @error('km') class="error" @enderror('plate')>
                 @error('km')
-                    <span class="form-error" role="alert">
+                    <p class="form-error" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                 @enderror
-                <input type="text" name="km" id="km" value="{{ old('km') }}">
             </div>
 
             <div>
                 <label for="plate">License Plate</label>
                 <p>The current License Plate (W-43292 f.e.)</p>
+                <input type="text" name="plate" id="plate" value="{{ old('plate') }}" @error('plate') class="error" @enderror('plate')>
                 @error('plate')
-                    <span class="form-error" role="alert">
+                    <p class="form-error" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                 @enderror
-                <input type="text" name="plate" id="plate" value="{{ old('plate') }}">
             </div>
 
             <div>
-                <input type="submit" value="Save" name="submit">
+                <input type="submit" value="Add new Vehicle" name="submit">
             </div>
 </form>
 
