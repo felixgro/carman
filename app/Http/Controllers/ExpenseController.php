@@ -18,8 +18,6 @@ class ExpenseController extends Controller
 
         return view('home.expenses', [
             'title' => 'Expenses Dashboard',
-            'vehicle' => $mainVehicle,
-            'user' => $user,
             'currentPage' => 'expense'
         ]);
     }

@@ -18,8 +18,6 @@ class DependencyController extends Controller
 
         return view('home.dependencies', [
             'title' => 'Dependencies Dashboard',
-            'vehicle' => $mainVehicle,
-            'user' => $user,
             'currentPage' => 'dependency'
         ]);
     }

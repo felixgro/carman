@@ -28,8 +28,6 @@ class DashboardController extends Controller
 
         return view('home.home', [
             'title' => 'Home Dashboard',
-            'vehicle' => $mainVehicle,
-            'user' => $user,
             'currentPage' => 'home'
         ]);
     }

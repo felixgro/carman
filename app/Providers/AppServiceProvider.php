@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Vehicle;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('dashboard', function ($view) {
+            $user = \Auth::user();
+            $mainVehicle = $user->setting->vehicle;
+            $userVehicles = \DB::table('vehicles')
+                            ->where('user_id', '=', \Auth::user()->id)
+                            ->orderBy('make', 'desc')
+                            ->get();
+
+            $view->with('user', $user);
+            $view->with('vehicle', $mainVehicle);
+            // $view->with('userVehicles', $userVehicles);
+        });
     }
 }

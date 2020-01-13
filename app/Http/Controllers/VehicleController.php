@@ -23,9 +23,7 @@ class VehicleController extends Controller
 
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
-            'vehicle' => $mainVehicle,
             'userVehicles' => $userVehicles,
-            'user' => $user,
             'currentPage' => 'vehicle'
         ]);
     }

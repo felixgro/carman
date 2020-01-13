@@ -18,8 +18,6 @@ class RouteController extends Controller
 
         return view('home.routes', [
             'title' => 'Routes Dashboard',
-            'vehicle' => $mainVehicle,
-            'user' => $user,
             'currentPage' => 'route'
         ]);
     }
