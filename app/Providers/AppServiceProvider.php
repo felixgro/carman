@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('dashboard', function ($view) {
+        View::composer(['dashboard', 'home.*'], function ($view) {
+            
             $user = \Auth::user();
             $mainVehicle = $user->setting->vehicle;
             $userVehicles = \DB::table('vehicles')
@@ -34,9 +35,11 @@ class AppServiceProvider extends ServiceProvider
                             ->orderBy('make', 'desc')
                             ->get();
 
-            $view->with('user', $user);
-            $view->with('vehicle', $mainVehicle);
-            // $view->with('userVehicles', $userVehicles);
+            $view->with([
+                'user' => $user,
+                'vehicle' => $mainVehicle,
+                'userVehicles' => $userVehicles
+            ]);
         });
     }
 }

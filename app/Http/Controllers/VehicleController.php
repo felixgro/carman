@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
+
+    // Vehicle Validation Ruleset
+    protected function validated($request)
+    {
+        return $request->validate([
+            'type' => 'required|integer',
+            'fuel' => 'required|integer',
+            'model' => 'required',
+            'make' => 'required',
+            'km' => 'required|integer',
+            'plate' => 'required'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,14 +29,9 @@ class VehicleController extends Controller
     {
         $user = \Auth::user();
         $mainVehicle = $user->setting->vehicle;
-        $userVehicles = \DB::table('vehicles')
-                            ->where('user_id', '=', \Auth::user()->id)
-                            ->orderBy('make', 'desc')
-                            ->get();
 
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
-            'userVehicles' => $userVehicles,
             'currentPage' => 'vehicle'
         ]);
     }
@@ -35,8 +43,6 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        $user = \Auth::user();
-        $mainVehicle = $user->setting->vehicle;
 
         return view('home.vehicles.create', [
             'title' => 'Home Dashboard',
@@ -114,17 +120,5 @@ class VehicleController extends Controller
     public function destroy(Vehicle $vehicle)
     {
         //
-    }
-
-    protected function validated($request)
-    {
-        return $request->validate([
-            'type' => 'required|integer',
-            'fuel' => 'required|integer',
-            'model' => 'required',
-            'make' => 'required',
-            'km' => 'required|integer',
-            'plate' => 'required'
-        ]);
     }
 }
