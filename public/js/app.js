@@ -37064,10 +37064,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/dashboard.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/dashboard.scss ***!
-  \***************************************/
+/***/ "./resources/sass/components/forms.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/components/forms.scss ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37075,10 +37075,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/forms.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/forms.scss ***!
-  \***********************************/
+/***/ "./resources/sass/components/tables.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/components/tables.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/dashboard.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/dashboard.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37098,15 +37109,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/forms.scss ./resources/sass/dashboard.scss ./resources/sass/vehicles.scss ***!
-  \********************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/components/forms.scss ./resources/sass/components/tables.scss ./resources/sass/dashboard.scss ./resources/sass/vehicles.scss ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/forms.scss */"./resources/sass/forms.scss");
+__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/forms.scss */"./resources/sass/components/forms.scss");
+__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/tables.scss */"./resources/sass/components/tables.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
 module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/vehicles.scss */"./resources/sass/vehicles.scss");
 

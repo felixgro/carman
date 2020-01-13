@@ -1,0 +1,78 @@
+table {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table thead {
+  text-align: left;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ddd;
+}
+
+table thead th {
+  padding-bottom: 10px;
+}
+
+table tbody tr {
+  position: relative;
+  border-bottom: none;
+  margin: 20px 0;
+  cursor: pointer;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+table tbody tr:hover,
+table tbody tr:focus {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+table tbody tr:hover td i {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+table tbody tr td {
+  box-sizing: border-box;
+  padding: 15px 0;
+}
+
+table tbody tr td i {
+  width: 60px;
+  text-align: center;
+  box-sizing: border-box;
+  display: block;
+  float: right;
+  margin-right: 20px;
+  position: relative;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #fff;
+  border-radius: 10px;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  background: #222;
+}
+
+table tbody tr .title a {
+  color: #222;
+  display: block;
+  margin-bottom: -46px;
+  font-size: 1em;
+}
+
+table tbody tr .title span {
+  font-size: 0.8em;
+  color: #ccc;
+  font-weight: 700;
+}
+
+table tbody tr .actions a {
+  font-size: 0.9em;
+}
+

@@ -126,6 +126,17 @@ header {
     transition: $tooltip-transition;
 }
 
+a.return-button {
+    font-weight: 700 !important;
+    font-size: .8em;
+    transition: $ui-transition;
+    &:hover {
+        i {
+            transform: translateX(-5px);
+        }
+    }
+}
+
 .content {
     position: relative;
     top: 250px;
@@ -144,6 +155,25 @@ header {
         }
         p {
             line-height: 30px;
+        }
+        div.container {
+            position: relative;
+            background: #fff;
+            margin: 100px auto;
+            padding: 20px 50px;
+            width: 75%;
+            max-width: 700px;
+            .sub-action {
+                position: absolute;
+                top: -40px;
+                right: 0;
+                font-size: .8em;
+                opacity: .3;
+                transition: all 220ms ease-out;
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
     aside {

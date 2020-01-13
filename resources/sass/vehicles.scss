@@ -1,10 +1,6 @@
 form {
     position: relative;
-    background: #fff;
-    margin: 100px auto;
-    padding: 20px 50px;
-    width: 75%;
-    max-width: 700px;
+    width: 100%;
     .form-error {
         color: tomato;
         opacity: 1;
@@ -80,16 +76,5 @@ appearance:none;
         box-shadow: none;
         transition: all 150ms ease-out;
         border-bottom: 4px solid #222;
-    }
-    #clear {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        font-size: .8em;
-        opacity: .3;
-        transition: all 220ms ease-out;
-        &:hover {
-            opacity: 1;
-        }
     }
 }

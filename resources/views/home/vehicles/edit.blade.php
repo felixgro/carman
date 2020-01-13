@@ -4,14 +4,12 @@
 
 @section('content')
 <a href="{{ route('vehicles') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
-<h1>Add new Vehicle</h1>
-<p>Fill in all fields below. Hit the Save Button to add the new Vehicle to your Dashboard.</p>
+<h1>Edit Vehicle</h1>
+<p>Change all the fields below to your wishes. Hit the Save Button once your done.</p>
 
 <div class="container">
-    <div class="sub-action">
-        <a href="{{ Request::url() }}">clear all</a>
-    </div>
-    <form action="/vehicles" method="post">
+    <form action="/vehicles/{{ $editVehicle->id }}" method="post">
+    @method('PUT')
         @csrf
     
                 <div>
@@ -25,7 +23,7 @@
                     <select name="type" id="type">
                         <option value="">Type</option>
                         @foreach ($types as $type)
-                            <option value="{{ $type->id }}" @if($type->id == old('type')) selected="selected" @endif>{{ $type->title }}</option>
+                            <option value="{{ $type->id }}" @if($type->id == $editVehicle->vehicle_type_id) selected="selected" @endif>{{ $type->title }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -41,7 +39,7 @@
                     <select name="fuel" id="fuel">
                         <option value="">Ressource</option>
                         @foreach ($fuels as $fuel)
-                            <option value="{{ $fuel->id }}" @if($fuel->id == old('fuel')) selected="selected" @endif>{{ $fuel->title }}</option>
+                            <option value="{{ $fuel->id }}" @if($fuel->id == $editVehicle->vehicle_fuel_id) selected="selected" @endif>{{ $fuel->title }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -54,7 +52,7 @@
                             <strong>{{ $message }}</strong>
                         </p>
                     @enderror
-                    <input type="text" name="model" id="model" value="{{ old('model') }}" @error('model') class="error" @enderror('plate')>
+                    <input type="text" name="model" id="model" value="{{ $editVehicle->model }}" @error('model') class="error" @enderror>
                 </div>
     
                 <div>
@@ -65,7 +63,7 @@
                             <strong>{{ $message }}</strong>
                         </p>
                     @enderror
-                    <input type="text" name="make" id="make" value="{{ old('make') }}" @error('make') class="error" @enderror('plate')>
+                    <input type="text" name="make" id="make" value="{{ $editVehicle->make }}" @error('make') class="error" @enderror>
                 </div>
     
                 <div>
@@ -76,7 +74,7 @@
                             <strong>{{ $message }}</strong>
                         </p>
                     @enderror
-                    <input type="text" name="km" id="km" value="{{ old('km') }}" @error('km') class="error" @enderror('plate')>
+                    <input type="text" name="km" id="km" value="{{ $editVehicle->km }}" @error('km') class="error" @enderror>
                 </div>
     
                 <div>
@@ -87,17 +85,13 @@
                             <strong>{{ $message }}</strong>
                         </p>
                     @enderror
-                    <input type="text" name="plate" id="plate" value="{{ old('plate') }}" @error('plate') class="error" @enderror('plate')>
+                    <input type="text" name="plate" id="plate" value="{{ $editVehicle->plate }}" @error('plate') class="error" @enderror>
                 </div>
     
                 <div>
-                    <input type="submit" value="Add new Vehicle" name="submit">
+                    <input type="submit" value="Save Changes" name="submit">
                 </div>
     </form>
 </div>
-
-
-
-
 
 @endsection

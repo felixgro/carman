@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VehicleRequest;
 use App\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
 
-    // Vehicle Validation Ruleset
-    protected function validated($request)
-    {
-        return $request->validate([
-            'type' => 'required|integer',
-            'fuel' => 'required|integer',
-            'model' => 'required',
-            'make' => 'required',
-            'km' => 'required|integer',
-            'plate' => 'required'
-        ]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +35,6 @@ class VehicleController extends Controller
 
         return view('home.vehicles.create', [
             'title' => 'Home Dashboard',
-            'vehicle' => $mainVehicle,
-            'user' => $user,
             'currentPage' => 'vehicle',
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()
@@ -60,9 +47,9 @@ class VehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
-        $data = $this->validated($request);
+        $data = $request->validated();
 
         \DB::table('vehicles')->insert([
             'user_id' => \Auth::user()->id,
@@ -96,7 +83,13 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return view('home.vehicles.edit', [
+            'title' => 'Home Dashboard',
+            'currentPage' => 'vehicle',
+            'editVehicle' => $vehicle,
+            'types' => \App\VehicleType::all(),
+            'fuels' => \App\VehicleFuel::all()
+        ]);
     }
 
     /**
@@ -106,9 +99,20 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(VehicleRequest $request, Vehicle $vehicle)
     {
-        //
+        $data = $request->validated();
+
+        \DB::table('vehicles')->where('id', $vehicle->id)->update([
+            'vehicle_type_id' => $data['type'],
+            'vehicle_fuel_id' => $data['fuel'],
+            'make' => $data['make'],
+            'model' => $data['model'],
+            'km' => $data['km'],
+            'plate' => $data['plate']
+        ]);
+
+        return redirect('vehicles');
     }
 
     /**

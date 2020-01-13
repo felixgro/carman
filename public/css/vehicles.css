@@ -1,10 +1,6 @@
 form {
   position: relative;
-  background: #fff;
-  margin: 100px auto;
-  padding: 20px 50px;
-  width: 75%;
-  max-width: 700px;
+  width: 100%;
 }
 
 form .form-error {
@@ -98,19 +94,5 @@ form input:focus {
   -webkit-transition: all 150ms ease-out;
   transition: all 150ms ease-out;
   border-bottom: 4px solid #222;
-}
-
-form #clear {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  font-size: 0.8em;
-  opacity: 0.3;
-  -webkit-transition: all 220ms ease-out;
-  transition: all 220ms ease-out;
-}
-
-form #clear:hover {
-  opacity: 1;
 }
 

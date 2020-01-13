@@ -155,6 +155,18 @@ header section.sub i {
   transition: all 200ms ease-out;
 }
 
+a.return-button {
+  font-weight: 700 !important;
+  font-size: 0.8em;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+a.return-button:hover i {
+  -webkit-transform: translateX(-5px);
+          transform: translateX(-5px);
+}
+
 .content {
   position: relative;
   top: 250px;
@@ -180,6 +192,29 @@ header section.sub i {
 
 .content main p {
   line-height: 30px;
+}
+
+.content main div.container {
+  position: relative;
+  background: #fff;
+  margin: 100px auto;
+  padding: 20px 50px;
+  width: 75%;
+  max-width: 700px;
+}
+
+.content main div.container .sub-action {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 0.8em;
+  opacity: 0.3;
+  -webkit-transition: all 220ms ease-out;
+  transition: all 220ms ease-out;
+}
+
+.content main div.container .sub-action:hover {
+  opacity: 1;
 }
 
 .content aside {

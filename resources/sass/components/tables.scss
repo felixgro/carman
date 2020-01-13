@@ -1,0 +1,83 @@
+@import '../variables/main';
+@import '../variables/dashboard';
+
+table {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    thead {
+        text-align: left;
+        font-size: .7em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: $table-head-color;
+        th {
+            padding-bottom: 10px;
+        }
+    }
+    tbody {
+        a {
+            &:hover {
+                tr {
+                    
+                }
+            }
+        }
+        tr {
+            position: relative;
+            border-bottom: $table-border;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: $ui-transition;
+            &:hover, &:focus {
+                box-shadow: 0 0 30px rgba(0,0,0,0.1);
+                outline: none;
+            }
+            &:hover {
+                td {
+                    i {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            td {
+                box-sizing: border-box;
+                padding: 15px 0;
+                i {
+                    width: 60px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    display: block;
+                    float: right;
+                    margin-right: 20px;
+                    position: relative;
+                    padding: 10px;
+                    font-size: 1.2em;
+                    color: $table-icon-color;
+                    border-radius: 10px;
+                    transition: $ui-transition;
+                    background: $table-icon-bg;
+                }
+            }
+            .title {
+                a {
+                    color: $main-color;
+                    display: block;
+                    margin-bottom: -46px;
+                    font-size: 1em;
+                }
+                span {
+                    font-size: .8em;
+                    color: $main-fade-color;
+                    font-weight: 700;
+                }
+            }
+            .actions {
+                a {
+                    font-size: .9em;
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/forms.scss', 'public/css')
+    .sass('resources/sass/components/forms.scss', 'public/css')
+    .sass('resources/sass/components/tables.scss', 'public/css')
 
     // Dashbaord Assets
     .sass('resources/sass/dashboard.scss', 'public/css')
@@ -23,4 +24,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/register.js', 'public/js')
 
     // Vehicle Assets
-    .sass('resources/sass/vehicles.scss', 'public/css');
+    .sass('resources/sass/vehicles.scss', 'public/css')
+    .js('resources/js/vehicleList.js', 'public/js');

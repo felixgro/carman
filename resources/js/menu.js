@@ -47,7 +47,6 @@
     const getTooltipY = () => {
         let targetRowRect = document.querySelector('header section.sub').getBoundingClientRect();
         let y = targetRowRect.y + (targetRowRect.height / 2) - (toolRect.height / 2) + document.body.scrollTop;
-        console.log(y);
         return y;
     }
 
