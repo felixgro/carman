@@ -45,7 +45,7 @@
                     <span>{{ $entry->plate }}</span>
                 </td>
                 <td>
-                    {{ $entry->km }}
+                    <strong>{{ number_format($entry->km) }}</strong>km
                 </td>
                 <td>
 

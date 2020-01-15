@@ -8,7 +8,9 @@
 <br>
 <ul>
     @foreach($expenses as $expense)
-        <li>{{ $expense->title }} ({{ $expense->amount }} €)</li>
+        <li>
+            <a href="/expenses/{{ $expense->id }}">{{ $expense->title }} ({{ $expense->amount }} €)</a>
+        </li>
     @endforeach
 </ul>
 

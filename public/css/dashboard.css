@@ -23,7 +23,7 @@
 }
 
 .alert p {
-  line-height: 1.2em !important;
+  line-height: 1.1em !important;
 }
 
 .alert.remove {
@@ -228,7 +228,7 @@ a.return-button:hover i {
   margin: 100px auto;
   padding: 20px 50px;
   width: 75%;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .content main div.container .sub-action {

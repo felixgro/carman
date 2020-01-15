@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/vehicles.css') }}">
 
 @section('content')
-<a href="{{ route('vehicles') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
+<a href="{{ route('expenses') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
 <h1>Add new Vehicle</h1>
 <p>Fill in all fields below. Hit the Save Button to add the new Vehicle to your Dashboard.</p>
 
