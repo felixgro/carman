@@ -170,6 +170,10 @@ a.return-button {
                 font-size: .8em;
                 opacity: .3;
                 transition: all 220ms ease-out;
+                font-weight: 700;
+                a {
+                    color: #777;
+                }
                 &:hover {
                     opacity: 1;
                 }

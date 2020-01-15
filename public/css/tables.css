@@ -28,7 +28,7 @@ table tbody tr {
 
 table tbody tr:hover,
 table tbody tr:focus {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.06);
   outline: none;
 }
 
@@ -43,7 +43,7 @@ table tbody tr td {
 }
 
 table tbody tr td i {
-  width: 60px;
+  width: 45px;
   text-align: center;
   box-sizing: border-box;
   display: block;
@@ -51,7 +51,7 @@ table tbody tr td i {
   margin-right: 20px;
   position: relative;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #fff;
   border-radius: 10px;
   -webkit-transition: all 120ms ease-out;
@@ -59,20 +59,41 @@ table tbody tr td i {
   background: #222;
 }
 
+table tbody tr .title:hover a::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
 table tbody tr .title a {
   color: #222;
   display: block;
+  position: relative;
   margin-bottom: -46px;
   font-size: 1em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+table tbody tr .title a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #222;
+  bottom: 6px;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
 }
 
 table tbody tr .title span {
   font-size: 0.8em;
   color: #ccc;
   font-weight: 700;
-}
-
-table tbody tr .actions a {
-  font-size: 0.9em;
 }
 

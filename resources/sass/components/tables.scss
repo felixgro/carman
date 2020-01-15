@@ -17,13 +17,6 @@ table {
         }
     }
     tbody {
-        a {
-            &:hover {
-                tr {
-                    
-                }
-            }
-        }
         tr {
             position: relative;
             border-bottom: $table-border;
@@ -31,7 +24,7 @@ table {
             cursor: pointer;
             transition: $ui-transition;
             &:hover, &:focus {
-                box-shadow: 0 0 30px rgba(0,0,0,0.1);
+                box-shadow: 0 0 70px rgba(0,0,0,.06);
                 outline: none;
             }
             &:hover {
@@ -45,7 +38,7 @@ table {
                 box-sizing: border-box;
                 padding: 15px 0;
                 i {
-                    width: 60px;
+                    width: 45px;
                     text-align: center;
                     box-sizing: border-box;
                     display: block;
@@ -53,7 +46,7 @@ table {
                     margin-right: 20px;
                     position: relative;
                     padding: 10px;
-                    font-size: 1.2em;
+                    font-size: 1em;
                     color: $table-icon-color;
                     border-radius: 10px;
                     transition: $ui-transition;
@@ -61,21 +54,37 @@ table {
                 }
             }
             .title {
+                &:hover {
+                    a {
+                        &::after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
                 a {
                     color: $main-color;
                     display: block;
+                    position: relative;
                     margin-bottom: -46px;
                     font-size: 1em;
+                    width: fit-content;
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        height: 2px;
+                        width: 100%;
+                        background: $table-title-hover;
+                        bottom: 6px;
+                        transition: $ui-transition;
+                        transform: scaleX(0);
+                        transform-origin: left center;
+                    }
                 }
                 span {
                     font-size: .8em;
                     color: $main-fade-color;
                     font-weight: 700;
-                }
-            }
-            .actions {
-                a {
-                    font-size: .9em;
                 }
             }
         }

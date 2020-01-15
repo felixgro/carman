@@ -211,6 +211,11 @@ a.return-button:hover i {
   opacity: 0.3;
   -webkit-transition: all 220ms ease-out;
   transition: all 220ms ease-out;
+  font-weight: 700;
+}
+
+.content main div.container .sub-action a {
+  color: #777;
 }
 
 .content main div.container .sub-action:hover {
