@@ -29,13 +29,17 @@ class VehicleController extends Controller
      */
     public function create()
     {
-
         return view('home.vehicles.create', [
             'title' => 'Home Dashboard',
             'currentPage' => 'vehicle',
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()
         ]);
+    }
+
+    public function setMain(Vehicle $vehicle)
+    {
+        
     }
 
     /**

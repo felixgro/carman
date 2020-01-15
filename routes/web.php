@@ -25,6 +25,7 @@ Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('vehicle');
 Route::put('/vehicles/{vehicle}', 'VehicleController@update')->middleware('vehicle');
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('vehicle');
+Route::post('/vehicles/{vehicle}/setmain', 'VehicleController@setMain')->middleware('vehicle');
 
 // Route Routes
 Route::get('/routes', 'RouteController@index')->name('routes');
@@ -33,6 +34,7 @@ Route::get('/routes', 'RouteController@index')->name('routes');
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 Route::get('/expenses/new', 'ExpenseController@create');
 Route::post('/expenses', 'ExpenseController@store');
+Route::get('/expenses/{expense}', 'ExpenseController@show');
 Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('expense');
 Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
 Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');

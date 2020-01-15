@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             $user = \Auth::user();
             $userVehicles = \DB::table('vehicles')
                             ->where('user_id', '=', $user->id)
-                            ->orderBy('make', 'desc')
+                            ->orderBy('make')
                             ->get();
             
             if(session('vehicle') == null || session('vehicle') == '') {

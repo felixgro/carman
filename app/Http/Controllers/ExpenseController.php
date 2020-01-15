@@ -13,12 +13,13 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $mainVehicle = $user->setting->vehicle;
+        $expenses = \DB::table('expenses')->where('vehicle_id', session('vehicle'))->get();
 
-        return view('home.expenses', [
+
+        return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense'
+            'currentPage' => 'expense',
+            'expenses' => $expenses
         ]);
     }
 
@@ -29,7 +30,10 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.expenses.create', [
+            'title' => 'Expenses Dashboard',
+            'currentPage' => 'expense'
+        ]);
     }
 
     /**
@@ -51,7 +55,10 @@ class ExpenseController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('home.expenses.show', [
+            'title' => 'Expenses Dashboard',
+            'currentPage' => 'expense'
+        ]);
     }
 
     /**
@@ -62,7 +69,10 @@ class ExpenseController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('home.expenses.edit', [
+            'title' => 'Expenses Dashboard',
+            'currentPage' => 'expense'
+        ]);
     }
 
     /**
