@@ -16,8 +16,6 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $mainVehicle = $user->setting->vehicle;
 
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
@@ -60,6 +58,8 @@ class VehicleController extends Controller
             'km' => $data['km'],
             'plate' => $data['plate']
         ]);
+
+        $request->session()->flash('notification', "Added {$data['make']} {$data['model']} successfully !");
 
         return redirect('vehicles');
     }
@@ -111,6 +111,8 @@ class VehicleController extends Controller
             'km' => $data['km'],
             'plate' => $data['plate']
         ]);
+
+        $request->session()->flash('notification', "{$data['make']} {$data['model']}: Changed Settings successfully !");
 
         return redirect('vehicles');
     }

@@ -23,8 +23,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $mainVehicle = $user->setting->vehicle;
 
         return view('home.home', [
             'title' => 'Home Dashboard',

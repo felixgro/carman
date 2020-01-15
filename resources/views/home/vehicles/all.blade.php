@@ -11,6 +11,8 @@
         <a href="/vehicles/new">new Vehicle</a>
     </div>
 
+    
+
 
     <table id="vehicleTable">
         <thead>
@@ -54,8 +56,13 @@
         </tbody>
     </table>
 
-
 </div>
+
+@if(session('notification') !== null)
+    @component('components.alertSuccess')
+        {{ session('notification') }}
+    @endcomponent
+@endif
 
 <script src="{{ asset('js/vehicleList.js') }}"></script>
 @endsection

@@ -81,30 +81,50 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/register.js":
-/*!**********************************!*\
-  !*** ./resources/js/register.js ***!
-  \**********************************/
+/***/ "./resources/js/alert.js":
+/*!*******************************!*\
+  !*** ./resources/js/alert.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+(function () {
+  var alerts = document.querySelectorAll('.alert'); // Alert Visibility Time in Sec.
 
+  var visibleTime = 5;
+
+  if (alerts.length > 0) {
+    var _loop = function _loop(i) {
+      setTimeout(function () {
+        alerts[i].classList.add('remove');
+        setTimeout(function () {
+          alerts[i].style.display = 'none';
+          alerts[i].setAttribute('aria-hidden', 'true');
+        }, 300);
+      }, visibleTime * 1000);
+    };
+
+    for (var i = 0; i < alerts.length; i++) {
+      _loop(i);
+    }
+  }
+})();
 
 /***/ }),
 
-/***/ 3:
-/*!****************************************!*\
-  !*** multi ./resources/js/register.js ***!
-  \****************************************/
+/***/ 2:
+/*!*************************************!*\
+  !*** multi ./resources/js/alert.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/register.js */"./resources/js/register.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/alert.js */"./resources/js/alert.js");
 
 
 /***/ })

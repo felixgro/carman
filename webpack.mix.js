@@ -19,6 +19,7 @@ mix.js('resources/js/app.js', 'public/js')
     // Dashbaord Assets
     .sass('resources/sass/dashboard.scss', 'public/css')
     .js('resources/js/menu.js', 'public/js')
+    .js('resources/js/alert.js', 'public/js')
 
     // Register Assets
     .js('resources/js/register.js', 'public/js')
