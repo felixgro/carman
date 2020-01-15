@@ -16,7 +16,6 @@ class VehicleController extends Controller
      */
     public function index()
     {
-
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
             'currentPage' => 'vehicle'
@@ -59,7 +58,7 @@ class VehicleController extends Controller
             'plate' => $data['plate']
         ]);
 
-        $request->session()->flash('notification', "Added {$data['make']} {$data['model']} successfully !");
+        $request->session()->flash('notification', ["{$data['make']} {$data['model']}", "Added Vehicle successfully."]);
 
         return redirect('vehicles');
     }
@@ -112,7 +111,7 @@ class VehicleController extends Controller
             'plate' => $data['plate']
         ]);
 
-        $request->session()->flash('notification', "{$data['make']} {$data['model']}: Changed Settings successfully !");
+        $request->session()->flash('notification', ["{$data['make']} {$data['model']}", "Saved Settings successfully."]);
 
         return redirect('vehicles');
     }
@@ -123,8 +122,11 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(Vehicle $vehicle, Request $request)
     {
-        //
+        \DB::table('vehicles')->where('id', $vehicle->id)->delete();
+
+        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Deleted successfully."]);
+        return redirect('vehicles');
     }
 }

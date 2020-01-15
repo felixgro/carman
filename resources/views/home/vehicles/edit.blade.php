@@ -90,7 +90,15 @@
     
                 <div>
                     <input type="submit" value="Save Changes" name="submit">
+                    ..or <a href="google.com" onclick="
+                    event.preventDefault();
+                    document.getElementById('deleteForm').submit();
+                    ">delete</a> this Vehicle permanently
                 </div>
+    </form>
+    <form method="POST" action="/vehicles/{{ $editVehicle->id }}" style="display: hidden;" aria-hidden="true" id="deleteForm">
+    @method('DELETE')
+    @csrf
     </form>
 </div>
 

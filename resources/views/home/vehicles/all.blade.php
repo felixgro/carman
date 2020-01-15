@@ -58,9 +58,12 @@
 
 </div>
 
-@if(session('notification') !== null)
+@if(session('notification'))
     @component('components.alertSuccess')
-        {{ session('notification') }}
+        @slot('title')
+            {{ session('notification')[0] }}
+        @endslot
+        {{ session('notification')[1] }}
     @endcomponent
 @endif
 

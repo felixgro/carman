@@ -11,13 +11,19 @@
     bottom: 20px;
     right: 100px;
     padding: 20px 50px;
-    border-radius: 5px;
-    background: #222;
-    color: #eee;
+    background: #fff;
+    color: #222;
+    border-bottom: 7px solid #222;
     cursor: pointer;
     max-width: 300px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     transition: all .3s ease-out;
+    strong {
+        font-size: 1.1em;
+    }
+    p {
+        line-height: 1.2em !important;
+    }
     &.remove {
         transform: translateY(200px);
     }

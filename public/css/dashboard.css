@@ -8,14 +8,22 @@
   bottom: 20px;
   right: 100px;
   padding: 20px 50px;
-  border-radius: 5px;
-  background: #222;
-  color: #eee;
+  background: #fff;
+  color: #222;
+  border-bottom: 7px solid #222;
   cursor: pointer;
   max-width: 300px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+}
+
+.alert strong {
+  font-size: 1.1em;
+}
+
+.alert p {
+  line-height: 1.2em !important;
 }
 
 .alert.remove {
