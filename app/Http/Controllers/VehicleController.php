@@ -37,9 +37,28 @@ class VehicleController extends Controller
         ]);
     }
 
-    public function setMain(Vehicle $vehicle)
+    /**
+     * Set new current Vehicle
+     *
+     * @param  \App\Vehicle  $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function setCurrent(Vehicle $vehicle, Request $request)
     {
-        
+        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Set as current Vehicle."]);
+        return back();
+    }
+
+    /**
+     * Set new main Vehicle
+     *
+     * @param  \App\Vehicle  $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function setMain(Vehicle $vehicle, Request $request)
+    {
+        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Set as new Main Vehicle."]);
+        return back();
     }
 
     /**
