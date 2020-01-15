@@ -33,9 +33,9 @@ Route::get('/routes', 'RouteController@index')->name('routes');
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 Route::get('/expenses/new', 'ExpenseController@create');
 Route::post('/expenses', 'ExpenseController@store');
-Route::get('/expenses/{expense}/edit', 'ExpenseController@edit');
-Route::put('/expenses/{expense}', 'ExpenseController@update');
-Route::delete('/expenses/{expense}', 'ExpenseController@destroy');
+Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('expense');
+Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
+Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');
 
 // Dependency Routes
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
