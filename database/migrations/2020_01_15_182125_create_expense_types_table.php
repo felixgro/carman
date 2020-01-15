@@ -15,8 +15,18 @@ class CreateExpenseTypesTable extends Migration
     {
         Schema::create('expense_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('title');
+            $table->text('description')->nullable();
         });
+
+        // Standart Typen für Ausgaben der Tabelle zuweisen
+        $defaultTypes = [
+            ['title' => 'Gas Station'],
+            ['title' => 'Ticket'],
+            ['title' => 'Other']
+        ];
+
+        DB::table('expense_types')->insert($defaultTypes);
     }
 
     /**

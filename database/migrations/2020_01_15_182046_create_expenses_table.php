@@ -15,6 +15,11 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('vehicle_id');
+            $table->unsignedBigInteger('expense_type_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->float('amount');
             $table->timestamps();
         });
     }
