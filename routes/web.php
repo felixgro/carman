@@ -11,12 +11,11 @@
 |
 */
 
+// Landing Page
 Route::get('/', 'WelcomeController@index')->name('landing');
 
-
-
+// Basic Dashboard Routes
 Route::get('/home', 'DashboardController@index')->name('home');
-
 Route::get('/settings', 'DashboardController@index')->name('settings');
 
 // Vehicle Routes
@@ -32,6 +31,11 @@ Route::get('/routes', 'RouteController@index')->name('routes');
 
 // Expenses Routes
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
+Route::get('/expenses/new', 'ExpenseController@create');
+Route::post('/expenses', 'ExpenseController@store');
+Route::get('/expenses/{expense}/edit', 'ExpenseController@edit');
+Route::put('/expenses/{expense}', 'ExpenseController@update');
+Route::delete('/expenses/{expense}', 'ExpenseController@destroy');
 
 // Dependency Routes
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
