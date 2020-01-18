@@ -65,7 +65,7 @@ table tbody tr .title:hover a::after {
 }
 
 table tbody tr .title a {
-  color: #222;
+  color: #3e4041;
   display: block;
   position: relative;
   margin-bottom: -46px;
@@ -93,7 +93,7 @@ table tbody tr .title a::after {
 
 table tbody tr .title span {
   font-size: 0.8em;
-  color: #ccc;
+  color: #d3e8e1;
   font-weight: 700;
 }
 

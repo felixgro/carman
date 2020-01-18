@@ -8,14 +8,17 @@
   bottom: 20px;
   right: 100px;
   padding: 20px 50px;
-  background: #fff;
-  color: #222;
-  border-bottom: 7px solid #222;
-  cursor: pointer;
+  border-radius: 7px;
   max-width: 300px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  cursor: pointer;
+}
+
+.alert.alert-success {
+  background: #191a1a;
+  color: #f2f2f2;
 }
 
 .alert strong {
@@ -32,7 +35,7 @@
 }
 
 body {
-  background: #eee;
+  background: #fafafa;
   font-family: "Roboto", sans-serif;
   font-size: 16pt;
   letter-spacing: 2px;
@@ -92,7 +95,7 @@ header section.top a.logout i {
 
 header section.mid {
   height: 70px;
-  background: #222;
+  background: #191a1a;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -224,10 +227,9 @@ a.return-button:hover i {
 
 .content main div.container {
   position: relative;
-  background: #fff;
+  background: none;
   margin: 100px auto;
-  padding: 20px 50px;
-  width: 75%;
+  padding: 1px 2px;
   max-width: 900px;
 }
 

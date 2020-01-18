@@ -1,6 +1,7 @@
 @extends('dashboard')
 
 <link rel="stylesheet" href="{{ asset('css/vehicles.css') }}">
+<link rel="stylesheet" href="{{ asset('css/forms.css') }}">
 
 @section('content')
 <a href="{{ route('vehicles') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
@@ -90,10 +91,15 @@
     
                 <div>
                     <input type="submit" value="Save Changes" name="submit">
-                    ..or <a href="google.com" onclick="
-                    event.preventDefault();
-                    document.getElementById('deleteForm').submit();
-                    ">delete</a> this Vehicle permanently
+
+                    <span class="between">
+                        ..or
+                    </span>
+
+                    <input type="submit" value="Delete Vehicle" class="sub-submit" onclick="
+                        event.preventDefault();
+                        document.getElementById('deleteForm').submit();
+                    ">
                 </div>
     </form>
     <form method="POST" action="/vehicles/{{ $editVehicle->id }}" style="display: hidden;" aria-hidden="true" id="deleteForm">

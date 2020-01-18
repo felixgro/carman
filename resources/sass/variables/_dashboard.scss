@@ -4,7 +4,7 @@ $logout-color: #aaa;
 $logout-hover-color: #222;
 
 // Main Header
-$header-mid-bg: #222;
+$header-mid-bg: hsla(210, 1%, 10%, 1);
 $icon-color: #555;
 $icon-hover-color: #ccc;
 $icon-current-color: #ccc;
@@ -19,8 +19,8 @@ $header-sub-hover-color: #222;
 
 // Main Container
 $main-bg: none;
-$main-color: #222;
-$main-fade-color: #ccc;
+$main-color: hsla(210, 2%, 25%, 1);
+$main-fade-color: hsla(160, 32%, 87%, 1);
 
 // Table Component
 $table-border:none;
@@ -28,6 +28,23 @@ $table-head-color: #ddd;
 $table-icon-color: #fff;
 $table-icon-bg: #222;
 $table-title-hover: #222;
+
+// Form Compennt
+$form-error: hsla(355, 80%, 58%, 1);
+$form-label: hsla(210, 1%, 10%, 1);
+$form-label-sub: hsla(210, 1%, 80%, 1);
+$form-field-bg: hsla(210, 1%, 95%, 1);
+$form-field-border: hsla(210, 1%, 80%, 1);
+$form-field-border-focus: hsla(210, 1%, 20%, 1);
+$form-field-shadow-focus: hsla(210, 1%, 5%, .1);
+$form-submit-bg: hsla(210, 1%, 20%, 1);
+$form-submit: hsla(210, 1%, 90%, 1);
+$form-sub-button: hsla(210, 1%, 90%, 1);
+$form-sub-color: hsla(210, 1%, 10%);
+
+// Alert Box
+$alert-succ-bg: hsla(210, 1%, 10%, 1);
+$alert-succ: hsla(210, 1%, 95%, 1);
 
 // Reminder Container
 $reminder-bg: #fff;

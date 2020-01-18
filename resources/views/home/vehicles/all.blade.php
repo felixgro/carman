@@ -3,6 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" href=" {{ asset('css/tables.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
 
 <h1>Vehicles</h1>
 <p>Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
@@ -10,9 +11,6 @@
     <div class="sub-action">
         <a href="/vehicles/new">new Vehicle</a>
     </div>
-
-    
-
 
     <table id="vehicleTable">
         <thead>
@@ -25,17 +23,17 @@
             <tr tabindex="0">
                 <td>
                         
-                        @if ($entry->vehicle_type_id === 2)
-                        <i class="fas fa-motorcycle"></i>
-                        @elseif ($entry->vehicle_type_id === 3)
-                        {{-- Quad --}}
-                        <i class="fas fa-motorcycle"></i>
-                        @elseif ($entry->vehicle_type_id === 4)
-                        {{-- Scooter --}}
-                        <i class="fas fa-motorcycle"></i>
-                        @else
-                        <i class="fas fa-car"></i>
-                        @endif
+                    @if ($entry->vehicle_type_id === 2)
+                    <i class="fas fa-motorcycle"></i>
+                    @elseif ($entry->vehicle_type_id === 3)
+                    {{-- Quad --}}
+                    <i class="fas fa-motorcycle"></i>
+                    @elseif ($entry->vehicle_type_id === 4)
+                    {{-- Scooter --}}
+                    <i class="fas fa-motorcycle"></i>
+                    @else
+                    <i class="fas fa-car"></i>
+                    @endif
 
                 </td>
                 <td class="title">
@@ -55,7 +53,10 @@
             @endforeach
         </tbody>
     </table>
-
+    
+    <form action="/vehicles/new" style="max-width: 100%;">
+        <input type="submit" value="Add new Vehicle" style="cursor: pointer;">
+    </form>
 </div>
 
 @if(session('notification'))

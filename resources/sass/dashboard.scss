@@ -11,13 +11,15 @@
     bottom: 20px;
     right: 100px;
     padding: 20px 50px;
-    background: #fff;
-    color: #222;
-    border-bottom: 7px solid #222;
-    cursor: pointer;
+    border-radius: 7px;
     max-width: 300px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    transition: all .3s ease-out;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    transition: $ui-transition;
+    cursor: pointer;
+    &.alert-success {
+        background: $alert-succ-bg;
+        color: $alert-succ;
+    }
     strong {
         font-size: 1.1em;
     }
@@ -181,10 +183,9 @@ a.return-button {
         }
         div.container {
             position: relative;
-            background: #fff;
+            background: none;
             margin: 100px auto;
-            padding: 20px 50px;
-            width: 75%;
+            padding: 1px 2px;
             max-width: 900px;
             .sub-action {
                 position: absolute;

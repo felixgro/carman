@@ -1,35 +1,125 @@
 form {
   position: relative;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 20px;
-  background: #eee;
-}
-
-form input,
-form label,
-form select,
-form span {
-  display: block;
-}
-
-form fieldset {
   padding: 0;
-  border: solid;
-  margin: 30px 0;
-}
-
-form input {
-  height: 35px;
-  width: 99%;
+  max-width: 600px;
 }
 
 form label {
-  margin-top: 10px;
+  font-weight: 900;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: #191a1a;
+}
+
+form div {
+  margin-top: 40px;
+}
+
+form div:first-of-type {
+  margin-top: 0;
+}
+
+form .form-error {
+  color: #ea3e4d;
+  font-weight: 400;
+  font-size: 0.7em;
+  opacity: 1;
+}
+
+form label,
+form input {
+  display: block;
+  position: relative;
+}
+
+form input[type=submit] {
+  margin-top: 40px;
+  padding: 5px 20px;
+  width: auto;
+  background: #323334;
+  color: #e5e6e6;
+  font-size: 20px;
+  box-shadow: 0 0 30px rgba(13, 13, 13, 0.1);
+  border: none;
+}
+
+form select {
+  display: block !important;
+  font-weight: 600;
+  background: #f2f2f2;
+  color: #191a1a;
+  border: 2px solid #cbcccd;
+  font-size: 0.7em;
+  width: 200px;
+  height: 30px;
+}
+
+form select:focus {
+  outline: none;
+  box-shadow: 0 0 30px rgba(13, 13, 13, 0.1);
+  border-color: #323334;
+  -webkit-transition: all 150ms ease-out;
+  transition: all 150ms ease-out;
+}
+
+form select.error {
+  border: 2px solid #ea3e4d;
+  color: #ea3e4d;
 }
 
 form p {
-  margin: 0;
+  font-size: 0.8em;
+  opacity: 0.2;
+  line-height: 1.5em !important;
+  font-weight: 500;
+}
+
+form select,
+form input {
+  margin-top: 10px;
+}
+
+form input {
+  height: 50px;
+  margin-top: 10px;
+  font-size: 1em;
+  width: 100%;
+  font-weight: 600;
+  background: #f2f2f2;
+  border: 2px solid #cbcccd;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  -webkit-transition: all 220ms ease-out;
+  transition: all 220ms ease-out;
+}
+
+form input.sub-submit {
+  background: #e5e6e6;
+  color: #191a1a;
+  box-shadow: none;
+  margin-top: 0 !important;
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: 0 0 30px rgba(13, 13, 13, 0.1);
+  border-color: #323334;
+  -webkit-transition: all 150ms ease-out;
+  transition: all 150ms ease-out;
+}
+
+form input.error {
+  border-color: tomato !important;
+  color: tomato !important;
+}
+
+form .between {
+  display: block;
+  position: relative;
+  margin: 10px 0;
 }
 
