@@ -1,9 +1,9 @@
 @extends('dashboard')
 
-<link rel="stylesheet" href="{{ asset('css/tables.css') }}">
-<link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
-
 @section('content')
+
+<link rel="stylesheet" href=" {{ asset('css/tables.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
 
 <h1>Expenses</h1>
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore ea expedita assumenda sint voluptate, et iste accusamus repellat explicabo atque aut rem omnis molestiae. Quae aliquam maxime rem placeat error?</p>
@@ -19,8 +19,8 @@
         <tbody>
             @foreach($expenses as $expense)
             <tr tabindex="0">
-                <td></td>
-                <td>
+                <td><i class="fas fa-money-bill-wave"></i></td>
+                <td class="title">
                     <a href="/expenses/{{ $expense->id }}/edit" tabindex="-1">
                         <strong>{{ $expense->title }}</strong>
                     </a>

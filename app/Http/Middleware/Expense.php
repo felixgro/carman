@@ -15,7 +15,14 @@ class Expense
      */
     public function handle($request, Closure $next)
     {
-        $vehicle = \App\Vehicle::find($request['expense']);
+
+        $expense = \App\Expense::findOrFail($request->expense);
+
+        $vehicle = \App\Vehicle::find($expense->vehicle_id);
+
+        if(!$vehicle || $vehicle == NULL) {
+            return redirect('expenses');
+        }
 
         $condition = $vehicle->user_id === \Auth::User()->id;
 

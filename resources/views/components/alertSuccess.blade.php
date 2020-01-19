@@ -1,7 +1,7 @@
 <div class="alert alert-success">
     <div>
         <strong>
-            {{ $title }} :
+            {{ $title }} 
         </strong>
     </div>
     <p>
