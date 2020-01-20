@@ -115,20 +115,19 @@ header {
             border-bottom: $header-sub-border;
             display: flex;
             align-items: center;
+            width: 100%;
             background: $header-sub-bg;
             justify-content: flex-end;
             a {
                 font-weight: 900;
                 color: $header-sub-color;
                 padding: 10px 0;
+                width: 100px;
+                display: none;
                 font-size: .6em;
-                margin-left: 20px;
                 transition: $ui-transition;
                 &:hover {
                     color: $header-sub-hover-color;
-                }
-                &.settings {
-                    margin-left: 20px;
                 }
             }
             i {

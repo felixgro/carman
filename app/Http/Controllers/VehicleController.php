@@ -43,10 +43,18 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function setCurrent(Vehicle $vehicle, Request $request)
+    public function setCurrent(Request $request)
     {
-        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Set as current Vehicle."]);
-        return back();
+        $vehicle = \App\Vehicle::find($request['vehicleID']);
+        
+        // Wenn das Fahrzeug nicht dem anfragenten Benutzer gehört wird 0 zurückgegen
+        if($vehicle->user_id !== (int) $request['userID']) {
+            return response(0);
+        }
+
+        session(['vehicle' => $vehicle->id]);
+        // Wenn alles Funktioniert hat wird 1 zurückgegeben
+        return response(1);
     }
 
     /**

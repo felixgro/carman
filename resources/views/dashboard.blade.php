@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/forms.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -73,10 +74,49 @@
         </section>
 
         <section class="sub">
-            <a href="{{ route('settings') }}" id="carSelect" class="select-opener">
+            <!--a-- href="{{ route('settings') }}" id="carSelect" class="select-opener">
                 <i class="fas fa-chevron-down"></i> {{ $vehicle['make'] }}  {{ $vehicle['model'] }}</i>
-            </a>
+            </!--a-->
             <a class="settings" href="{{ route('settings') }}"><i class="fas fa-cog"></i> {{ Auth::user()->name }}</a>
+            <form action="" id="vehicleSelect" style="float: right; max-width: 100%;">
+                @csrf
+                <select name="vehicle" id="vehicle" style="margin: 0; float: right; margin: 0">
+                    <option value="{{ $vehicle->id }}" selected>{{ $vehicle->make }} {{ $vehicle->model }}</option>
+                    @foreach($userVehicles as $entry)
+                        @if($entry->id !== $vehicle->id)
+                            <option value="{{ $entry->id }}">{{ $entry->make }} {{ $entry->model }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                <script>
+                    const vehicleSelect = document.getElementById('vehicleSelect');
+                    vehicleSelect.onchange = (event) => {
+                        event.preventDefault();
+
+                        let vehicleID = event.target.options[event.target.selectedIndex].value;
+
+                        // Sended die Benutzer ID  (userID) mit der angefragten Vehicle ID (vehicleID) als Post Aufruf
+                        let url = "/vehicles/setcurrent";
+                        let data = 'vehicleID=' + vehicleID + "&userID=" + "{{ Auth::user()->id }}";
+                        console.log(data);
+
+                        let xhr = new XMLHttpRequest();
+
+                        xhr.open('POST', url, true);
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+                        xhr.onload = (event) => {
+                            if(xhr.status === 200) {
+                                // TODO: nötige Elemente dynamisch laden
+                                location.reload();
+                            }
+                        };
+
+                        xhr.send(data);
+                    }
+                
+                </script>
+            </form>
         </section>
 
     </header>

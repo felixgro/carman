@@ -66,7 +66,7 @@ header section.top {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
-  background: #fff;
+  background: #eeeeee;
   z-index: 1200;
   -webkit-box-pack: justify;
           justify-content: space-between;
@@ -143,6 +143,7 @@ header section.sub {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
+  width: 100%;
   background: rgba(238, 238, 238, 0.4);
   -webkit-box-pack: end;
           justify-content: flex-end;
@@ -152,18 +153,15 @@ header section.sub a {
   font-weight: 900;
   color: #aaa;
   padding: 10px 0;
+  width: 100px;
+  display: none;
   font-size: 0.6em;
-  margin-left: 20px;
   -webkit-transition: all 120ms ease-out;
   transition: all 120ms ease-out;
 }
 
 header section.sub a:hover {
   color: #222;
-}
-
-header section.sub a.settings {
-  margin-left: 20px;
 }
 
 header section.sub i {

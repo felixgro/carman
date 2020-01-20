@@ -2,9 +2,6 @@
 
 @section('content')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.min.js"></script>
-<script src="{{ asset('js/Donut.js') }}"></script>
-
 <link rel="stylesheet" href=" {{ asset('css/tables.css') }}">
 <link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
 
@@ -13,7 +10,7 @@
 
 <div class="container">
 
-    <div id="chart"></div>
+    <!--div-- id="donut-charts"></!--div-->
 
     <table>
         <thead>
@@ -38,5 +35,10 @@
         </tbody>
     </table>
 </div>
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="{{ asset('js/Donut.js') }}"></script>
 @endsection

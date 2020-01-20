@@ -26,7 +26,7 @@ Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('vehicle');
 Route::put('/vehicles/{vehicle}', 'VehicleController@update')->middleware('vehicle');
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('vehicle');
-Route::post('/vehicles/setcurrent/{vehicle}', 'VehicleController@setCurrent')->middleware('vehicle');
+Route::post('/vehicles/setcurrent', 'VehicleController@setCurrent');
 Route::post('/vehicles/setmain/{vehicle}', 'VehicleController@setMain')->middleware('vehicle');
 
 // Route Routes
