@@ -1,24 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
+    {{-- Meta Tags --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <title>{{ $title }} - Rider</title>
 
-    <!-- Scripts -->
+
+    {{-- Scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/7af1637a61.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    {{-- Stylesheets --}}
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/forms.css') }}" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
     <div id="menuTooltip"></div>
 
     <header>
-
+        {{-- Header Top: Logo & Logout Button --}}
         <section class="top">
 
             <a href="/" class="logo">Rider</a>
@@ -46,7 +46,7 @@
 
         </section>
 
-
+        {{-- Header Mid: Main Navigation Bar --}}
         <section class="mid" id="menuIcons">
 
             <a href="/home" data-name="Home">
@@ -73,23 +73,30 @@
 
         </section>
 
+        {{-- Header Sub: Change current Vehicle & User Settings --}}
         <section class="sub">
-            <!--a-- href="{{ route('settings') }}" id="carSelect" class="select-opener">
-                <i class="fas fa-chevron-down"></i> {{ $vehicle['make'] }}  {{ $vehicle['model'] }}</i>
-            </!--a-->
+
             <a class="settings" href="{{ route('settings') }}"><i class="fas fa-cog"></i> {{ Auth::user()->name }}</a>
+
             <form action="" id="vehicleSelect" style="float: right; max-width: 100%;">
                 @csrf
+
                 <select name="vehicle" id="vehicle" style="margin: 0; float: right; margin: 0">
                     <option value="{{ $vehicle->id }}" selected>{{ $vehicle->make }} {{ $vehicle->model }}</option>
+
                     @foreach($userVehicles as $entry)
+
                         @if($entry->id !== $vehicle->id)
+
                             <option value="{{ $entry->id }}">{{ $entry->make }} {{ $entry->model }}</option>
                         @endif
                     @endforeach
                 </select>
+
                 <input type="hidden" name="userID" id="userID" value="{{ Auth::user()->id }}">
             </form>
+
+            {{-- POST Ajax Request to /vehicles/setcurrent --}}
             <script src="{{ asset('js/vehicleRequest.js') }}"></script>
         </section>
 
