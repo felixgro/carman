@@ -88,35 +88,9 @@
                         @endif
                     @endforeach
                 </select>
-                <script>
-                    const vehicleSelect = document.getElementById('vehicleSelect');
-                    vehicleSelect.onchange = (event) => {
-                        event.preventDefault();
-
-                        let vehicleID = event.target.options[event.target.selectedIndex].value;
-
-                        // Sended die Benutzer ID  (userID) mit der angefragten Vehicle ID (vehicleID) als Post Aufruf
-                        let url = "/vehicles/setcurrent";
-                        let data = 'vehicleID=' + vehicleID + "&userID=" + "{{ Auth::user()->id }}";
-                        console.log(data);
-
-                        let xhr = new XMLHttpRequest();
-
-                        xhr.open('POST', url, true);
-                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
-                        xhr.onload = (event) => {
-                            if(xhr.status === 200) {
-                                // TODO: nötige Elemente dynamisch laden
-                                location.reload();
-                            }
-                        };
-
-                        xhr.send(data);
-                    }
-                
-                </script>
+                <input type="hidden" name="userID" id="userID" value="{{ Auth::user()->id }}">
             </form>
+            <script src="{{ asset('js/vehicleRequest.js') }}"></script>
         </section>
 
     </header>

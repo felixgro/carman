@@ -9,5 +9,6 @@
     "/css/vehicles.css": "/css/vehicles.css",
     "/js/menu.js": "/js/menu.js",
     "/js/register.js": "/js/register.js",
-    "/js/vehicleList.js": "/js/vehicleList.js"
+    "/js/vehicleList.js": "/js/vehicleList.js",
+    "/js/vehicleRequest.js": "/js/vehicleRequest.js"
 }

@@ -16,8 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/components/forms.scss', 'public/css')
     .sass('resources/sass/components/tables.scss', 'public/css')
 
-    // Donut.js
     .js('resources/js/Donut.js', 'public/js')
+    .js('resources/js/vehicleRequest.js', 'public/js')
 
     // Dashbaord Assets
     .sass('resources/sass/dashboard.scss', 'public/css')

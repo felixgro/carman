@@ -81,50 +81,57 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/alert.js":
-/*!*******************************!*\
-  !*** ./resources/js/alert.js ***!
-  \*******************************/
+/***/ "./resources/js/vehicleRequest.js":
+/*!****************************************!*\
+  !*** ./resources/js/vehicleRequest.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function () {
-  var alerts = document.querySelectorAll('.alert'); // Alert Visibility Time in Sec.
+/*
+    Sendet Ajax Request sobald Auswahl getroffen wurde. Als Response wird bei
+    einen Fehler oder fehlender Befugnis 0 zurückgegeben. Ist die Request erfolgreich so giebt sie
+    1 zurück.   
+*/
+// Vehicle Select Box am Header
+var vehicleSelect = document.getElementById('vehicleSelect');
 
-  var visibleTime = 5;
+vehicleSelect.onchange = function (event) {
+  event.preventDefault();
+  var vehicleID = event.target.options[event.target.selectedIndex].value; // Sended die Benutzer ID  (userID) mit der angefragten Vehicle ID (vehicleID) als Post Aufruf
 
-  if (alerts.length > 0) {
-    var _loop = function _loop(i) {
-      setTimeout(function () {
-        alerts[i].classList.add('remove');
-        setTimeout(function () {
-          alerts[i].style.display = 'none';
-          alerts[i].setAttribute('aria-hidden', 'true');
-        }, 300);
-      }, visibleTime * 1000);
-    };
+  var url = "/vehicles/setcurrent";
+  var data = 'vehicleID=' + vehicleID + "&userID=" + document.getElementById('userID').value;
+  console.log(data);
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
-    for (var i = 0; i < alerts.length; i++) {
-      _loop(i);
+  xhr.onload = function (event) {
+    if (xhr.status === 200) {
+      // TODO: nötige Elemente dynamisch laden
+      location.reload();
     }
-  }
-})();
+  };
+
+  xhr.send(data);
+};
 
 /***/ }),
 
-/***/ 4:
-/*!*************************************!*\
-  !*** multi ./resources/js/alert.js ***!
-  \*************************************/
+/***/ 2:
+/*!**********************************************!*\
+  !*** multi ./resources/js/vehicleRequest.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/alert.js */"./resources/js/alert.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/vehicleRequest.js */"./resources/js/vehicleRequest.js");
 
 
 /***/ })
