@@ -12,10 +12,10 @@ Mit Rider behält man allzeit den Überblick über jegliche verkehrsbezogenen Au
 
 - Die Datei .env.example zu .env umbenennen und die korrekten Zugangsdaten für die Datenbank eingeben. Der Datenbankname ist beliebig , der Typ muss jedoch utf8mb4_general_ci sein. Die Datenbank muss manuell erstellt werden, darf jedoch keine Tabellen enthalten.
 
-- Alle Composer Dependencies instrallieren
+- Alle Composer Dependencies installieren
 `composer install`
 
-- Alle NPM Dependencies instrallieren
+- Alle NPM Dependencies installieren
 `npm i`
 
 - Alle Sass/Js Datein konvertieren
