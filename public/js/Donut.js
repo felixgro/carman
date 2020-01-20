@@ -81,55 +81,67 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/vehicleList.js":
-/*!*************************************!*\
-  !*** ./resources/js/vehicleList.js ***!
-  \*************************************/
+/***/ "./resources/js/Donut.js":
+/*!*******************************!*\
+  !*** ./resources/js/Donut.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-(function () {
-  var table = document.getElementById("vehicleTable");
-  var rows = table.rows;
-  var links = document.querySelectorAll('table tbody tr td a');
+var _this = this;
 
-  var clickedOnItem = function clickedOnItem(event) {
-    var clickedRow = event.target;
-    redirectTo(clickedRow.children[0].href);
-  };
+var Donut = function Donut(element) {
+  _this.data = genData();
+  console.log(_this.data);
+};
 
-  var redirectTo = function redirectTo(url) {
-    if (url) {
-      window.location.href = url;
+function genData() {
+  var type = ['Expenses'];
+  var unit = ['EUR'];
+  var cat = ['Ticket', 'Gas Station', 'Other'];
+  var dataset = new Array();
+
+  for (var i = 0; i < type.length; i++) {
+    var data = new Array();
+    var total = 0;
+
+    for (var j = 0; j < cat.length; j++) {
+      var value = Math.random() * 10 * (3 - i);
+      total += value;
+      data.push({
+        "cat": cat[j],
+        "val": value
+      });
     }
-  };
 
-  for (var i = 0; i < links.length; i++) {
-    var row = rows[i + 1];
-    var link = links[i];
-    link.style.pointerEvents = 'none';
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
+    dataset.push({
+      "type": type[i],
+      "unit": unit[i],
+      "data": data,
+      "total": total
     });
-    row.addEventListener('click', clickedOnItem);
   }
-})();
+
+  return dataset;
+}
+
+var expensesChart = new Donut('#chart');
 
 /***/ }),
 
-/***/ 5:
-/*!*******************************************!*\
-  !*** multi ./resources/js/vehicleList.js ***!
-  \*******************************************/
+/***/ 1:
+/*!*************************************!*\
+  !*** multi ./resources/js/Donut.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/vehicleList.js */"./resources/js/vehicleList.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/Donut.js */"./resources/js/Donut.js");
 
 
 /***/ })

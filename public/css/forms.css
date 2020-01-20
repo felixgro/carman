@@ -44,6 +44,25 @@ form input[type=submit] {
   font-size: 20px;
   box-shadow: 0 0 30px rgba(13, 13, 13, 0.1);
   border: none;
+  cursor: pointer;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+form input[type=submit]:hover {
+  padding: 5px 40px;
+  box-shadow: 0 0 20px rgba(13, 13, 13, 0.1);
+}
+
+form input[type=submit]:focus {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(13, 13, 13, 0.1);
+}
+
+form input[type=submit].delete:hover {
+  background: #ea3e4d;
+  color: #fafafa;
 }
 
 form select {

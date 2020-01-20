@@ -22,6 +22,7 @@ Route::get('/settings', 'DashboardController@index')->name('settings');
 Route::get('/vehicles', 'VehicleController@index')->name('vehicles');
 Route::get('/vehicles/new', 'VehicleController@create');
 Route::post('/vehicles', 'VehicleController@store');
+// Vehicle Middleware (app/Http/Middleware/Expense)
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('vehicle');
 Route::put('/vehicles/{vehicle}', 'VehicleController@update')->middleware('vehicle');
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('vehicle');
@@ -30,18 +31,28 @@ Route::post('/vehicles/setmain/{vehicle}', 'VehicleController@setMain')->middlew
 
 // Route Routes
 Route::get('/routes', 'RouteController@index')->name('routes');
+// TODO: CRUD Operations
+// TODO: Route Middleware (app/Http/Middleware/Route)
 
 // Expenses Routes
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 Route::get('/expenses/new', 'ExpenseController@create');
 Route::post('/expenses', 'ExpenseController@store');
 Route::get('/expenses/{expense}', 'ExpenseController@show');
+// Expense Middleware (app/Http/Middleware/Expense)
 Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('expense');
 Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
 Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');
 
 // Dependency Routes
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
+Route::get('/dependencies/new', 'DependencyController@create');
+Route::post('/dependencies', 'DependencyController@store');
+Route::get('/dependencies/{dependency}', 'DependencyController@show');
+// TODO: Dependency Middleware (app/Http/Middleware/Dependency)
+Route::get('/dependencies/{dependency}/edit', 'DependencyController@edit');
+Route::put('/dependencies/{dependency}', 'DependencyController@update');
+Route::delete('/dependencies/{dependency}', 'DependencyController@destroy');
 
 Auth::routes();
 /*

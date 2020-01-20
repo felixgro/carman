@@ -1,4 +1,5 @@
 @import '../variables/dashboard';
+@import '../variables/main';
 
 form {
     position: relative;
@@ -38,6 +39,22 @@ form {
         font-size: 20px;
         box-shadow: 0 0 30px $form-field-shadow-focus;
         border: none;
+        cursor: pointer;
+        transition: $ui-transition;
+        &:hover {
+            padding: 5px 40px;
+            box-shadow: 0 0 20px $form-field-shadow-focus;
+        }
+        &:focus {
+            transform: scale(.95);
+            box-shadow: 0 0 5px $form-field-shadow-focus;
+        }
+        &.delete {
+            &:hover {
+                background: $form-error;
+                color: $body-bg;
+            }
+        }
     }
     select {
         display: block !important;

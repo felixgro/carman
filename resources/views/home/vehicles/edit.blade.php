@@ -92,11 +92,11 @@
                 <div>
                     <input type="submit" value="Save Changes" name="submit">
 
-                    <span class="between">
+                    <p class="between">
                         ..or
-                    </span>
+                    </p>
 
-                    <input type="submit" value="Delete Vehicle" class="sub-submit" onclick="
+                    <input type="submit" value="Delete Vehicle" class="sub-submit delete" onclick="
                         event.preventDefault();
                         document.getElementById('deleteForm').submit();
                     ">
