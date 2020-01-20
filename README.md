@@ -18,6 +18,9 @@ Mit Rider behält man allzeit den Überblick über jegliche verkehrsbezogenen Au
 - Alle NPM Dependencies instrallieren
 `npm i`
 
+- Alle Sass/Js Datein konvertieren
+`npm run dev`
+
 - Einen App-Key generieren
 `php artisan key:generate`
 
