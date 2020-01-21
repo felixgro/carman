@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+* {
   margin: 0;
   padding: 0;
 }
@@ -23,24 +23,30 @@ body a {
   padding: 10px 30px;
   border-radius: 3px;
   max-width: 300px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
   -webkit-transition: all 120ms ease-out;
   transition: all 120ms ease-out;
   cursor: pointer;
-  border-left: 20px solid #fade9e;
+  border-left: 6px solid #fade9e;
 }
 
 .alert.alert-success {
-  background: #080816;
-  color: #fbfbfe;
+  background: #fbfbfe;
+  border-color: #4BCA81 !important;
+  color: #080816;
+}
+
+.alert .alert-error {
+  border-color: #ea3e4d;
 }
 
 .alert strong {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .alert p {
   line-height: 1em !important;
+  font-size: 0.9em;
   margin-bottom: 3px;
 }
 

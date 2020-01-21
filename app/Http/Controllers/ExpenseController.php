@@ -53,11 +53,12 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(\App\Expense $expense)
     {
         return view('home.expenses.show', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense'
+            'currentPage' => 'expense',
+            'expense' => $expense
         ]);
     }
 

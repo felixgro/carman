@@ -1,11 +1,6 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import 'variables/main';
+@import 'variables/dashboard';
 
 * {
     margin: 0;
@@ -31,19 +26,24 @@ body {
     padding: 10px 30px;
     border-radius: 3px;
     max-width: 300px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    box-shadow: 0 0 30px rgba(0,0,0,0.05);
     transition: $ui-transition;
     cursor: pointer;
     border-left: $alert-border;
     &.alert-success {
         background: $alert-succ-bg;
+        border-color: #4BCA81 !important;
         color: $alert-succ;
     }
+    .alert-error {
+        border-color: $form-error;
+    }
     strong {
-        font-size: .9em;
+        font-size: 1em;
     }
     p {
         line-height: 1em !important;
+        font-size: .9em;
         margin-bottom: 3px;
     }
     &.remove {

@@ -1,11 +1,11 @@
 <div class="alert alert-success">
     <div>
         <strong>
-            {{ $title }} 
+        {{ $slot }}
         </strong>
     </div>
     <p>
-    {{ $slot }}
+        {{ $title }}
     </p>
 </div>
 <script src="{{ asset('js/alert.js') }}"></script>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>Routes</h3>
+<h1>Routes</h1>
 
 
 @endsection

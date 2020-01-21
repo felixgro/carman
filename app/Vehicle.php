@@ -33,4 +33,9 @@ class Vehicle extends Model
         return $this->hasMany('App\Expense');
     }
 
+    public function dependencies()
+    {
+        return $this->hasMany('App\Dependency');
+    }
+
 }

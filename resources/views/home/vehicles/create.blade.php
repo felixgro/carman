@@ -6,7 +6,12 @@
 @section('content')
 <a href="{{ route('vehicles') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
 <h1>Add new Vehicle</h1>
-<p>Fill in all fields below. Hit the Save Button to add the new Vehicle to your Dashboard.</p>
+@if(count($userVehicles) < 2)
+    <p>Fill in all fields below. Hit the Save Button to add the new Vehicle to your Dashboard.</p>
+@else
+    {{-- Spacing Korrektur --}}
+    <div style="margin-bottom: -50px;"></div>
+@endif
 
 <div class="container" style="background: none;">
     <form action="/vehicles" method="post">

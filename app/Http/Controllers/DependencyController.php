@@ -13,12 +13,12 @@ class DependencyController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $mainVehicle = $user->setting->vehicle;
+        $dep = \DB::table('dependencies')->where('vehicle_id', session('vehicle'))->get();
 
-        return view('home.dependencies', [
+        return view('home.dependencies.all', [
             'title' => 'Dependencies Dashboard',
-            'currentPage' => 'dependency'
+            'currentPage' => 'dependency',
+            'dep' => $dep
         ]);
     }
 

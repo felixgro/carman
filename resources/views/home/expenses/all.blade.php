@@ -9,7 +9,9 @@
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore ea expedita assumenda sint voluptate, et iste accusamus repellat explicabo atque aut rem omnis molestiae. Quae aliquam maxime rem placeat error?</p>
 
 <div class="container">
-
+    <div class="sub-action">
+        <a href="/expenses/new"><i class="fas fa-plus-square"></i> Add Expense</a>
+    </div>
     <!--div-- id="donut-charts"></!--div-->
 
     <table>
@@ -23,7 +25,7 @@
             <tr tabindex="0">
                 <td><i class="fas fa-money-bill-wave"></i></td>
                 <td class="title">
-                    <a href="/expenses/{{ $expense->id }}/edit" tabindex="-1">
+                    <a href="/expenses/{{ $expense->id }}" tabindex="-1">
                         <strong>{{ $expense->title }}</strong>
                     </a>
                     <br>
