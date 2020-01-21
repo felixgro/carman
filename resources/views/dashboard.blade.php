@@ -120,10 +120,10 @@
 
         </main>
 
-        <aside>
+        <!--aside>
 
             <h3>Reminder</h3>
-            <!--a href="/reminder/1" class="remind">
+            <a href="/reminder/1" class="remind">
                 <div class="due">
                     <div>
                         <h3>4</h3>
@@ -132,7 +132,7 @@
                 </div>
                 <h2>TÜF</h2>
                 <i class="fas fa-external-link-alt"></i>
-            </!--a>
+            </a>
             <a href="/reminder/1" class="remind">
                 <div class="due">
                     <div>
@@ -153,7 +153,7 @@
                 <h2>Vignette</h2>
                 <i class="fas fa-external-link-alt"></i>
             </!--a-->
-        </aside>
+        </!--aside>
     </div>
 
 <script src="{{ asset('js/menu.js') }}"></script>
