@@ -7,7 +7,7 @@
 
 <h1>Vehicles</h1>
 <p>Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
-<div class="container" style="padding: 10px 0">
+<div class="container">
     <div class="sub-action">
         <a href="/vehicles/new"><i class="fas fa-plus-square"></i> Add Vehicle</a>
     </div>
