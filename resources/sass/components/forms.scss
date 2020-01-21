@@ -42,11 +42,11 @@ form {
         cursor: pointer;
         transition: $ui-transition;
         &:hover {
-            padding: 5px 40px;
+            transform: scale(1.03);
             box-shadow: 0 0 20px $form-field-shadow-focus;
         }
         &:focus {
-            transform: scale(.95);
+            transform: scale(.98);
             box-shadow: 0 0 5px $form-field-shadow-focus;
         }
         &.delete {
@@ -96,6 +96,7 @@ form {
         border-radius: 10px;
         box-sizing: border-box;
         padding: 0 10px;
+        color: $form-field;
         transition: all 220ms ease-out;
         &.sub-submit {
             background: $form-sub-button;

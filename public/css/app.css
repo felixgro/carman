@@ -1,2 +1,51 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ececf8;
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  color: #0c1a27;
+}
+
+body a {
+  text-decoration: none;
+}
+
+.alert {
+  position: fixed;
+  bottom: 20px;
+  right: 100px;
+  padding: 10px 30px;
+  border-radius: 3px;
+  max-width: 300px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  cursor: pointer;
+  border-left: 20px solid #fade9e;
+}
+
+.alert.alert-success {
+  background: #080816;
+  color: #6399cf;
+}
+
+.alert strong {
+  font-size: 0.9em;
+}
+
+.alert p {
+  line-height: 1em !important;
+  margin-bottom: 3px;
+}
+
+.alert.remove {
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
 

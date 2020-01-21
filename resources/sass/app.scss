@@ -5,4 +5,48 @@
 @import 'variables';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import 'variables/main';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: $body-bg;
+    font-family: $font-family;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    line-height: $line-height;
+    color: $color;
+    a {
+        text-decoration: none;
+    }
+}
+
+.alert {
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    padding: 10px 30px;
+    border-radius: 3px;
+    max-width: 300px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    transition: $ui-transition;
+    cursor: pointer;
+    border-left: $alert-border;
+    &.alert-success {
+        background: $alert-succ-bg;
+        color: $alert-succ;
+    }
+    strong {
+        font-size: .9em;
+    }
+    p {
+        line-height: 1em !important;
+        margin-bottom: 3px;
+    }
+    &.remove {
+        transform: translateY(200px);
+    }
+}

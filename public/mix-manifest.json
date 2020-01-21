@@ -5,10 +5,10 @@
     "/css/app.css": "/css/app.css",
     "/css/forms.css": "/css/forms.css",
     "/css/tables.css": "/css/tables.css",
-    "/css/dashboard.css": "/css/dashboard.css",
     "/css/vehicles.css": "/css/vehicles.css",
     "/js/menu.js": "/js/menu.js",
     "/js/register.js": "/js/register.js",
     "/js/vehicleList.js": "/js/vehicleList.js",
-    "/js/vehicleRequest.js": "/js/vehicleRequest.js"
+    "/js/vehicleRequest.js": "/js/vehicleRequest.js",
+    "/css/dashboard.css": "/css/dashboard.css"
 }

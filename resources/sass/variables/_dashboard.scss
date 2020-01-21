@@ -1,50 +1,43 @@
 // Top Header
-$header-top-bg: rgba(238,238,238, 1);
-$logout-color: #aaa;
-$logout-hover-color: #222;
+$header-top-bg: hsl(240, 47%, 6%);
+$header-logo: hsl(40, 69%, 80%);
+$logout-color: hsl(210, 53%, 60%);
+$logout-hover-color: hsl(40, 69%, 80%);
 
 // Main Header
-$header-mid-bg: hsla(210, 1%, 10%, 1);
-$icon-color: #555;
-$icon-hover-color: #ccc;
-$icon-current-color: #ccc;
-$tooltip-color: #222;
+$header-mid-bg: hsl(240, 47%, 95%);
+$icon-color: hsla(210, 53%, 50%, .3);
+$icon-hover-color: hsla(210, 53%, 50%, .8);
+$icon-current-color: hsl(240, 47%, 6%);
+$tooltip-color: hsl(210, 53%, 10%);
 $tooltip-transition: all 200ms ease-out;
 
 // Sub Header
-$header-sub-bg: rgba(238,238,238, 0.4);
-$header-sub-border: 1px solid #ddd;
+$header-sub-bg: hsla(240, 47%, 95%, .5);
+$header-sub-border: 1px solid hsl(240, 47%, 90%);
 $header-sub-color: #aaa;
 $header-sub-hover-color: #222;
 
-// Main Container
-$main-bg: none;
-$main-color: hsla(210, 2%, 25%, 1);
-$main-fade-color: hsla(160, 32%, 87%, 1);
-
 // Table Component
 $table-border:none;
-$table-head-color: #ddd;
-$table-icon-color: #fff;
-$table-icon-bg: #222;
-$table-title-hover: #222;
+$table-head-color: hsl(210, 23%, 80%);
+$table-icon-color: hsl(240, 47%, 6%);
+$table-icon-bg: hsl(240, 47%, 99%);
+$table-title-hover: hsl(210, 53%, 8%);
 
 // Form Compennt
 $form-error: hsla(355, 80%, 58%, 1);
-$form-label: hsla(210, 1%, 10%, 1);
-$form-label-sub: hsla(210, 1%, 80%, 1);
-$form-field-bg: hsla(210, 1%, 95%, 1);
-$form-field-border: hsla(210, 1%, 80%, 1);
-$form-field-border-focus: hsla(210, 1%, 20%, 1);
-$form-field-shadow-focus: hsla(210, 1%, 5%, .1);
-$form-submit-bg: hsla(210, 1%, 20%, 1);
-$form-submit: hsla(210, 1%, 90%, 1);
-$form-sub-button: hsla(210, 1%, 90%, 1);
-$form-sub-color: hsla(210, 1%, 10%);
-
-// Alert Box
-$alert-succ-bg: hsla(210, 1%, 10%, 1);
-$alert-succ: hsla(210, 1%, 95%, 1);
+$form-label: hsl(240, 47%, 6%);
+$form-label-sub: hsl(240, 47%, 80%);
+$form-field: hsl(240, 47%, 6%);
+$form-field-bg: hsl(240, 47%, 99%);
+$form-field-border: hsl(240, 47%, 90%);
+$form-field-border-focus: hsl(240, 47%, 6%);
+$form-field-shadow-focus: hsla(240, 47%, 6%, .1);
+$form-submit-bg: hsl(240, 47%, 6%);
+$form-submit: hsl(240, 47%, 99%);
+$form-sub-button: rgb(0, 0, 0);
+$form-sub-color: hsl(240, 47%, 99%);
 
 // Reminder Container
 $reminder-bg: #fff;

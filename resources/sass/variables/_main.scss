@@ -1,9 +1,18 @@
-$body-bg: hsla(210, 1%, 98%, 1);
+$body-bg: hsl(240, 47%, 95%);
+$main-bg: hsl(240, 47%, 95%);
+$color: hsl(210, 53%, 10%);
+$main-color: hsl(210, 53%, 10%);
+$main-fade-color: hsl(210, 23%, 80%);
 
 // Typography
 $font-family: 'Roboto', sans-serif;
 $font-size: 16pt;
 $line-height: 1.6;
 $letter-spacing: 2px;
+
+// Alert Box
+$alert-succ-bg: hsl(240, 47%, 6%);
+$alert-succ: hsl(210, 53%, 60%);
+$alert-border: 20px solid hsl(42, 90%, 80%);
 
 $ui-transition: all 120ms ease-out;

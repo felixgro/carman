@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ $title }} - Rider</title>
+    <title>{{ $title }} - Carman</title>
 
 
     {{-- Scripts --}}
@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     {{-- Stylesheets --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/forms.css') }}" rel="stylesheet">
 </head>
@@ -30,7 +31,17 @@
         {{-- Header Top: Logo & Logout Button --}}
         <section class="top">
 
-            <a href="/" class="logo">Rider</a>
+            <a href="/" class="logo">
+            <svg data-name="Ebene 1" viewBox="0 0 422 476.29" xmlns="http://www.w3.org/2000/svg">
+                <title>Carman</title>
+
+                <path transform="translate(-38 -11.854)" d="m453.17 378.85a20.125 20.125 0 0 0-28.411 1.815 198.04 198.04 0 0 1-148.61 67.219c-109.11 0-197.88-88.77-197.88-197.89a197.88 197.88 0 0 1 319.92-155.77l-65.451 65.451a105.29 105.29 0 1 0-0.8 181.12 20.129 20.129 0 1 0-20.42-34.7 65.037 65.037 0 1 1 0.677-111.81c0.388 0.235 0.788 0.432 1.185 0.638l17.606 17.606a4.124 4.124 0 0 0 5.832 0l116.5-116.5a4.124 4.124 0 0 0 0-5.832l-22.642-22.629a4.11 4.11 0 0 0-2.907-1.207 238.13 238.13 0 0 0-389.76 183.63c0 131.31 106.83 238.15 238.14 238.15a238.31 238.31 0 0 0 178.84-80.883 20.131 20.131 0 0 0-1.814-28.411z"/>
+
+                <path transform="translate(-38 -11.854)" d="m297.71 96.7a20.13 20.13 0 0 0-20.13-20.13c-95.63 0-173.43 77.8-173.43 173.43a20.13 20.13 0 0 0 40.26 0c0-73.428 59.74-133.17 133.17-133.17a20.13 20.13 0 0 0 20.13-20.13z"/>
+
+                <path transform="translate(-38 -11.854)" d="m367.91 347.85a132.76 132.76 0 0 1-90.334 35.321 20.13 20.13 0 1 0 0 40.26 172.9 172.9 0 0 0 117.65-46.009 20.129 20.129 0 1 0-27.316-29.572z"/>
+                </svg>
+            </a>
 
             <!-- Logout Link -->
             <a href="href="{{ route('logout') }}" class="logout" onclick="
@@ -112,7 +123,6 @@
         <aside>
 
             <h3>Reminder</h3>
-            <p>Nothing to show yet..</p>
             <!--a href="/reminder/1" class="remind">
                 <div class="due">
                     <div>
@@ -142,7 +152,7 @@
                 </div>
                 <h2>Vignette</h2>
                 <i class="fas fa-external-link-alt"></i>
-            </a-->
+            </!--a-->
         </aside>
     </div>
 
