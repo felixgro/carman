@@ -45,9 +45,6 @@
                 <td>
                     <strong>{{ number_format($entry->km) }}</strong>km
                 </td>
-                <td>
-
-                </td>
             </tr>
     
             @endforeach
