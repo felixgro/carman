@@ -27,6 +27,6 @@ mix.js('resources/js/app.js', 'public/js')
     // Register Assets
     .js('resources/js/register.js', 'public/js')
 
-    // Vehicle Assets
     .sass('resources/sass/vehicles.scss', 'public/css')
+    .sass('resources/sass/expenses.scss', 'public/css')
     .js('resources/js/vehicleList.js', 'public/js');

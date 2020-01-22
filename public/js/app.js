@@ -37097,6 +37097,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/expenses.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/expenses.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/vehicles.scss":
 /*!**************************************!*\
   !*** ./resources/sass/vehicles.scss ***!
@@ -37109,9 +37120,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/components/forms.scss ./resources/sass/components/tables.scss ./resources/sass/dashboard.scss ./resources/sass/vehicles.scss ***!
-  \***********************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/components/forms.scss ./resources/sass/components/tables.scss ./resources/sass/dashboard.scss ./resources/sass/vehicles.scss ./resources/sass/expenses.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37120,7 +37131,8 @@ __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/app.scss *
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/forms.scss */"./resources/sass/components/forms.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/tables.scss */"./resources/sass/components/tables.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/vehicles.scss */"./resources/sass/vehicles.scss");
+__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/vehicles.scss */"./resources/sass/vehicles.scss");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/expenses.scss */"./resources/sass/expenses.scss");
 
 
 /***/ })

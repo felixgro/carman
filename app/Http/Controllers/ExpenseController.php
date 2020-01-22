@@ -15,11 +15,34 @@ class ExpenseController extends Controller
     {
         $expenses = \DB::table('expenses')->where('vehicle_id', session('vehicle'))->get();
 
+        $ex_tik = [];
+        $ex_gas = [];
+        $ex_oth = [];
+
+        foreach($expenses as $ex) {
+            switch($ex->expense_type_id) {
+                case 1:
+                    $ex_gas[] = $ex;
+                break;
+                case 2:
+                    $ex_tik[] = $ex;
+                break;
+                case 3:
+                    $ex_oth[] = $ex;
+                break;
+                default:
+                dd('Oops.. Something went wrong!');
+            }
+        }
+
 
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
             'currentPage' => 'expense',
-            'expenses' => $expenses
+            'expenses' => $expenses,
+            'tickets' => $ex_tik,
+            'fuel' => $ex_gas,
+            'other' => $ex_oth
         ]);
     }
 
