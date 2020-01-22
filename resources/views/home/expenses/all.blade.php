@@ -32,7 +32,12 @@
                         <strong>{{ $expense->title }}</strong>
                     </a>
                     <br>
-                        <span>{{ $expense->created_at }}</span>
+                        <span>
+                            @php
+                                $timestamp = new \Carbon\Carbon($expense->created_at);
+                                echo $timestamp->toFormattedDateString();
+                            @endphp
+                        </span>
                 </td>
                 <td><strong>{{ $expense->amount }}</strong> EUR</td>
             </tr>
