@@ -201,18 +201,20 @@ a.return-button:hover i {
   top: -40px;
   right: 0;
   font-size: 0.8em;
-  opacity: 0.3;
   -webkit-transition: all 220ms ease-out;
   transition: all 220ms ease-out;
   font-weight: 700;
 }
 
 .content main div.container .sub-action a {
-  color: #777;
+  color: rgba(60, 128, 195, 0.3);
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
 }
 
-.content main div.container .sub-action:hover {
-  opacity: 1;
+.content main div.container .sub-action a:hover {
+  color: #080816;
+  letter-spacing: 2px;
 }
 
 .content aside {

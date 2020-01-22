@@ -85,7 +85,7 @@ form {
     select, input {
         margin-top: 10px; 
     }
-    input {
+    input, textarea {
         height: 50px;
         margin-top: 10px;
         font-size: 1em;
@@ -114,6 +114,10 @@ form {
             border-color: tomato !important;
             color: tomato !important;
         }
+    }
+    textarea {
+        padding: 10px;
+        height: 150px;
     }
     .between {
         display: block;

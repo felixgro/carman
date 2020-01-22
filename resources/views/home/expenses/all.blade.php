@@ -26,7 +26,7 @@
         <tbody>
             @foreach($expenses as $expense)
             <tr tabindex="0">
-                <td><i class="fas fa-money-bill-wave expense-type-{{ $expense->expense_type_id }}"></i></td>
+                <td><i class="fas fa-money-bill-wave-alt expense-type-{{ $expense->expense_type_id }}"></i></td>
                 <td class="title">
                     <a href="/expenses/{{ $expense->id }}" tabindex="-1">
                         <strong>{{ $expense->title }}</strong>
@@ -45,6 +45,18 @@
         </tbody>
     </table>
 </div>
+
+@if(session('notification'))
+    @component('components.alertSuccess')
+        @slot('title')
+            {{ session('notification')[0] }}
+        @endslot
+        {{ session('notification')[1] }}
+    @endcomponent
+@endif
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
     let canvas = document.getElementById('expensesChart');
@@ -80,6 +92,7 @@
             },
             tooltips: {
                 enabled: true,
+                cornerRadius: 2,
                 /*
                 custom: (tooltipModel) => {
                     var tooltipEl = document.getElementById('chart-tooltip');

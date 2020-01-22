@@ -160,14 +160,15 @@ a.return-button {
                 top: -40px;
                 right: 0;
                 font-size: .8em;
-                opacity: .3;
                 transition: all 220ms ease-out;
                 font-weight: 700;
                 a {
-                    color: #777;
-                }
-                &:hover {
-                    opacity: 1;
+                    color: $sub-action-color;
+                    transition: $ui-transition;
+                    &:hover {
+                        color: $sub-action-hover-color;
+                        letter-spacing: 2px;
+                    }
                 }
             }
         }

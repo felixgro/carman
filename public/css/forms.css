@@ -102,7 +102,8 @@ form input {
   margin-top: 10px;
 }
 
-form input {
+form input,
+form textarea {
   height: 50px;
   margin-top: 10px;
   font-size: 1em;
@@ -118,14 +119,16 @@ form input {
   transition: all 220ms ease-out;
 }
 
-form input.sub-submit {
+form input.sub-submit,
+form textarea.sub-submit {
   background: black;
   color: #fbfbfe;
   box-shadow: none;
   margin-top: 0 !important;
 }
 
-form input:focus {
+form input:focus,
+form textarea:focus {
   outline: none;
   box-shadow: 0 0 30px rgba(8, 8, 22, 0.1);
   border-color: #080816;
@@ -133,9 +136,15 @@ form input:focus {
   transition: all 150ms ease-out;
 }
 
-form input.error {
+form input.error,
+form textarea.error {
   border-color: tomato !important;
   color: tomato !important;
+}
+
+form textarea {
+  padding: 10px;
+  height: 150px;
 }
 
 form .between {

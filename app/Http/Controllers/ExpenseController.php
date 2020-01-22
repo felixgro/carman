@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExpenseRequest;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -53,9 +54,11 @@ class ExpenseController extends Controller
      */
     public function create()
     {
+        $types = \App\ExpenseType::all();
         return view('home.expenses.create', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense'
+            'currentPage' => 'expense',
+            'types' => $types
         ]);
     }
 
@@ -65,9 +68,33 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpenseRequest $request)
     {
-        //
+        $data = $request->validated();
+        $date = $data['date'];
+
+        if($date === NULL) {
+            $date = new \Carbon\Carbon();
+            $date = $date->toDateString();
+        }
+
+        if (!$request->session()->has('vehicle')) {
+            $request->session()->flash('notification', ["Action Failed", "Please select a Vehicle."]);
+            return redirect('expenses');
+        }
+
+        \DB::table('expenses')->insert([
+            'vehicle_id' => session('vehicle'),
+            'expense_type_id' => $data['type'],
+            'title' => $data['title'],
+            'amount' => $data['amount'],
+            'description' => $data['description'],
+            'created_at' => $date,
+        ]);
+
+        $request->session()->flash('notification', ["Added Expense", "{$data['amount']} {$data['title']}"]);
+
+        return redirect('expenses');
     }
 
     /**
