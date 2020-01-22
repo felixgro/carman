@@ -56,9 +56,9 @@
             datasets: [{
                 label: 'All Expenses',
                 data: [
-                    {{ count($fuel) }},
-                    {{ count($tickets) }},
-                    {{ count($other) }}
+                    {{ count($fuel) ?? 0 }},
+                    {{ count($tickets) ?? 0 }},
+                    {{ count($other) ?? 0 }}
                 ],
                 borderWidth: 0,
                 backgroundColor: [
