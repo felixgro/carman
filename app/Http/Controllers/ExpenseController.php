@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Expense;
 use App\Http\Requests\ExpenseRequest;
 use Illuminate\Http\Request;
 
@@ -103,7 +104,7 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(\App\Expense $expense)
+    public function show(Expense $expense)
     {
         return view('home.expenses.show', [
             'title' => 'Expenses Dashboard',
@@ -118,11 +119,13 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Expense $expense)
     {
         return view('home.expenses.edit', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense'
+            'currentPage' => 'expense',
+            'expense' => $expense,
+            'types' => \App\ExpenseType::all()
         ]);
     }
 
@@ -133,9 +136,27 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExpenseRequest $request, Expense $expense)
     {
-        //
+        $data = $request->validated();
+
+        $date = $expense->created_at;
+
+        if($data['date'] !== NULL) {
+            $date = $data['date'];
+        }
+
+        \DB::table('expenses')->where('id', $expense->id)->update([
+            'expense_type_id' => $data['type'],
+            'title' => $data['title'],
+            'amount' => $data['amount'],
+            'description' => $data['description'],
+            'created_at' => $date
+        ]);
+
+        $request->session()->flash('notification', ["Expense changed", "{$data['amount']} {$data['title']}"]);
+
+        return redirect('expenses');
     }
 
     /**
@@ -144,8 +165,11 @@ class ExpenseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Expense $expense, Request $request)
     {
-        //
+        \DB::table('expenses')->where('id', $expense->id)->delete();
+
+        $request->session()->flash('notification', ["Expense deleted", "{$expense->amount} {$expense->title}"]);
+        return redirect('expenses');
     }
 }

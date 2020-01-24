@@ -38,8 +38,8 @@ Route::get('/routes', 'RouteController@index')->name('routes');
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 Route::get('/expenses/new', 'ExpenseController@create');
 Route::post('/expenses', 'ExpenseController@store');
-Route::get('/expenses/{expense}', 'ExpenseController@show');
 // Expense Middleware (app/Http/Middleware/Expense)
+Route::get('/expenses/{expense}', 'ExpenseController@show')->middleware('expense');;
 Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('expense');
 Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
 Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');
@@ -48,11 +48,11 @@ Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('e
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
 Route::get('/dependencies/new', 'DependencyController@create');
 Route::post('/dependencies', 'DependencyController@store');
-Route::get('/dependencies/{dependency}', 'DependencyController@show');
 // TODO: Dependency Middleware (app/Http/Middleware/Dependency)
-Route::get('/dependencies/{dependency}/edit', 'DependencyController@edit');
-Route::put('/dependencies/{dependency}', 'DependencyController@update');
-Route::delete('/dependencies/{dependency}', 'DependencyController@destroy');
+Route::get('/dependencies/{dependency}', 'DependencyController@show')->middleware('dependency');
+Route::get('/dependencies/{dependency}/edit', 'DependencyController@edit')->middleware('dependency');
+Route::put('/dependencies/{dependency}', 'DependencyController@update')->middleware('dependency');
+Route::delete('/dependencies/{dependency}', 'DependencyController@destroy')->middleware('dependency');
 
 Auth::routes();
 /*

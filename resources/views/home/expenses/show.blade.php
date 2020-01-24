@@ -6,4 +6,14 @@
 <small>{{ $expense->created_at }}</small>
 <p>{{ $expense->description }}</p>
 
+<form action="/expenses/{{ $expense->id }}/edit" method="GET">
+    @csrf
+    <input type="submit" value="Edit Expense">
+</form>
+<form action="/expenses/{{ $expense->id }}" method="POST">
+    @method('DELETE')
+    @csrf
+    <input type="submit" value="Delete Expense">
+</form>
+
 @endsection

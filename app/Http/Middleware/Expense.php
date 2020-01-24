@@ -15,10 +15,9 @@ class Expense
      */
     public function handle($request, Closure $next)
     {
+        $expense = $request->expense;
 
-        $expense = \App\Expense::findOrFail($request->expense);
-
-        $vehicle = \App\Vehicle::find($expense->vehicle_id);
+        $vehicle = \App\Vehicle::findOrFail($expense->vehicle_id);
 
         if(!$vehicle || $vehicle == NULL) {
             return redirect('expenses');

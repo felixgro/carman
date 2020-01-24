@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DependencyRequest;
 
 class DependencyController extends Controller
 {
@@ -29,7 +30,10 @@ class DependencyController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.dependencies.create', [
+            'title' => 'Add Dependency',
+            'currentPage' => 'dependency'
+        ]);
     }
 
     /**
@@ -38,9 +42,25 @@ class DependencyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DependencyRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if (!$request->session()->has('vehicle')) {
+            $request->session()->flash('notification', ["Action Failed", "Please select a Vehicle."]);
+            return redirect('expenses');
+        }
+
+        \DB::table('dependencies')->insert([
+            'vehicle_id' => session('vehicle'),
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'created_at' => new \Carbon\Carbon()
+        ]);
+
+        $request->session()->flash('notification', ["Added Dependency", "{$data['title']}"]);
+
+        return redirect('dependencies');
     }
 
     /**
@@ -72,7 +92,7 @@ class DependencyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DependencyRequest $request, $id)
     {
         //
     }

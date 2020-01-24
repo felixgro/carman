@@ -11,7 +11,10 @@
     @foreach($dep as $d)
     <div>
         <h5>{{ $d->created_at }}</h5>
-        <p>{{ $d->title }}</p><br>
+        <p>
+            <a href="/dependencies/{{ $d->id }}">{{ $d->title }}</a>
+        </p>
+        <br>
     </div>
     @endforeach
 </div>

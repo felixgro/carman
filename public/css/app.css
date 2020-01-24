@@ -40,8 +40,9 @@ body a {
   border-color: #ea3e4d;
 }
 
-.alert strong {
+.alert div strong {
   font-size: 1em;
+  line-height: 0.1em !important;
 }
 
 .alert p {

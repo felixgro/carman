@@ -65,7 +65,7 @@ class VehicleController extends Controller
      */
     public function setMain(Vehicle $vehicle, Request $request)
     {
-        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Set as new Main Vehicle."]);
+        $request->session()->flash('notification', ["new Main Vehicle", "{$vehicle->make} {$vehicle->model}"]);
         return back();
     }
 
@@ -89,7 +89,7 @@ class VehicleController extends Controller
             'plate' => $data['plate']
         ]);
 
-        $request->session()->flash('notification', ["{$data['make']} {$data['model']}", "Added Vehicle successfully."]);
+        $request->session()->flash('notification', ["Vehicle added", "{$data['make']} {$data['model']}"]);
 
         return redirect('vehicles');
     }
@@ -142,7 +142,7 @@ class VehicleController extends Controller
             'plate' => $data['plate']
         ]);
 
-        $request->session()->flash('notification', ["{$data['make']} {$data['model']}", "Saved Settings successfully."]);
+        $request->session()->flash('notification', ["Vehicle saved", "{$data['make']} {$data['model']}"]);
 
         return redirect('vehicles');
     }

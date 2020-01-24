@@ -46,15 +46,6 @@
     </table>
 </div>
 
-@if(session('notification'))
-    @component('components.alertSuccess')
-        @slot('title')
-            {{ session('notification')[0] }}
-        @endslot
-        {{ session('notification')[1] }}
-    @endcomponent
-@endif
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

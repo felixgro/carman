@@ -38,8 +38,9 @@ body {
     .alert-error {
         border-color: $form-error;
     }
-    strong {
+    div strong {
         font-size: 1em;
+        line-height: .1em !important;
     }
     p {
         line-height: 1em !important;
