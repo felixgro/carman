@@ -15,4 +15,9 @@ class Setting extends Model
     {
         return $this->hasOne('App\Vehicle');
     }
+
+    public function currency()
+    {
+        return $this->belongsTo('App\Currency');
+    }
 }

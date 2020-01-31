@@ -17,14 +17,14 @@ class CreateSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('vehicle_id');
-            $table->string('currency');
+            $table->unsignedBigInteger('currency_id');
             $table->integer('home')->nullable();
         });
 
         $adminSetting = [
             'user_id' => 1,
             'vehicle_id' => 1,
-            'currency' => 'EUR'
+            'currency_id' => 1
         ];
 
         DB::table('settings')->insert($adminSetting);
