@@ -28,11 +28,6 @@ class Vehicle extends Model
         return $this->belongsTo('App\VehicleFuel');
     }
 
-    public function setting()
-    {
-        return $this->belongsTo('App\Setting');
-    }
-
     public function expenses()
     {
         return $this->hasMany('App\Expense');

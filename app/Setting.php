@@ -13,7 +13,7 @@ class Setting extends Model
 
     public function vehicle()
     {
-        return $this->hasOne('App\Vehicle');
+        return $this->belongsTo('App\Vehicle');
     }
 
     public function currency()
