@@ -18,6 +18,11 @@ class Vehicle extends Model
         return $this->belongsTo('App\VehicleType');
     }
 
+    public function vehicle_manufacture()
+    {
+        return $this->belongsTo('App\VehicleManufacture');
+    }
+
     public function vehicle_fuel()
     {
         return $this->belongsTo('App\VehicleFuel');

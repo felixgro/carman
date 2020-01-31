@@ -131,7 +131,7 @@ vehicleSelect.onchange = function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/vehicleRequest.js */"./resources/js/vehicleRequest.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/vehicleRequest.js */"./resources/js/vehicleRequest.js");
 
 
 /***/ })

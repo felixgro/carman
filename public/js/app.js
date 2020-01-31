@@ -37126,13 +37126,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/forms.scss */"./resources/sass/components/forms.scss");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/components/tables.scss */"./resources/sass/components/tables.scss");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
-__webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/vehicles.scss */"./resources/sass/vehicles.scss");
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/sass/expenses.scss */"./resources/sass/expenses.scss");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/components/forms.scss */"./resources/sass/components/forms.scss");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/components/tables.scss */"./resources/sass/components/tables.scss");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
+__webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/vehicles.scss */"./resources/sass/vehicles.scss");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/sass/expenses.scss */"./resources/sass/expenses.scss");
 
 
 /***/ })

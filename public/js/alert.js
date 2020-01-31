@@ -124,7 +124,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/alert.js */"./resources/js/alert.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/alert.js */"./resources/js/alert.js");
 
 
 /***/ })

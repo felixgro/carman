@@ -271,7 +271,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/menu.js */"./resources/js/menu.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/menu.js */"./resources/js/menu.js");
 
 
 /***/ })

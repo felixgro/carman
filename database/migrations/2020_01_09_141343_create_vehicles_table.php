@@ -18,9 +18,9 @@ class CreateVehiclesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('vehicle_type_id');
             $table->unsignedBigInteger('vehicle_fuel_id');
+            $table->unsignedBigInteger('vehicle_manufacture_id');
             $table->unsignedBigInteger('setting_id')->nullable();
 
-            $table->string('make');
             $table->string('model');
             $table->bigInteger('km');
             $table->string('plate');
@@ -30,8 +30,8 @@ class CreateVehiclesTable extends Migration
             'user_id' => 1,
             'vehicle_type_id' => 1,
             'vehicle_fuel_id' => 1,
+            'vehicle_manufacture_id' => 3,
             'setting_id' => 1,
-            'make' => 'VW',
             'plate' => 'W 92493',
             'model' => 'Golf TDI',
             'km' => 15000

@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/Rider/resources/js/register.js */"./resources/js/register.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/register.js */"./resources/js/register.js");
 
 
 /***/ })
