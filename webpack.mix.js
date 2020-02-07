@@ -15,18 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/components/forms.scss', 'public/css')
     .sass('resources/sass/components/tables.scss', 'public/css')
-
-    .js('resources/js/Donut.js', 'public/js')
-    .js('resources/js/vehicleRequest.js', 'public/js')
-
-    // Dashbaord Assets
+    .sass('resources/sass/welcome/landing.scss', 'public/css')
+    .sass('resources/sass/welcome/register.scss', 'public/css')
     .sass('resources/sass/dashboard.scss', 'public/css')
-    .js('resources/js/menu.js', 'public/js')
-    .js('resources/js/alert.js', 'public/js')
-
-    // Register Assets
-    .js('resources/js/register.js', 'public/js')
-
-    .sass('resources/sass/vehicles.scss', 'public/css')
-    .sass('resources/sass/expenses.scss', 'public/css')
-    .js('resources/js/vehicleList.js', 'public/js');
+    
+    .js('resources/js/welcome/welcomeLoad.js', 'public/js')
+    .js('resources/js/dashboard/dashboardLoad.js', 'public/js');

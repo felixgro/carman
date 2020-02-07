@@ -1,15 +1,11 @@
 {
-    "/js/Donut.js": "/js/Donut.js",
-    "/js/alert.js": "/js/alert.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/forms.css": "/css/forms.css",
     "/css/tables.css": "/css/tables.css",
+    "/css/landing.css": "/css/landing.css",
+    "/css/register.css": "/css/register.css",
     "/css/dashboard.css": "/css/dashboard.css",
-    "/css/vehicles.css": "/css/vehicles.css",
-    "/css/expenses.css": "/css/expenses.css",
-    "/js/menu.js": "/js/menu.js",
-    "/js/register.js": "/js/register.js",
-    "/js/vehicleList.js": "/js/vehicleList.js",
-    "/js/vehicleRequest.js": "/js/vehicleRequest.js"
+    "/js/dashboardLoad.js": "/js/dashboardLoad.js",
+    "/js/welcomeLoad.js": "/js/welcomeLoad.js"
 }

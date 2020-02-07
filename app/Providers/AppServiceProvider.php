@@ -29,10 +29,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['dashboard', 'home.*'], function ($view) {
             
             $user = \Auth::user();
-            $userVehicles = \DB::table('vehicles')
-                            ->where('user_id', '=', $user->id)
-                            ->orderBy('make')
-                            ->get();
             
             if(session('vehicle') == null || session('vehicle') == '') {
                 session(['vehicle' => $user->setting->vehicle->id]);
@@ -42,8 +38,7 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with([
                 'user' => $user,
-                'vehicle' => $vehicle,
-                'userVehicles' => $userVehicles
+                'vehicle' => $vehicle
             ]);
         });
     }

@@ -1,4 +1,6 @@
-// Bootstrap
+/*
+    Stylesheet für Haupt-Layout, Reset und Klassen Templates
+*/
 @import 'variables/main';
 @import 'variables/dashboard';
 
@@ -8,14 +10,79 @@
 }
 
 body {
-    background: $body-bg;
     font-family: $font-family;
     font-size: $font-size;
     letter-spacing: $letter-spacing;
     line-height: $line-height;
-    color: $color;
+    color: $color-dark;
+    background: $color-light;
     a {
         text-decoration: none;
+    }
+}
+
+div.wrapper {
+    width: 80%;
+    max-width: 1500px;
+}
+
+header {
+    top: 0;
+    position: fixed;
+    height: 150px;
+    width: 100%;
+    z-index: 2000;
+    div.wrapper {
+        position: relative;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        svg {
+            height: 40%;
+            cursor: pointer;
+            path {
+                fill: $color-main;
+            }
+        }
+        div {
+            a {
+                text-align: center;
+                font-size: .65em;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+
+
+a.main-button {
+    transition: all 120ms ease-out;
+    box-sizing: content-box;
+    width: 60px;
+    font-weight: 700;
+    margin-left: 20px;
+    border-radius: 100px;
+    border: 2px solid $color-light;
+    padding: 8px 30px;
+    display: inline-block;
+    text-align: center;
+    color: $color-light;
+    text-decoration: none;
+    &.filled {
+        background: $color-main;
+        border-color: $color-main;
+        color: #080816;
+    }
+    &:hover {
+        outline: none;
+        transform: scale(1.1);
+    }
+    &:focus {
+        outline-color: $color-main;
+        transform: scale(1);
     }
 }
 
@@ -36,7 +103,7 @@ body {
         color: $alert-succ;
     }
     .alert-error {
-        border-color: $form-error;
+        border-color: tomato;
     }
     div strong {
         font-size: 1em;

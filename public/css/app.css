@@ -1,19 +1,99 @@
+@charset "UTF-8";
+
+/*
+    Stylesheet für Haupt-Layout, Reset und Klassen Templates
+*/
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #ececf8;
   font-family: "Roboto", sans-serif;
   font-size: 16pt;
   letter-spacing: 2px;
   line-height: 1.6;
-  color: #0c1a27;
+  color: #080816;
+  background: #ececf8;
 }
 
 body a {
   text-decoration: none;
+}
+
+div.wrapper {
+  width: 80%;
+  max-width: 1500px;
+}
+
+header {
+  top: 0;
+  position: fixed;
+  height: 150px;
+  width: 100%;
+  z-index: 2000;
+}
+
+header div.wrapper {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+header div.wrapper svg {
+  height: 40%;
+  cursor: pointer;
+}
+
+header div.wrapper svg path {
+  fill: #fca500;
+}
+
+header div.wrapper div a {
+  text-align: center;
+  font-size: 0.65em;
+  opacity: 0;
+}
+
+a.main-button {
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  box-sizing: content-box;
+  width: 60px;
+  font-weight: 700;
+  margin-left: 20px;
+  border-radius: 100px;
+  border: 2px solid #ececf8;
+  padding: 8px 30px;
+  display: inline-block;
+  text-align: center;
+  color: #ececf8;
+  text-decoration: none;
+}
+
+a.main-button.filled {
+  background: #fca500;
+  border-color: #fca500;
+  color: #080816;
+}
+
+a.main-button:hover {
+  outline: none;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+a.main-button:focus {
+  outline-color: #fca500;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .alert {
@@ -37,7 +117,7 @@ body a {
 }
 
 .alert .alert-error {
-  border-color: #ea3e4d;
+  border-color: tomato;
 }
 
 .alert div strong {

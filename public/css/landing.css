@@ -1,0 +1,147 @@
+.background {
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.2;
+  background-image: url(/images/road.jpg?19259906b26754458adc6a236538e71e);
+}
+
+main {
+  position: relative;
+  height: 600px;
+  background: #080816;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  box-shadow: 0, 0, 10px, #fca500;
+}
+
+main h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #fca500;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+main div.wrapper {
+  z-index: 10;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  margin-top: 150px;
+  width: 80%;
+  max-width: 1500px;
+}
+
+main div.wrapper svg {
+  width: 500px;
+}
+
+main div.wrapper svg path {
+  fill: rgba(0, 0, 0, 0);
+  stroke: #ececf8;
+  stroke-width: 2;
+}
+
+.login-container {
+  width: 305px;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  z-index: 10000;
+  box-shadow: 0, 0, 20px, black;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+h6 {
+  padding: 10px;
+  position: absolue;
+  margin-top: 0;
+  color: #ececf8;
+  border-bottom: 1px solid #333;
+  z-index: 6;
+}
+
+form {
+  font-size: 1em;
+  color: #ececf8;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  background: none;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding: 5px 7px;
+  color: #eee;
+  border: 1px solid #ececf8;
+  width: 200px;
+  height: 30px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #fca500;
+  box-shadow: 0, 0, 10px, #fca500;
+}
+
+label {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.login-submit {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 50px;
+  z-index: 2;
+  background: #fca500;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: #080816;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+.login-submit:hover {
+  width: 60px;
+}
+
+.login-submit:focus {
+  width: 60px;
+  outline: none;
+}
+
