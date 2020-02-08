@@ -18,7 +18,7 @@ class DependencyController extends Controller
 
         return view('home.dependencies.all', [
             'title' => 'Dependencies Dashboard',
-            'currentPage' => 'dependency',
+            'currentPage' => 'reminder',
             'dep' => $dep
         ]);
     }

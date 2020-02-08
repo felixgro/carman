@@ -94,3 +94,82 @@ header {
 .wrapper {
     margin: 170px auto;
 }
+
+.container {
+    width: 65%;
+    max-width: 900px;
+    p {
+        max-width: 600px;
+        font-size: .9em;
+        line-height: 1.5em;
+        margin-bottom: 65px;
+    }
+}
+
+.side-box {
+    position: fixed;
+    top: 65px;
+    width: 30%;
+    min-width: 300px;
+    max-width: 450px;
+    right: 0;
+
+    height: 0;
+    overflow: hidden;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    transition: all 200ms ease-out;
+    box-shadow: 0 0 25px rgba(0,0,0,0.17);
+    #sideCloser {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        display: block;
+        right: 0;
+        top: 0;
+        padding: 30px;
+        opacity: .1;
+        cursor: pointer;
+        transition: $ui-transition;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .plate {
+        margin-top: 10px;
+        display: block;
+        border-radius: 2px;
+        font-size: .8em;
+        font-weight: 900;
+        padding: 3px 17px;
+        background: $color-dark;
+        color: $color-light;
+    }
+    svg.menu-icon {
+        opacity: 1 !important;
+        width: 75px;
+        margin-top: 28px;
+    }
+    .actions {
+        position: absolute;
+        bottom: 20px;
+        margin-left: -10px;
+        a {
+            padding: 5px;
+            color: $color-dark;
+            opacity: .4;
+            font-weight: 700;
+            font-size: .8em;
+            transition: $ui-transition;
+            margin: 0 15px;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    background: $color-light;
+}

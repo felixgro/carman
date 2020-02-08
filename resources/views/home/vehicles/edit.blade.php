@@ -9,7 +9,7 @@
 <p>Change all the fields below to your wishes. Hit the Save Button once your done.</p>
 
 <div class="container">
-    <form action="/vehicles/{{ $editVehicle->id }}" method="post">
+    <form class="basic-form" action="/vehicles/{{ $editVehicle->id }}" method="post">
     @method('PUT')
         @csrf
     

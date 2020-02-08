@@ -18,7 +18,7 @@ class RouteController extends Controller
 
         return view('home.routes', [
             'title' => 'Routes Dashboard',
-            'currentPage' => 'route'
+            'currentPage' => 'routes'
         ]);
     }
 

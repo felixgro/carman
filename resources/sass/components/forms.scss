@@ -1,128 +1,123 @@
 @import '../variables/dashboard';
 @import '../variables/main';
 
-form {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 0;
-    max-width: 600px;
-    label {
-        font-weight: 900;
-        font-size: .8em;
-        letter-spacing: 1px;
-        color: $form-label;
-    }
+form.basic-form {
+    color: $color-dark;
+    font-size: 1.2em !important;
+    margin: 0;
     div {
-        margin-top: 40px;
+        margin-top: 0;
+        &.spacer {
+          margin: 10px 0;
+        }
+        &.option {
+          margin-top: 0 !important;
+        }
+        &.selected {
+          margin-top: 5px;
+        }
         &:first-of-type {
             margin-top: 0;
         }
-    }
-    .form-error {
-        color: $form-error;
-        font-weight: 400;
-        font-size: .7em;
-        opacity: 1;
-    }
-    label, input {
-        display: block;
-        position: relative;
-    }
-    input[type="submit"] {
-        margin-top: 40px;
-        padding: 5px 20px;
-        width: auto;
-        background: $form-submit-bg;
-        color: $form-submit;
-        font-size: 20px;
-        box-shadow: 0 0 30px $form-field-shadow-focus;
-        border: none;
-        cursor: pointer;
-        transition: $ui-transition;
-        &:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px $form-field-shadow-focus;
-        }
-        &:focus {
-            transform: scale(.98);
-            box-shadow: 0 0 5px $form-field-shadow-focus;
-        }
-        &.delete {
-            &:hover {
-                background: $form-error;
-                color: $body-bg;
+        &.splitted {
+          display: block;
+            div {
+                float: left;
+                margin-top: 0;
+            }
+            div:nth-last-of-type(1) {
+                float: right;
+            }
+            input {
+                width: 200px;
+            }
+            .clearfix {
+                overflow: auto;
+                &::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
             }
         }
     }
-    select {
-        display: block !important;
-        font-weight: 600;
-        background: $form-field-bg;
-        color: $form-label;
-        border: 2px solid $form-field-border;
-        font-size: .7em;
-        width: 200px;
-        height: 30px;
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 30px $form-field-shadow-focus;
-            border-color: $form-field-border-focus;
-            transition: all 150ms ease-out;
-        }
-        &.error {
-            border: 2px solid $form-error;
-            color: $form-error;
-        }
+    input, textarea {
+      background-color: #fff;
+      border-color: #ddd;
+      border-radius: 5px;
+      color: $color-dark;
+      box-shadow: none;
+      width: 450px;
+      padding: 6px 8px;
+      height: 40px;
+      font-size: 1.1em;
+      font-weight: 600;
+      &:focus {
+        outline: none;
+        border-color: $color-main;
+        box-shadow: 0 0 20px rgba(0,0,0,0.07);
+      }
+    }
+    input[type="checkbox"] {
+      width: auto !important;
+      height: auto !important;
     }
     p {
+      font-size: .8em;
+    }
+    textarea {
+      margin-top: 3px;
+      max-width: 450px;
+      min-width: 450px;
+      min-height: 100px;
+    }
+    fieldset {
+        border: none;
+        margin-bottom: 30px;
+        padding: 10px 40px;
+        legend {
+            display: none;
+        }
+    }
+    button {
         font-size: .8em;
-        opacity: .2;
-        line-height: 1.5em !important;
-        font-weight: 500;
-    }
-    select, input {
-        margin-top: 10px; 
-    }
-    input, textarea {
-        height: 50px;
-        margin-top: 10px;
-        font-size: 1em;
-        width: 100%;
+        padding: 10px 24px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 5px;
+        background: $color-dark;
+        color: $color-light;
+        letter-spacing: 1px;
         font-weight: 600;
-        background: $form-field-bg;
-        border: 2px solid $form-field-border;
-        border-radius: 10px;
-        box-sizing: border-box;
-        padding: 0 10px;
-        color: $form-field;
-        transition: all 220ms ease-out;
-        &.sub-submit {
-            background: $form-sub-button;
-            color: $form-sub-color;
-            box-shadow: none;
-            margin-top: 0 !important;
+        cursor: pointer;
+        transition: all 120ms ease-out;
+        &:hover {
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
         }
         &:focus {
             outline: none;
-            box-shadow: 0 0 30px $form-field-shadow-focus;
-            border-color: $form-field-border-focus;
-            transition: all 150ms ease-out;
-        }
-        &.error {
-            border-color: tomato !important;
-            color: tomato !important;
+            transform: scale(0.98);
         }
     }
-    textarea {
-        padding: 10px;
-        height: 150px;
-    }
-    .between {
+    label {
+        font-weight: 900;
+        font-size: 1em;
         display: block;
-        position: relative;
-        margin: 10px 0;
-
+        color: $color-dark;
+        small {
+            font-weight: 400;
+            font-size: .8em;
+        }
+    }
+    select {
+        display: block;
+        margin-top: 6px;
+        font-size: .8em;
+        &:focus {
+          outline: none;
+          border-color: $color-main;
+        }
     }
 }
+
+  

@@ -29,6 +29,8 @@ Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('v
 Route::post('/vehicles/setcurrent', 'VehicleController@setCurrent');
 Route::post('/vehicles/setmain/{vehicle}', 'VehicleController@setMain')->middleware('vehicle');
 
+Route::get('/vehicles/{vehicle}/getData', 'VehicleController@getData');
+
 // Route Routes
 Route::get('/routes', 'RouteController@index')->name('routes');
 // TODO: CRUD Operations

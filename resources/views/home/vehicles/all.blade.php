@@ -4,57 +4,56 @@
 
 <link rel="stylesheet" href=" {{ asset('css/tables.css') }}">
 <link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/vehicles.css') }}">
 
-<h1>Vehicles</h1>
-<p>Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
 <div class="container">
-    <div class="sub-action">
-        <a href="/vehicles/new"><i class="fas fa-plus-square"></i> Add Vehicle</a>
+    <h1>Vehicles</h1>
+    <p>Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
+    <div class="list">
+    @foreach($userVehicles as $entry)
+        <div class="list-item" data-id="{{ $entry->id }}">
+            <div class="icon">
+                @include($entry->vehicle_type->icon)
+                <br>
+                @include($entry->vehicle_manufacture->icon)
+            </div>
+            <div class="title">
+                <h3>{{ $entry->model }}</h3>
+                <small>{{ number_format($entry->km) }} km</small>
+            </div>
+            <div class="side">
+                {{ $entry->plate }}
+            </div>
+        </div>
+    @endforeach
     </div>
-
-    <table id="vehicleTable">
-        <thead>
-            <th></th>
-            <th>Vehicle</th>
-            <th>Milage</th>
-        </thead>
-        <tbody>
-            @foreach($userVehicles as $entry)
-            <tr tabindex="0">
-                <td>
-                        
-                    @if ($entry->vehicle_type_id === 2)
-                    <i class="fas fa-motorcycle"></i>
-                    @elseif ($entry->vehicle_type_id === 3)
-                    {{-- Quad --}}
-                    <i class="fas fa-motorcycle"></i>
-                    @elseif ($entry->vehicle_type_id === 4)
-                    {{-- Scooter --}}
-                    <i class="fas fa-motorcycle"></i>
-                    @else
-                    <i class="fas fa-car"></i>
-                    @endif
-
-                </td>
-                <td class="title">
-                    <a href="/vehicles/{{ $entry->id }}/edit" tabindex="-1">
-                    <strong>{{ $entry->make }}</strong> {{ $entry->model }}
-                </a><br>
-                    <span>{{ $entry->plate }}</span>
-                </td>
-                <td>
-                    <strong>{{ number_format($entry->km) }}</strong>km
-                </td>
-            </tr>
-    
-            @endforeach
-        </tbody>
-    </table>
     
     <form action="/vehicles/new" style="max-width: 100%;">
         <input type="submit" value="Add new Vehicle" style="cursor: pointer;">
     </form>
 </div>
+
+<div class="side-box">
+
+<svg id="sideCloser" enable-background="new 0 0 386.667 386.667" height="512" viewBox="0 0 386.667 386.667" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z"/></svg>
+    <div id="currentMakeIcon">
+        @include('vehicleIcons/VW')
+    </div>
+    <h3><span id="currentMake">VW</span> <span id="currentModel">Golf TDI</span></h3>
+    <small><span id="currentKm">13.000</span>km / <span id="currentCosts">13.000</span> EUR</small>
+    <div class="plate" id="currentPlate">W 92493</div>
+    <div class="actions">
+        <a id="currentSelect" href="#">Select</a>
+        <a id="currentMain" href="#">Set Main</a>
+        <a id="currentEdit" href="#">Edit</a>
+    </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="{{ asset('js/vehicleList.js') }}"></script>
 
 @if(session('notification'))
     @component('components.alertSuccess')
@@ -65,5 +64,4 @@
     @endcomponent
 @endif
 
-<script src="{{ asset('js/vehicleList.js') }}"></script>
 @endsection

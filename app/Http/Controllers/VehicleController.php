@@ -10,7 +10,8 @@ class VehicleController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Zeigt alle Vehicles
+     * TODO: Sortierbar machen, Pagination
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,12 +19,13 @@ class VehicleController extends Controller
     {
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
-            'currentPage' => 'vehicle'
+            'currentPage' => 'vehicles',
+            'userVehicles' => \App\Vehicle::all()
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Zeigt Formular zu erstellung eines Vehicle
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,14 +33,14 @@ class VehicleController extends Controller
     {
         return view('home.vehicles.create', [
             'title' => 'Home Dashboard',
-            'currentPage' => 'vehicle',
+            'currentPage' => 'vehicles',
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()
         ]);
     }
 
     /**
-     * Set new current Vehicle
+     * Wählt ein neues Vehicle aus
      *
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
@@ -58,7 +60,7 @@ class VehicleController extends Controller
     }
 
     /**
-     * Set new main Vehicle
+     * Setzt ein neues Main Vehicle
      *
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
@@ -70,7 +72,7 @@ class VehicleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Speichert neues Vehicle
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -95,14 +97,39 @@ class VehicleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Für AJAX: Gibt alle Daten eines Vehicles zurück
      *
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function getData(Vehicle $vehicle)
     {
-        //
+
+        $allVehicleExpenses = \DB::table('expenses')->where('vehicle_id', $vehicle->id)->get();
+
+        // Addiert alle Ausgaben, die mit dem Vehicle getätigt wurden
+        $totalCost = 0;
+        foreach($allVehicleExpenses as $expense) {
+            $totalCost += $expense->amount;
+        }
+
+        $svg = str_replace("/", ".", $vehicle->vehicle_manufacture->icon);
+
+        $data = [
+            'id' => $vehicle->id,
+            'make' => $vehicle->vehicle_manufacture->title,
+            'make_icon' => view($svg)->render(),
+            'type' => $vehicle->vehicle_type->title,
+            'type_icon' => $vehicle->vehicle_type->icon,
+            'fuel' => $vehicle->vehicle_fuel->title,
+            'model' => $vehicle->model,
+            'km' => $vehicle->km,
+            'plate' => $vehicle->plate,
+            'totalCost' => $totalCost,
+            'totalKM' => 13034
+        ];
+
+        return response()->json($data);
     }
 
     /**
@@ -115,7 +142,7 @@ class VehicleController extends Controller
     {
         return view('home.vehicles.edit', [
             'title' => 'Home Dashboard',
-            'currentPage' => 'vehicle',
+            'currentPage' => 'vehicles',
             'editVehicle' => $vehicle,
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()

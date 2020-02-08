@@ -1,99 +1,80 @@
-table {
+div.list {
+  width: 100%;
+  height: auto;
+  position: relative;
+  color: #080816;
+}
+
+div.list .list-item {
   position: relative;
   width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-table thead {
-  text-align: left;
-  font-size: 0.7em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #c0ccd8;
-}
-
-table thead th {
-  padding-bottom: 10px;
-}
-
-table tbody tr {
-  position: relative;
-  border-bottom: none;
+  height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.3);
   margin: 20px 0;
   cursor: pointer;
+  outline: 0px solid #fca500;
   -webkit-transition: all 120ms ease-out;
   transition: all 120ms ease-out;
 }
 
-table tbody tr:hover,
-table tbody tr:focus {
-  box-shadow: 0 0 70px rgba(0, 0, 0, 0.06);
-  outline: none;
+div.list .list-item .icon {
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 0 50px;
+  pointer-events: none;
 }
 
-table tbody tr:hover td i {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+div.list .list-item .icon svg {
+  width: 42px;
+  height: auto !important;
+  opacity: 1 !important;
 }
 
-table tbody tr td {
-  box-sizing: border-box;
-  padding: 15px 0;
-}
-
-table tbody tr td i {
-  width: 45px;
-  text-align: center;
-  box-sizing: border-box;
-  display: block;
-  float: right;
+div.list .list-item .icon .vehicle-type {
+  width: 28px;
   margin-right: 20px;
-  position: relative;
-  padding: 10px;
-  font-size: 1em;
-  color: #080816;
-  border-radius: 10px;
-  -webkit-transition: all 120ms ease-out;
-  transition: all 120ms ease-out;
-  background: #fbfbfe;
+  opacity: 0.1 !important;
 }
 
-table tbody tr .title:hover a::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+div.list .list-item .title {
+  line-height: 0.9em;
+  padding-top: 6px;
+  pointer-events: none;
 }
 
-table tbody tr .title a {
-  color: #0c1a27;
-  display: block;
-  position: relative;
-  margin-bottom: -46px;
-  font-size: 1em;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-table tbody tr .title a::after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #0a141f;
-  bottom: 6px;
-  -webkit-transition: all 120ms ease-out;
-  transition: all 120ms ease-out;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: left center;
-          transform-origin: left center;
-}
-
-table tbody tr .title span {
-  font-size: 0.8em;
-  color: #c0ccd8;
+div.list .list-item .title small {
+  opacity: 0.3;
   font-weight: 700;
+  font-size: 0.6em;
+}
+
+div.list .list-item .side {
+  position: absolute;
+  right: 50px;
+  font-size: 0.8em;
+  pointer-events: none;
+}
+
+div.list .list-item:hover {
+  outline: 1px solid #fca500;
+}
+
+div.list .list-item:hover .title h3 {
+  text-decoration: underline;
 }
 

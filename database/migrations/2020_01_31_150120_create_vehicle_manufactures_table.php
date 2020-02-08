@@ -20,43 +20,150 @@ class CreateVehicleManufacturesTable extends Migration
         });
 
         $defaultData = [
-            ['title' => 'Mercedes'],
-            ['title' => 'BMW'],
-            ['title' => 'Volkswagen'],
-            ['title' => 'Ford'],
-            ['title' => 'Audi'],
-            ['title' => 'Toyota'],
-            ['title' => 'Tesla'],
-            ['title' => 'Chevrolet'],
-            ['title' => 'Hyndai'],
-            ['title' => 'Honda'],
-            ['title' => 'Kia'],
-            ['title' => 'Mitsubishi'],
-            ['title' => 'Nissan'],
-            ['title' => 'Renault'],
-            ['title' => 'Mazda'],
-            ['title' => 'Suzuki'],
-            ['title' => 'Fiat'],
-            ['title' => 'Volvo'],
-            ['title' => 'Ferrari'],
-            ['title' => 'Lexus'],
-            ['title' => 'Honda'],
-            ['title' => 'Jeep'],
-            ['title' => 'Citroen'],
-            ['title' => 'Peugeot'],
-            ['title' => 'Subaru'],
-            ['title' => 'Opel'],
-            ['title' => 'Yamaha'],
-            ['title' => 'Porsche'],
-            ['title' => 'Mini'],
-            ['title' => 'Infinity'],
-            ['title' => 'Ducati'],
-            ['title' => 'Harley Davidson'],
-            ['title' => 'Acura'],
-            ['title' => 'Cadillac'],
-            ['title' => 'KTM'],
-            ['title' => 'Buick'],
-            ['title' => 'Smart'],
+            [
+                'title' => 'Mercedes',
+                'icon' => 'vehicleIcons/mercedes'
+            ],
+            [
+                'title' => 'BMW',
+                'icon' => 'vehicleIcons/bmw'
+            ],
+            [
+                'title' => 'Volkswagen',
+                'icon' => 'vehicleIcons/vw'
+            ],
+            [
+                'title' => 'Ford',
+                'icon' => 'vehicleIcons/ford'
+            ],
+            [
+                'title' => 'Audi',
+                'icon' => 'vehicleIcons/audi'
+            ],
+            [
+                'title' => 'Toyota',
+                'icon' => 'vehicleIcons/toyota'
+            ],
+            [
+                'title' => 'Tesla',
+                'icon' => 'vehicleIcons/tesla'
+            ],
+            [
+                'title' => 'Chevrolet',
+                'icon' => 'vehicleIcons/chevrolet'
+            ],
+            [
+                'title' => 'Hyndai',
+                'icon' => 'vehicleIcons/hyndai'
+            ],
+            [
+                'title' => 'Honda',
+                'icon' => 'vehicleIcons/honda'
+            ],
+            [
+                'title' => 'Kia',
+                'icon' => 'vehicleIcons/kia'
+            ],
+            [
+                'title' => 'Mitsubishi',
+                'icon' => 'vehicleIcons/mitsubishi'
+            ],
+            [
+                'title' => 'Nissan',
+                'icon' => 'vehicleIcons/nissan'
+            ],
+            [
+                'title' => 'Renault',
+                'icon' => 'vehicleIcons/renault'
+            ],
+            [
+                'title' => 'Mazda',
+                'icon' => 'vehicleIcons/mazda'
+            ],
+            [
+                'title' => 'Suzuki',
+                'icon' => 'vehicleIcons/suzuki'
+            ], 
+            [
+                'title' => 'Fiat',
+                'icon' => 'vehicleIcons/fiat'
+            ],
+            [
+                'title' => 'Volvo',
+                'icon' => 'vehicleIcons/volvo'
+            ],
+            [
+                'title' => 'Ferrari',
+                'icon' => 'vehicleIcons/ferrari'
+            ],
+            [
+                'title' => 'Lexus',
+                'icon' => 'vehicleIcons/lexus'
+            ],
+            [
+                'title' => 'Jeep',
+                'icon' => 'vehicleIcons/jeep'
+            ],
+            [
+                'title' => 'Citroen',
+                'icon' => 'vehicleIcons/citroen'
+            ],
+            [
+                'title' => 'Peugeot',
+                'icon' => 'vehicleIcons/peugeot'
+            ],
+            [
+                'title' => 'Subaru',
+                'icon' => 'vehicleIcons/subaru'
+            ],
+            [
+                'title' => 'Opel',
+                'icon' => 'vehicleIcons/opel'
+            ],
+            [
+                'title' => 'Yamaha',
+                'icon' => 'vehicleIcons/yamaha'
+            ],
+            [
+                'title' => 'Porsche',
+                'icon' => 'vehicleIcons/porsche'
+            ],
+            [
+                'title' => 'Mini',
+                'icon' => 'vehicleIcons/mini'
+            ],
+            [
+                'title' => 'Infiniti',
+                'icon' => 'vehicleIcons/infiniti'
+            ],
+            [
+                'title' => 'Ducati',
+                'icon' => 'vehicleIcons/ducati'
+            ],
+            [
+                'title' => 'Harley Davidson',
+                'icon' => 'vehicleIcons/harley'
+            ],
+            [
+                'title' => 'Acura',
+                'icon' => 'vehicleIcons/acura'
+            ],
+            [
+                'title' => 'Cadillac',
+                'icon' => 'vehicleIcons/cadillac'
+            ],
+            [
+                'title' => 'KTM',
+                'icon' => 'vehicleIcons/ktm'
+            ],
+            [
+                'title' => 'Buick',
+                'icon' => 'vehicleIcons/buick'
+            ],
+            [
+                'title' => 'Smart',
+                'icon' => 'vehicleIcons/smart'
+            ],
         ];
 
         DB::table('vehicle_manufactures')->insert($defaultData);

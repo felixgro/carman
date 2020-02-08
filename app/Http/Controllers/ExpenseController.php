@@ -40,7 +40,7 @@ class ExpenseController extends Controller
 
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense',
+            'currentPage' => 'expenses',
             'expenses' => $expenses,
             'tickets' => $ex_tik,
             'fuel' => $ex_gas,

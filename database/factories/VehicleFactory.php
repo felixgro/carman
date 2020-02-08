@@ -15,7 +15,7 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         'vehicle_type_id' => $faker->numberBetween(1, count(\App\VehicleType::all())),
         'vehicle_fuel_id' => $faker->numberBetween(1, count(\App\VehicleFuel::all())),
         'setting_id' => null,
-        'make' => $v['brand'],
+        'vehicle_manufacture_id' => $faker->numberBetween(1, count(\App\VehicleManufacture::all())),
         'model' => $v['model'],
         'plate' => $faker->vehicleRegistration('[A-Z]{2}-[0-9]{5}'),
         'km' => $faker->randomNumber()
