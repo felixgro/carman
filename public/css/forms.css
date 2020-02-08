@@ -1,8 +1,7 @@
-@charset "UTF-8";
-
 form.basic-form {
   color: #080816;
-  font-size: 1.2em !important;
+  font-size: 18pt;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -11,60 +10,29 @@ form.basic-form div {
 }
 
 form.basic-form div.spacer {
-  margin: 10px 0;
-}
-
-form.basic-form div.option {
-  margin-top: 0 !important;
-}
-
-form.basic-form div.selected {
-  margin-top: 5px;
+  margin: 13px 0;
 }
 
 form.basic-form div:first-of-type {
   margin-top: 0;
 }
 
-form.basic-form div.splitted {
-  display: block;
-}
-
-form.basic-form div.splitted div {
-  float: left;
-  margin-top: 0;
-}
-
-form.basic-form div.splitted div:nth-last-of-type(1) {
-  float: right;
-}
-
-form.basic-form div.splitted input {
-  width: 200px;
-}
-
-form.basic-form div.splitted .clearfix {
-  overflow: auto;
-}
-
-form.basic-form div.splitted .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+form.basic-form select,
+form.basic-form input,
+form.basic-form textarea {
+  margin-top: 1px;
 }
 
 form.basic-form input,
 form.basic-form textarea {
   background-color: #fff;
-  border-color: #ddd;
+  border: 2px solid #ddd;
   border-radius: 5px;
   color: #080816;
   box-shadow: none;
-  width: 450px;
-  padding: 6px 8px;
-  height: 40px;
-  font-size: 1.1em;
-  font-weight: 600;
+  padding: 10px 17px;
+  font-size: 1em;
+  width: 400px;
 }
 
 form.basic-form input:focus,
@@ -74,17 +42,7 @@ form.basic-form textarea:focus {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
 }
 
-form.basic-form input[type=checkbox] {
-  width: auto !important;
-  height: auto !important;
-}
-
-form.basic-form p {
-  font-size: 0.8em;
-}
-
 form.basic-form textarea {
-  margin-top: 3px;
   max-width: 450px;
   min-width: 450px;
   min-height: 100px;
@@ -101,7 +59,7 @@ form.basic-form fieldset legend {
 }
 
 form.basic-form button {
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 10px 24px;
   border-radius: 5px;
   border: none;
@@ -113,6 +71,17 @@ form.basic-form button {
   cursor: pointer;
   -webkit-transition: all 120ms ease-out;
   transition: all 120ms ease-out;
+}
+
+form.basic-form button.sub-action {
+  color: #080816;
+  border: 1px solid #080816;
+  background: none;
+}
+
+form.basic-form button.sub-action:hover {
+  border-color: tomato;
+  color: tomato;
 }
 
 form.basic-form button:hover {
@@ -127,7 +96,10 @@ form.basic-form button:focus {
 
 form.basic-form label {
   font-weight: 900;
-  font-size: 1em;
+  font-size: 0.5em;
+  opacity: 0.3;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   display: block;
   color: #080816;
 }
@@ -137,10 +109,19 @@ form.basic-form label small {
   font-size: 0.8em;
 }
 
-form.basic-form select {
-  display: block;
-  margin-top: 6px;
+form.basic-form p {
   font-size: 0.8em;
+  margin-top: -5px;
+  opacity: 0.9;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+form.basic-form select {
+  border: 2px solid #ddd;
+  display: block;
+  font-size: 0.8em;
+  width: 200px;
 }
 
 form.basic-form select:focus {

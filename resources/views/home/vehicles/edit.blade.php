@@ -4,108 +4,16 @@
 <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
 
 @section('content')
-<a href="{{ route('vehicles') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
+<a href="{{ route('vehicles') }}" class="return-button"><?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 330 330" version="1.1" viewBox="0 0 330 330" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<path d="m165 0c-90.981 0-165 74.019-165 165s74.019 165 165 165 165-74.019 165-165-74.019-165-165-165zm40.606 234.39c5.858 5.857 5.858 15.355 0 21.213-2.928 2.928-6.767 4.393-10.606 4.393s-7.678-1.464-10.606-4.394l-80-79.998c-2.813-2.813-4.394-6.628-4.394-10.606s1.58-7.794 4.394-10.607l80-80.002c5.857-5.858 15.355-5.858 21.213 0 5.858 5.857 5.858 15.355 0 21.213l-69.393 69.396 69.392 69.392z"/>
+</svg>
+<span>Return</span>
+</a>
 <h1>Edit Vehicle</h1>
-<p>Change all the fields below to your wishes. Hit the Save Button once your done.</p>
 
 <div class="container">
-    <form class="basic-form" action="/vehicles/{{ $editVehicle->id }}" method="post">
-    @method('PUT')
-        @csrf
-    
-                <div>
-                    <label for="type">Vehicle's Type</label>
-                    <p>What kind of Vehicle do you want to add?</p>
-                    @error('type')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <select name="type" id="type">
-                        <option value="">Type</option>
-                        @foreach ($types as $type)
-                            <option value="{{ $type->id }}" @if($type->id == $editVehicle->vehicle_type_id) selected="selected" @endif>{{ $type->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-    
-                <div>
-                    <label for=fuel">Vehicle's Ressource</label>
-                    <p>Where does it get energy from?</p>
-                    @error('fuel')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <select name="fuel" id="fuel">
-                        <option value="">Ressource</option>
-                        @foreach ($fuels as $fuel)
-                            <option value="{{ $fuel->id }}" @if($fuel->id == $editVehicle->vehicle_fuel_id) selected="selected" @endif>{{ $fuel->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-    
-                <div>
-                    <label for="model">Model</label>
-                    <p>Your Vehicle's model name ('A7' from Audi f.e.)</p>
-                    @error('model')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <input type="text" name="model" id="model" value="{{ $editVehicle->model }}" @error('model') class="error" @enderror>
-                </div>
-    
-                <div>
-                    <label for="make">Vehicle Make</label>
-                    <p>Your Vehicle's producer ('Audi' f.e.)</p>
-                    @error('make')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <input type="text" name="make" id="make" value="{{ $editVehicle->make }}" @error('make') class="error" @enderror>
-                </div>
-    
-                <div>
-                    <label for="km">Milage</label>
-                    <p>The total distance your Vehicle drove ('21 280' f.e.)</p>
-                    @error('km')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <input type="text" name="km" id="km" value="{{ $editVehicle->km }}" @error('km') class="error" @enderror>
-                </div>
-    
-                <div>
-                    <label for="plate">License Plate</label>
-                    <p>The current License Plate (W-43292 f.e.)</p>
-                    @error('plate')
-                        <p class="form-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </p>
-                    @enderror
-                    <input type="text" name="plate" id="plate" value="{{ $editVehicle->plate }}" @error('plate') class="error" @enderror>
-                </div>
-    
-                <div>
-                    <input type="submit" value="Save Changes" name="submit">
-
-                    <p class="between">
-                        ..or
-                    </p>
-
-                    <input type="submit" value="Delete Vehicle" class="sub-submit delete" onclick="
-                        event.preventDefault();
-                        document.getElementById('deleteForm').submit();
-                    ">
-                </div>
-    </form>
-    <form method="POST" action="/vehicles/{{ $editVehicle->id }}" style="display: hidden;" aria-hidden="true" id="deleteForm">
-    @method('DELETE')
-    @csrf
-    </form>
+    @include('../../forms/editVehicle')
 </div>
 
 @endsection

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,38 +93,59 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/*
+    Script für Alert Notifications
+*/
 (function () {
   var alerts = document.querySelectorAll('.alert'); // Alert Visibility Time in Sec.
 
   var visibleTime = 5;
 
-  if (alerts.length > 0) {
-    var _loop = function _loop(i) {
-      setTimeout(function () {
-        alerts[i].classList.add('remove');
+  var hideAlert = function hideAlert(event) {
+    if (alerts.length > 0) {
+      var _loop = function _loop(i) {
         setTimeout(function () {
-          alerts[i].style.display = 'none';
-          alerts[i].setAttribute('aria-hidden', 'true');
-        }, 300);
-      }, visibleTime * 1000);
-    };
+          alerts[i].classList.add('remove');
+          setTimeout(function () {
+            alerts[i].style.display = 'none';
+            alerts[i].setAttribute('aria-hidden', 'true');
+          }, 300);
+        }, visibleTime * 1000);
+      };
 
-    for (var i = 0; i < alerts.length; i++) {
-      _loop(i);
+      for (var i = 0; i < alerts.length; i++) {
+        _loop(i);
+      }
     }
+  };
+
+  hideAlert(); // Event Listener Zuweisung
+
+  var _loop2 = function _loop2(i) {
+    alerts[i].onclick = function (event) {
+      alerts[i].classList.add('remove');
+      setTimeout(function () {
+        alerts[i].style.display = 'none';
+        alerts[i].setAttribute('aria-hidden', 'true');
+      }, 300);
+    };
+  };
+
+  for (var i = 0; i < alerts.length; i++) {
+    _loop2(i);
   }
 })();
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./resources/js/alert.js ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Desktop/rider/resources/js/alert.js */"./resources/js/alert.js");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/js/alert.js */"./resources/js/alert.js");
 
 
 /***/ })

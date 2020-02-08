@@ -26,8 +26,8 @@ class VehicleRequest extends FormRequest
         return [
             'type' => 'required|integer',
             'fuel' => 'required|integer',
+            'make' => 'required|integer',
             'model' => 'required',
-            'make' => 'required',
             'km' => 'required|integer',
             'plate' => 'required'
         ];

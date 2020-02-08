@@ -144,6 +144,7 @@ class VehicleController extends Controller
             'title' => 'Home Dashboard',
             'currentPage' => 'vehicles',
             'editVehicle' => $vehicle,
+            'manufacturers' => \App\VehicleManufacture::orderBy('title')->get(),
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()
         ]);
@@ -163,8 +164,8 @@ class VehicleController extends Controller
         \DB::table('vehicles')->where('id', $vehicle->id)->update([
             'vehicle_type_id' => $data['type'],
             'vehicle_fuel_id' => $data['fuel'],
+            'vehicle_manufacture_id' => $data['model'],
             'make' => $data['make'],
-            'model' => $data['model'],
             'km' => $data['km'],
             'plate' => $data['plate']
         ]);

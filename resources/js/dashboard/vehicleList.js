@@ -1,5 +1,5 @@
 /*
-    Script für Vehicle Liste und sämtliche AJAX-Requests
+    Script für Vehicle Liste, sämtliche AJAX-Requests und Load-in Animationen
     Dep: JQuery, anime.js
 */
 (() => {
@@ -115,6 +115,6 @@
     for(let i = 0; i < items.length; i++) {
         items[i].onclick = clicked;
     }
-    window.onscroll = hideBox;
+    // window.onscroll = hideBox;
     document.getElementById('sideCloser').onclick = hideBox;
 })();

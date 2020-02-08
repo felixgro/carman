@@ -96,22 +96,24 @@ a.main-button {
     box-shadow: 0 0 30px rgba(0,0,0,0.05);
     transition: $ui-transition;
     cursor: pointer;
-    border-left: $alert-border;
+    border-left: 4px solid;
     &.alert-success {
-        background: $alert-succ-bg;
-        border-color: #4BCA81 !important;
-        color: $alert-succ;
+        background:$color-dark;
+        border-color: $color-main;
+        color: $color-light;
     }
     .alert-error {
         border-color: tomato;
     }
     div strong {
         font-size: 1em;
+        color: $color-main;
         line-height: .1em !important;
     }
     p {
-        line-height: 1em !important;
-        font-size: .9em;
+        line-height: 1.2em !important;
+        font-size: .8em;
+        font-weight: 400;
         margin-bottom: 3px;
     }
     &.remove {

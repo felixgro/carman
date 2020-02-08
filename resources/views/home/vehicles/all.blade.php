@@ -8,10 +8,10 @@
 
 <div class="container">
     <h1>Vehicles</h1>
-    <p>Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
+    <p class="short-txt">Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
     <div class="list">
     @foreach($userVehicles as $entry)
-        <div class="list-item" data-id="{{ $entry->id }}">
+        <div class="list-item load-in" data-id="{{ $entry->id }}">
             <div class="icon">
                 @include($entry->vehicle_type->icon)
                 <br>
@@ -63,5 +63,12 @@
         {{ session('notification')[1] }}
     @endcomponent
 @endif
+
+@component('components.alertSuccess')
+        @slot('title')
+            test bla bla bla bla bka jflasdjlsdj ldksjflasdjf
+        @endslot
+        test nachricht
+    @endcomponent
 
 @endsection

@@ -3,70 +3,37 @@
 
 form.basic-form {
     color: $color-dark;
-    font-size: 1.2em !important;
+    font-size: 18pt;
+    letter-spacing: 1px;
     margin: 0;
     div {
-        margin-top: 0;
-        &.spacer {
-          margin: 10px 0;
-        }
-        &.option {
-          margin-top: 0 !important;
-        }
-        &.selected {
-          margin-top: 5px;
-        }
-        &:first-of-type {
-            margin-top: 0;
-        }
-        &.splitted {
-          display: block;
-            div {
-                float: left;
-                margin-top: 0;
-            }
-            div:nth-last-of-type(1) {
-                float: right;
-            }
-            input {
-                width: 200px;
-            }
-            .clearfix {
-                overflow: auto;
-                &::after {
-                    content: "";
-                    clear: both;
-                    display: table;
-                }
-            }
-        }
+      margin-top: 0;
+      &.spacer {
+        margin: 13px 0;
+      }
+      &:first-of-type {
+          margin-top: 0;
+      }
+    }
+    select, input, textarea {
+      margin-top: 1px;
     }
     input, textarea {
       background-color: #fff;
-      border-color: #ddd;
+      border: 2px solid #ddd;
       border-radius: 5px;
       color: $color-dark;
       box-shadow: none;
-      width: 450px;
-      padding: 6px 8px;
-      height: 40px;
-      font-size: 1.1em;
-      font-weight: 600;
+      padding: 10px 17px;
+      font-size: 1em;
+      width: 400px;
       &:focus {
         outline: none;
         border-color: $color-main;
         box-shadow: 0 0 20px rgba(0,0,0,0.07);
       }
     }
-    input[type="checkbox"] {
-      width: auto !important;
-      height: auto !important;
-    }
-    p {
-      font-size: .8em;
-    }
     textarea {
-      margin-top: 3px;
       max-width: 450px;
       min-width: 450px;
       min-height: 100px;
@@ -80,7 +47,7 @@ form.basic-form {
         }
     }
     button {
-        font-size: .8em;
+        font-size: .7em;
         padding: 10px 24px;
         border-radius: 5px;
         border: none;
@@ -91,6 +58,15 @@ form.basic-form {
         font-weight: 600;
         cursor: pointer;
         transition: all 120ms ease-out;
+        &.sub-action {
+          color: $color-dark;
+          border: 1px solid $color-dark;
+          background: none;
+          &:hover {
+            border-color: tomato;
+            color: tomato;
+          }
+        }
         &:hover {
             box-shadow: 0 0 30px rgba(0,0,0,0.1);
         }
@@ -101,7 +77,10 @@ form.basic-form {
     }
     label {
         font-weight: 900;
-        font-size: 1em;
+        font-size: .5em;
+        opacity: .3;
+        letter-spacing: 1px;
+        text-transform: uppercase;
         display: block;
         color: $color-dark;
         small {
@@ -109,10 +88,18 @@ form.basic-form {
             font-size: .8em;
         }
     }
+    p {
+      font-size: .8em;
+      margin-top: -5px;
+      opacity: .9;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
     select {
+        border: 2px solid #ddd;
         display: block;
-        margin-top: 6px;
         font-size: .8em;
+        width: 200px;
         &:focus {
           outline: none;
           border-color: $color-main;

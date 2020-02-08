@@ -22,4 +22,5 @@ mix.js('resources/js/app.js', 'public/js')
     
     .js('resources/js/welcome/welcomeLoad.js', 'public/js')
     .js('resources/js/dashboard/dashboardLoad.js', 'public/js')
+    .js('resources/js/alert.js', 'public/js')
     .js('resources/js/dashboard/vehicleList.js', 'public/js');

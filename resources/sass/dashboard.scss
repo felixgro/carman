@@ -98,11 +98,31 @@ header {
 .container {
     width: 65%;
     max-width: 900px;
-    p {
+    p.short-txt {
         max-width: 600px;
         font-size: .9em;
         line-height: 1.5em;
         margin-bottom: 65px;
+    }
+}
+
+a.return-button {
+    display: block;
+    z-index: 10000;
+    height: 30px;
+    margin-bottom: -15px;
+    color: $color-dark;
+    span {
+        display: inline-block;
+        line-height: 30px;
+        font-size: 10pt;
+        font-weight: 900;
+        color: $color-dark;
+    }
+    svg {
+        dipslay: inline-block;
+        margin-top: 5px;
+        height: 15px;
     }
 }
 

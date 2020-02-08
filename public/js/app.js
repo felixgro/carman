@@ -149,6 +149,17 @@ logo.addEventListener('mouseleave', function (event) {
 logo.addEventListener('click', function (event) {
   window.location.href = "/";
 });
+anime({
+  targets: '.load-in',
+  easing: 'easeOutSine',
+  duration: 140,
+  opacity: 1,
+  scale: 1,
+  translateY: 20,
+  delay: function delay(el, i) {
+    return i * 80;
+  }
+});
 
 /***/ }),
 

@@ -107,13 +107,13 @@ a.main-button:focus {
   -webkit-transition: all 120ms ease-out;
   transition: all 120ms ease-out;
   cursor: pointer;
-  border-left: 6px solid #fade9e;
+  border-left: 4px solid;
 }
 
 .alert.alert-success {
-  background: #fbfbfe;
-  border-color: #4BCA81 !important;
-  color: #080816;
+  background: #080816;
+  border-color: #fca500;
+  color: #ececf8;
 }
 
 .alert .alert-error {
@@ -122,12 +122,14 @@ a.main-button:focus {
 
 .alert div strong {
   font-size: 1em;
+  color: #fca500;
   line-height: 0.1em !important;
 }
 
 .alert p {
-  line-height: 1em !important;
-  font-size: 0.9em;
+  line-height: 1.2em !important;
+  font-size: 0.8em;
+  font-weight: 400;
   margin-bottom: 3px;
 }
 

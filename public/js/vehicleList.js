@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 /*
-    Script für Vehicle Liste und sämtliche AJAX-Requests
+    Script für Vehicle Liste, sämtliche AJAX-Requests und Load-in Animationen
     Dep: JQuery, anime.js
 */
 (function () {
@@ -202,15 +202,15 @@
 
   for (var i = 0; i < items.length; i++) {
     items[i].onclick = clicked;
-  }
+  } // window.onscroll = hideBox;
 
-  window.onscroll = hideBox;
+
   document.getElementById('sideCloser').onclick = hideBox;
 })();
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*****************************************************!*\
   !*** multi ./resources/js/dashboard/vehicleList.js ***!
   \*****************************************************/
