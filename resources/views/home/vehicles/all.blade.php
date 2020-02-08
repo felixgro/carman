@@ -64,11 +64,4 @@
     @endcomponent
 @endif
 
-@component('components.alertSuccess')
-        @slot('title')
-            test bla bla bla bla bka jflasdjlsdj ldksjflasdjf
-        @endslot
-        test nachricht
-    @endcomponent
-
 @endsection

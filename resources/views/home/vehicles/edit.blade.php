@@ -11,9 +11,17 @@
 <span>Return</span>
 </a>
 <h1>Edit Vehicle</h1>
-
 <div class="container">
     @include('../../forms/editVehicle')
 </div>
+
+@if(session('notification'))
+    @component('components.alertSuccess')
+        @slot('title')
+            {{ session('notification')[0] }}
+        @endslot
+        {{ session('notification')[1] }}
+    @endcomponent
+@endif
 
 @endsection

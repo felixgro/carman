@@ -1,31 +1,31 @@
-<form class="basic-form" action="/vehicles/{{ $editVehicle->id }}" method="post">
+<form class="basic-form vehicle-form" action="/vehicles/{{ $editVehicle->id }}" method="post">
     @method('PUT')
     @csrf
-    
+
     <div class="spacer load-in">
-        <label>Vehicle Type</label>
+        <label for="type">Vehicle Type</label>
         <p>Choose a Type</p>
-        <select>
+        <select name="type" id="type">
             @foreach($types as $type)
-            <option @if($type->id == $editVehicle->vehicle_type->id) selected @endif>{{ $type->title }}</option>
+            <option value="{{ $type->id }}" @if($type->id == $editVehicle->vehicle_type->id) selected @endif>{{ $type->title }}</option>
             @endforeach
         </select>
     </div>
     <div class="spacer load-in">
-        <label>Manufacturer</label>
+        <label for="make">Manufacturer</label>
         <p>Choose a Brand</p>
-        <select>
+        <select id="make" name="make">
             @foreach($manufacturers as $man)
-            <option @if($man->id == $editVehicle->vehicle_manufacture->id) selected @endif>{{ $man->title }}</option>
+            <option value="{{ $man->id }}" @if($man->id == $editVehicle->vehicle_manufacture->id) selected @endif>{{ $man->title }}</option>
             @endforeach
         </select>
     </div>
     <div class="spacer load-in">
-        <label>Fuel</label>
+        <label for="fuel">Fuel</label>
         <p>Choose a Propellant</p>
-        <select>
+        <select name="fuel" id="fuel">
             @foreach($fuels as $fuel)
-            <option @if($fuel->id == $editVehicle->vehicle_fuel->id) selected @endif>{{ $fuel->title }}</option>
+            <option value="{{ $fuel->id }}" @if($fuel->id == $editVehicle->vehicle_fuel->id) selected @endif>{{ $fuel->title }}</option>
             @endforeach
         </select>
     </div>
@@ -40,9 +40,9 @@
         <input name="plate" id="plate" type="text" value="{{ $editVehicle->plate }}"></input>
     </div>
     <div class="spacer load-in">
-        <label>Millage</label>
+        <label for="km">Millage</label>
         <p>Current Millage</p>
-        <input type="text" value="{{ $editVehicle->km }}"></input>
+        <input name="km" id="km" type="text" value="{{ $editVehicle->km }}"></input>
     </div>
     <div class="spacer load-in">
         <button>Save changes</button>

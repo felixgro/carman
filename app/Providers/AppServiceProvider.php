@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             
             $user = \Auth::user();
 
-            session(['vehicle' => 3]);
+            session(['vehicle' => 6]);
             
             if(session('vehicle') == null || session('vehicle') == '') {
                 session(['vehicle' => $user->setting->vehicle->id]);

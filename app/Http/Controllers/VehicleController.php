@@ -85,7 +85,7 @@ class VehicleController extends Controller
             'user_id' => \Auth::user()->id,
             'vehicle_type_id' => $data['type'],
             'vehicle_fuel_id' => $data['fuel'],
-            'make' => $data['make'],
+            'vehicle_manufacturer_id' => $data['make'],
             'model' => $data['model'],
             'km' => $data['km'],
             'plate' => $data['plate']
@@ -164,8 +164,8 @@ class VehicleController extends Controller
         \DB::table('vehicles')->where('id', $vehicle->id)->update([
             'vehicle_type_id' => $data['type'],
             'vehicle_fuel_id' => $data['fuel'],
-            'vehicle_manufacture_id' => $data['model'],
-            'make' => $data['make'],
+            'vehicle_manufacture_id' => $data['make'],
+            'model' => $data['model'],
             'km' => $data['km'],
             'plate' => $data['plate']
         ]);
@@ -183,6 +183,14 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle, Request $request)
     {
+
+        if($vehicle->id === session('vehicle')) {
+            $request->session()->flash('notification', ["You can't delete a vehicle which is current selected", "Cannot Delete"]);
+            return back();
+        }
+
+        dd('hi');
+
         \DB::table('vehicles')->where('id', $vehicle->id)->delete();
 
         $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Deleted successfully."]);
