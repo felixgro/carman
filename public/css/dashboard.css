@@ -152,7 +152,7 @@ a.return-button svg {
 .side-box {
   position: fixed;
   top: 65px;
-  width: 30%;
+  width: 400px;
   min-width: 300px;
   max-width: 450px;
   right: 0;

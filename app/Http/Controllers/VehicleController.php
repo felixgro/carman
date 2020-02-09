@@ -189,8 +189,6 @@ class VehicleController extends Controller
             return back();
         }
 
-        dd('hi');
-
         \DB::table('vehicles')->where('id', $vehicle->id)->delete();
 
         $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Deleted successfully."]);

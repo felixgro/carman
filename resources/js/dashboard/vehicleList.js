@@ -117,4 +117,23 @@
     }
     // window.onscroll = hideBox;
     document.getElementById('sideCloser').onclick = hideBox;
+
+    document.getElementById('currentSelect').onclick = (event) => {
+        event.preventDefault();
+        let url = event.target.href;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: url,
+            method: 'get',
+            data: { userID: document.getElementById('userID').value},
+            success: function(res){
+                console.dir(res);
+            }
+         });
+    }
 })();
