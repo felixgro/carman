@@ -51,7 +51,34 @@
         <a id="currentMain" href="#">Set Main</a>
         <a id="currentEdit" href="#">Edit</a>
     </div>
+    <form action="" method="post" style="display:none;" aria-hidden="true" id="selectForm">
+    @csrf
+        <input type="number" name="userID" value="{{ $user->id }}">
+    </form>
+    <form action="" method="post" style="display:none;" aria-hidden="true" id="mainForm">
+    @csrf
+        <input type="number" name="userID" value="{{ $user->id }}">
+    </form>
 </div>
+
+<script>
+    // Inline Skript für Select/Set Main Action Buttons
+    let selectForm = document.getElementById('selectForm');
+    let mainForm = document.getElementById('mainForm');
+    let selectBtn = document.getElementById('currentSelect');
+    let mainBtn = document.getElementById('currentMain');
+
+    selectBtn.onclick = (event) => {
+        event.preventDefault();
+
+        selectForm.submit();
+    }
+    mainBtn.onclick = (event) => {
+        event.preventDefault();
+
+        mainForm.submit();
+    }
+</script>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"

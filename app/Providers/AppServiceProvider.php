@@ -29,8 +29,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['dashboard', 'home.*'], function ($view) {
             
             $user = \Auth::user();
-
-            session(['vehicle' => 6]);
             
             if(session('vehicle') == null || session('vehicle') == '') {
                 session(['vehicle' => $user->setting->vehicle->id]);

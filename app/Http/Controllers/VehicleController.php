@@ -45,18 +45,11 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function setCurrent(Request $request)
+    public function select(Vehicle $vehicle, Request $request)
     {
-        $vehicle = \App\Vehicle::find($request['vehicleID']);
-        
-        // Wenn das Fahrzeug nicht dem anfragenten Benutzer gehört wird 0 zurückgegen
-        if($vehicle->user_id !== (int) $request['userID']) {
-            return response(0);
-        }
-
         session(['vehicle' => $vehicle->id]);
-        // Wenn alles Funktioniert hat wird 1 zurückgegeben
-        return response(1);
+        $request->session()->flash('notification', ["Vehicle selected", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
+        return redirect('vehicles');
     }
 
     /**
@@ -65,10 +58,17 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function setMain(Vehicle $vehicle, Request $request)
+    public function main(Vehicle $vehicle, Request $request)
     {
-        $request->session()->flash('notification', ["new Main Vehicle", "{$vehicle->make} {$vehicle->model}"]);
-        return back();
+
+        $user = \App\User::find(\Auth::user()->id);
+
+        \DB::table('settings')->where('id', $user->setting->id)->update([
+            'vehicle_id' => $vehicle->id,
+        ]);
+
+        $request->session()->flash('notification', ["set as new Main Vehicle", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
+        return redirect('vehicles');
     }
 
     /**
@@ -97,7 +97,7 @@ class VehicleController extends Controller
     }
 
     /**
-     * Für AJAX: Gibt alle Daten eines Vehicles zurück
+     *  Für AJAX-Request in vehicleList.js: Gibt alle Daten eines Vehicles als JSON zurück
      *
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response

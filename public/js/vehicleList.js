@@ -151,6 +151,8 @@
     document.getElementById('currentSelect').href = '/vehicles/' + data.id + "/select";
     document.getElementById('currentMain').href = '/vehicles/' + data.id + "/main";
     document.getElementById('currentEdit').href = '/vehicles/' + data.id + "/edit";
+    document.getElementById('selectForm').action = "/vehicles/" + data.id + "/select";
+    document.getElementById('mainForm').action = "/vehicles/" + data.id + "/main";
   }; // Bewegt Container unter/über Cursor (jenachdem ob sich Cursor über/unter der Bildschirmhälfte befindet)
 
 
@@ -206,26 +208,6 @@
 
 
   document.getElementById('sideCloser').onclick = hideBox;
-
-  document.getElementById('currentSelect').onclick = function (event) {
-    event.preventDefault();
-    var url = event.target.href;
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-      }
-    });
-    $.ajax({
-      url: url,
-      method: 'get',
-      data: {
-        userID: document.getElementById('userID').value
-      },
-      success: function success(res) {
-        console.dir(res);
-      }
-    });
-  };
 })();
 
 /***/ }),
