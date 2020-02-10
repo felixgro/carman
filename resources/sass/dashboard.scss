@@ -7,6 +7,25 @@ header {
     svg {
         height: 58% !important;
     }
+    #settingsBtn {
+        transition: $ui-transition;
+        &:hover {
+            svg {
+                path {
+                    opacity: 1;
+                    fill: $color-main;
+                }
+            }
+        }
+        svg {
+            width: 20px !important;
+            transform: translateY(5px);
+            path {
+                fill: $color-light;
+                opacity: .3;
+            }
+        }
+    }
     #logoutBtn {
         transform: scale(.75);
         &:hover {
@@ -96,6 +115,7 @@ header {
 }
 
 .container {
+    position: relative;
     width: 65%;
     max-width: 900px;
     p.short-txt {
@@ -110,19 +130,13 @@ a.return-button {
     display: block;
     z-index: 10000;
     height: 30px;
-    margin-bottom: -15px;
+    position: absolute;
+    top: 0;
+    left: -50px;
     color: $color-dark;
-    span {
-        display: inline-block;
-        line-height: 30px;
-        font-size: 10pt;
-        font-weight: 900;
-        color: $color-dark;
-    }
     svg {
-        dipslay: inline-block;
-        margin-top: 5px;
-        height: 15px;
+        dipslay: block;
+        height: 100%;
     }
 }
 

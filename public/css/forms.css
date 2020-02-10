@@ -10,7 +10,7 @@ form.basic-form div {
 }
 
 form.basic-form div.spacer {
-  margin: 13px 0;
+  margin: 20px 0;
 }
 
 form.basic-form div:first-of-type {
@@ -30,9 +30,9 @@ form.basic-form textarea {
   border-radius: 5px;
   color: #080816;
   box-shadow: none;
-  padding: 10px 17px;
-  font-size: 1em;
-  width: 400px;
+  padding: 7px 14px;
+  font-size: 0.9em;
+  width: 350px;
 }
 
 form.basic-form input:focus,
@@ -97,16 +97,22 @@ form.basic-form button:focus {
 form.basic-form label {
   font-weight: 900;
   font-size: 0.5em;
-  opacity: 0.3;
+  color: #ccc;
   letter-spacing: 1px;
   text-transform: uppercase;
   display: block;
-  color: #080816;
 }
 
 form.basic-form label small {
   font-weight: 400;
   font-size: 0.8em;
+}
+
+form.basic-form label input[type=checkbox] {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 form.basic-form p {
@@ -127,5 +133,41 @@ form.basic-form select {
 form.basic-form select:focus {
   outline: none;
   border-color: #fca500;
+}
+
+form.basic-form select.hidden {
+  height: 0px !important;
+  width: 0px !important;
+  opacity: 0 !important;
+  display: none;
+  overflow: hidden;
+}
+
+.multiple-choice {
+  max-width: 300px;
+}
+
+.multiple-choice .option {
+  font-size: 0.6em;
+  cursor: pointer;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 1px 10px;
+  margin: 0 3px;
+  color: #aaa;
+  font-weight: bolder;
+  border: 3px solid #ddd;
+  -webkit-transition: all 70ms ease-out;
+  transition: all 70ms ease-out;
+}
+
+.multiple-choice .option.selected {
+  border-color: #080816 !important;
+  color: #080816 !important;
+}
+
+.multiple-choice .option:hover {
+  color: #aaa;
+  border-color: #aaa;
 }
 

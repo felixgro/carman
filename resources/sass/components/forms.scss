@@ -9,7 +9,7 @@ form.basic-form {
     div {
       margin-top: 0;
       &.spacer {
-        margin: 13px 0;
+        margin: 20px 0;
       }
       &:first-of-type {
           margin-top: 0;
@@ -24,9 +24,9 @@ form.basic-form {
       border-radius: 5px;
       color: $color-dark;
       box-shadow: none;
-      padding: 10px 17px;
-      font-size: 1em;
-      width: 400px;
+      padding: 7px 14px;
+      font-size: .9em;
+      width: 350px;
       &:focus {
         outline: none;
         border-color: $color-main;
@@ -78,14 +78,17 @@ form.basic-form {
     label {
         font-weight: 900;
         font-size: .5em;
-        opacity: .3;
+        color: #ccc;
         letter-spacing: 1px;
         text-transform: uppercase;
         display: block;
-        color: $color-dark;
         small {
             font-weight: 400;
             font-size: .8em;
+        }
+        input[type="checkbox"] {
+          display: inline-block;
+          width: fit-content;
         }
     }
     p {
@@ -104,7 +107,38 @@ form.basic-form {
           outline: none;
           border-color: $color-main;
         }
+        &.hidden {
+          height: 0px !important;
+          width: 0px !important;
+          opacity: 0 !important;
+          display: none;
+          overflow: hidden;
+        }
     }
+}
+
+.multiple-choice {
+  max-width: 300px;
+  .option {
+    font-size: .6em;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 1px 10px;
+    margin: 0 3px;
+    color: $color-mid-dark;
+    font-weight: bolder;
+    border: 3px solid $color-mid;
+    transition: all 70ms ease-out;
+    &.selected {
+      border-color: $color-dark !important;
+      color: $color-dark !important;
+    }
+    &:hover {
+      color: $color-mid-dark;
+      border-color: $color-mid-dark;
+    }
+  }
 }
 
   

@@ -7,8 +7,10 @@
 <link rel="stylesheet" href=" {{ asset('css/vehicles.css') }}">
 
 <div class="container">
-    <h1>Vehicles</h1>
+    <h1>Your Vehicles</h1>
+    @if(count($user->vehicles) < 2)
     <p class="short-txt">Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
+    @endif
     <div class="list">
     @foreach($userVehicles as $entry)
         <div class="list-item load-in" data-id="{{ $entry->id }}">
@@ -19,7 +21,7 @@
             </div>
             <div class="title">
                 <h3>{{ $entry->model }}</h3>
-                <small>{{ number_format($entry->km) }} km</small>
+                <small>{{ number_format($entry->km) }} {{ $user->setting->unit }}</small>
             </div>
             <div class="side">
                 {{ $entry->plate }}
@@ -44,7 +46,7 @@
         @include('vehicleIcons/VW')
     </div>
     <h3><span id="currentMake">VW</span> <span id="currentModel">Golf TDI</span></h3>
-    <small><span id="currentKm">13.000</span>km / <span id="currentCosts">13.000</span> EUR</small>
+    <small><span id="currentKm">13.000</span> {{ $user->setting->unit }} / <span id="currentCosts">13.000</span>{{ $user->setting->currency->symbol }}</small>
     <div class="plate" id="currentPlate">W 92493</div>
     <div class="actions">
         <a id="currentSelect" href="#">Select</a>
@@ -85,14 +87,5 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <script src="{{ asset('js/vehicleList.js') }}"></script>
-
-@if(session('notification'))
-    @component('components.alertSuccess')
-        @slot('title')
-            {{ session('notification')[0] }}
-        @endslot
-        {{ session('notification')[1] }}
-    @endcomponent
-@endif
 
 @endsection

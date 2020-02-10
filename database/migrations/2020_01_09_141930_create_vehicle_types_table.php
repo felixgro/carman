@@ -23,11 +23,11 @@ class CreateVehicleTypesTable extends Migration
         // Standart Typen für Fahrzeuge der Tabelle zuweisen
         $defaultTypes = [
             [
-                'title' => 'Car',
+                'title' => 'Scooter',
                 'icon' => 'vehicleTypes/car'
             ],
             [
-                'title' => 'Motorbike',
+                'title' => 'Bike',
                 'icon' => 'vehicleTypes/car'
             ],
             [
@@ -35,9 +35,21 @@ class CreateVehicleTypesTable extends Migration
                 'icon' => 'vehicleTypes/car'
             ],
             [
-                'title' => 'Scooter',
+                'title' => 'Car',
                 'icon' => 'vehicleTypes/car'
-            ]
+            ],
+            [
+                'title' => 'Van',
+                'icon' => 'vehicleTypes/car'
+            ],
+            [
+                'title' => 'Truck',
+                'icon' => 'vehicleTypes/car'
+            ],
+            [
+                'title' => 'Bus',
+                'icon' => 'vehicleTypes/car'
+            ],
         ];
 
         DB::table('vehicle_types')->insert($defaultTypes);

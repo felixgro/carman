@@ -16,7 +16,8 @@ Route::get('/', 'WelcomeController@index')->name('landing');
 
 // Basic Dashboard Routes
 Route::get('/home', 'DashboardController@index')->name('home');
-Route::get('/settings', 'DashboardController@index')->name('settings');
+Route::get('/settings', 'DashboardController@settings')->name('settings');
+Route::put('/settings/{id}', 'DashboardController@updateSettings');
 
 // Vehicle Routes
 Route::get('/vehicles', 'VehicleController@index')->name('vehicles');

@@ -40,38 +40,6 @@ class VehicleController extends Controller
     }
 
     /**
-     * Wählt ein neues Vehicle aus
-     *
-     * @param  \App\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
-     */
-    public function select(Vehicle $vehicle, Request $request)
-    {
-        session(['vehicle' => $vehicle->id]);
-        $request->session()->flash('notification', ["Vehicle selected", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
-        return redirect('vehicles');
-    }
-
-    /**
-     * Setzt ein neues Main Vehicle
-     *
-     * @param  \App\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
-     */
-    public function main(Vehicle $vehicle, Request $request)
-    {
-
-        $user = \App\User::find(\Auth::user()->id);
-
-        \DB::table('settings')->where('id', $user->setting->id)->update([
-            'vehicle_id' => $vehicle->id,
-        ]);
-
-        $request->session()->flash('notification', ["set as new Main Vehicle", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
-        return redirect('vehicles');
-    }
-
-    /**
      * Speichert neues Vehicle
      *
      * @param  \Illuminate\Http\Request  $request
@@ -94,42 +62,6 @@ class VehicleController extends Controller
         $request->session()->flash('notification', ["Vehicle added", "{$data['make']} {$data['model']}"]);
 
         return redirect('vehicles');
-    }
-
-    /**
-     *  Für AJAX-Request in vehicleList.js: Gibt alle Daten eines Vehicles als JSON zurück
-     *
-     * @param  \App\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
-     */
-    public function getData(Vehicle $vehicle)
-    {
-
-        $allVehicleExpenses = \DB::table('expenses')->where('vehicle_id', $vehicle->id)->get();
-
-        // Addiert alle Ausgaben, die mit dem Vehicle getätigt wurden
-        $totalCost = 0;
-        foreach($allVehicleExpenses as $expense) {
-            $totalCost += $expense->amount;
-        }
-
-        $svg = str_replace("/", ".", $vehicle->vehicle_manufacture->icon);
-
-        $data = [
-            'id' => $vehicle->id,
-            'make' => $vehicle->vehicle_manufacture->title,
-            'make_icon' => view($svg)->render(),
-            'type' => $vehicle->vehicle_type->title,
-            'type_icon' => $vehicle->vehicle_type->icon,
-            'fuel' => $vehicle->vehicle_fuel->title,
-            'model' => $vehicle->model,
-            'km' => $vehicle->km,
-            'plate' => $vehicle->plate,
-            'totalCost' => $totalCost,
-            'totalKM' => 13034
-        ];
-
-        return response()->json($data);
     }
 
     /**
@@ -193,5 +125,78 @@ class VehicleController extends Controller
 
         $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Deleted successfully."]);
         return redirect('vehicles');
+    }
+
+    /**
+     * Wählt ein neues Vehicle aus
+     *
+     * @param  \App\Vehicle  $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function select(Vehicle $vehicle, Request $request)
+    {
+        session(['vehicle' => $vehicle->id]);
+        $request->session()->flash('notification', ["Vehicle selected", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
+        return redirect('vehicles');
+    }
+
+    /**
+     * Setzt ein neues Main Vehicle
+     *
+     * @param  \App\Vehicle  $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function main(Vehicle $vehicle, Request $request)
+    {
+
+        $user = \App\User::find(\Auth::user()->id);
+
+        \DB::table('settings')->where('id', $user->setting->id)->update([
+            'vehicle_id' => $vehicle->id,
+        ]);
+
+        // Setting: Fahrzeug kann direkt ausgewählt werden
+        if ($user->setting->select_main === 1) {
+            session(['vehicle' => $vehicle->id]);
+        }
+
+        $request->session()->flash('notification', ["set as new Main Vehicle", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
+        return redirect('vehicles');
+    }
+
+    /**
+     *  Für AJAX-Request in vehicleList.js: Gibt alle Daten eines Vehicles als JSON zurück
+     *
+     * @param  \App\Vehicle  $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function getData(Vehicle $vehicle)
+    {
+
+        $allVehicleExpenses = \DB::table('expenses')->where('vehicle_id', $vehicle->id)->get();
+
+        // Addiert alle Ausgaben, die mit dem Vehicle getätigt wurden
+        $totalCost = 0;
+        foreach($allVehicleExpenses as $expense) {
+            $totalCost += $expense->amount;
+        }
+
+        $svg = str_replace("/", ".", $vehicle->vehicle_manufacture->icon);
+
+        $data = [
+            'id' => $vehicle->id,
+            'make' => $vehicle->vehicle_manufacture->title,
+            'make_icon' => view($svg)->render(),
+            'type' => $vehicle->vehicle_type->title,
+            'type_icon' => $vehicle->vehicle_type->icon,
+            'fuel' => $vehicle->vehicle_fuel->title,
+            'model' => $vehicle->model,
+            'km' => $vehicle->km,
+            'plate' => $vehicle->plate,
+            'totalCost' => $totalCost,
+            'totalKM' => 13034
+        ];
+
+        return response()->json($data);
     }
 }

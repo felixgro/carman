@@ -7,6 +7,27 @@ header svg {
   height: 58% !important;
 }
 
+header #settingsBtn {
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+header #settingsBtn:hover svg path {
+  opacity: 1;
+  fill: #fca500;
+}
+
+header #settingsBtn svg {
+  width: 20px !important;
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+
+header #settingsBtn svg path {
+  fill: #ececf8;
+  opacity: 0.3;
+}
+
 header #logoutBtn {
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
@@ -116,6 +137,7 @@ header #logoutBtn:hover {
 }
 
 .container {
+  position: relative;
   width: 65%;
   max-width: 900px;
 }
@@ -131,22 +153,15 @@ a.return-button {
   display: block;
   z-index: 10000;
   height: 30px;
-  margin-bottom: -15px;
-  color: #080816;
-}
-
-a.return-button span {
-  display: inline-block;
-  line-height: 30px;
-  font-size: 10pt;
-  font-weight: 900;
+  position: absolute;
+  top: 0;
+  left: -50px;
   color: #080816;
 }
 
 a.return-button svg {
-  dipslay: inline-block;
-  margin-top: 5px;
-  height: 15px;
+  dipslay: block;
+  height: 100%;
 }
 
 .side-box {

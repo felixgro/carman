@@ -18,12 +18,16 @@ class CreateSettingsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('vehicle_id');
             $table->unsignedBigInteger('currency_id');
+            $table->boolean('select_main');
+            $table->string('unit');
             $table->integer('home')->nullable();
         });
 
         $adminSetting = [
             'user_id' => 1,
             'vehicle_id' => 1,
+            'select_main' => true,
+            'unit' => 'km',
             'currency_id' => 1
         ];
 
