@@ -60,11 +60,22 @@ form.basic-form {
         transition: all 120ms ease-out;
         &.sub-action {
           color: $color-dark;
-          border: 1px solid $color-dark;
+          border: 2px solid $color-dark;
+          padding: 8px 22px;
           background: none;
           &:hover {
             border-color: tomato;
             color: tomato;
+          }
+          &.selected {
+            background: tomato;
+            border-color: tomato;
+            color: $color-dark;
+            transform: scale(.9);
+            &:hover {
+              border-color: tomato;
+              color: $color-dark;
+            }
           }
         }
         &:hover {

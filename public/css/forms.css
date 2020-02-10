@@ -75,13 +75,27 @@ form.basic-form button {
 
 form.basic-form button.sub-action {
   color: #080816;
-  border: 1px solid #080816;
+  border: 2px solid #080816;
+  padding: 8px 22px;
   background: none;
 }
 
 form.basic-form button.sub-action:hover {
   border-color: tomato;
   color: tomato;
+}
+
+form.basic-form button.sub-action.selected {
+  background: tomato;
+  border-color: tomato;
+  color: #080816;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+form.basic-form button.sub-action.selected:hover {
+  border-color: tomato;
+  color: #080816;
 }
 
 form.basic-form button:hover {

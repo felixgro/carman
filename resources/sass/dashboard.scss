@@ -207,3 +207,8 @@ a.return-button {
     }
     background: $color-light;
 }
+
+.container.centered {
+    width:600px !important;
+    margin: 0 auto;
+}

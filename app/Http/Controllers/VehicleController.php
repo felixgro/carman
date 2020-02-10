@@ -20,7 +20,7 @@ class VehicleController extends Controller
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
             'currentPage' => 'vehicles',
-            'userVehicles' => \App\Vehicle::all()
+            'userVehicles' => \App\Vehicle::orderBy('vehicle_manufacture_id')->get()
         ]);
     }
 
@@ -34,6 +34,7 @@ class VehicleController extends Controller
         return view('home.vehicles.create', [
             'title' => 'Home Dashboard',
             'currentPage' => 'vehicles',
+            'manufacturers' => \App\VehicleManufacture::orderBy('title')->get(),
             'types' => \App\VehicleType::all(),
             'fuels' => \App\VehicleFuel::all()
         ]);
@@ -53,7 +54,7 @@ class VehicleController extends Controller
             'user_id' => \Auth::user()->id,
             'vehicle_type_id' => $data['type'],
             'vehicle_fuel_id' => $data['fuel'],
-            'vehicle_manufacturer_id' => $data['make'],
+            'vehicle_manufacture_id' => $data['make'],
             'model' => $data['model'],
             'km' => $data['km'],
             'plate' => $data['plate']
@@ -121,9 +122,10 @@ class VehicleController extends Controller
             return back();
         }
 
+        $request->session()->flash('notification', ["{$vehicle->vehicle_manufacture->title} {$vehicle->model}", "Deleted successfully."]);
+
         \DB::table('vehicles')->where('id', $vehicle->id)->delete();
 
-        $request->session()->flash('notification', ["{$vehicle->make} {$vehicle->model}", "Deleted successfully."]);
         return redirect('vehicles');
     }
 

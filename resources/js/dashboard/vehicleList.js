@@ -1,5 +1,11 @@
 /*
-    Script für Vehicle Liste, sämtliche AJAX-Requests und Load-in Animationen
+    Script für Vehicle Liste:
+    (vehicle.all View)
+
+    sämtliche AJAX-Requests für den Info-Container (Sidebox)
+    Load-in Animation der Liste
+    Quick-Delete Logik für Liste
+
     Dep: JQuery, anime.js
 */
 (() => {
@@ -115,9 +121,70 @@
     }
 
     // Event Listener für Click und Scroll
-    for(let i = 0; i < items.length; i++) {
-        items[i].onclick = clicked;
+    const initEventListening = () => {
+        for(let i = 0; i < items.length; i++) {
+            items[i].onclick = clicked;
+        }
     }
-    // window.onscroll = hideBox;
+
+    initEventListening();
+
+    // Schließt Side-Box bei Klick auf das X
     document.getElementById('sideCloser').onclick = hideBox;
+
+
+    // QUICK-DELETE
+    const quickBtn = document.getElementById('quickDelete');
+    let deleting = false; // Enählt aktuellen Listenmodus
+
+    const quickClicked = (event) => {
+        event.preventDefault();
+
+        if(deleting) {
+            deleting = false;
+            initEventListening();
+        } else {
+            deleting = true;
+            initDelEvents();
+        }
+
+        changeButtonStyle();
+        changeList();
+        
+    }
+
+    const clickedOnVehicle = (event) => {
+        if (confirm('Are you sure you want to delete ?')) {
+
+        } else {
+
+        }
+    }   
+
+    const changeButtonStyle = () => {
+        if(deleting) {
+            quickBtn.classList.add('selected');
+            quickBtn.innerText = "Deleting";
+        } else {
+            quickBtn.classList.remove('selected');
+            quickBtn.innerText = "Delete";
+        }
+    }
+
+
+    const changeList = () => {
+        if(deleting) {
+            document.querySelector('.list').classList.add('deleting');
+        } else {
+            document.querySelector('.list').classList.remove('deleting');
+        }
+    }
+    
+    const initDelEvents = () => {
+        for(let i = 0; i < items.length; i++) {
+            items[i].onclick = clickedOnVehicle;
+        }
+    }
+
+    quickBtn.onclick = quickClicked;
 })();

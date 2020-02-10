@@ -11,6 +11,10 @@
     @if(count($user->vehicles) < 2)
     <p class="short-txt">Below is a list containing all your registered Vehicles. To edit or delete an Entry just click on it's title.</p>
     @endif
+    <form action="/vehicles/new" class="basic-form">
+        <button>Add</button>
+        <button class="sub-action" id="quickDelete">Delete</button>
+    </form>
     <div class="list">
     @foreach($userVehicles as $entry)
         <div class="list-item load-in" data-id="{{ $entry->id }}">
@@ -30,12 +34,7 @@
     @endforeach
     </div>
     
-    <form action="/vehicles/new" style="max-width: 100%;">
-        <input type="submit" value="Add new Vehicle" style="cursor: pointer;">
-    </form>
 </div>
-
-<input type="integer" id="userID" value="{{ $user->id }}" style="display: hidden;">
 
 <div class="side-box">
 
@@ -45,18 +44,27 @@
     <div id="currentMakeIcon">
         @include('vehicleIcons/VW')
     </div>
-    <h3><span id="currentMake">VW</span> <span id="currentModel">Golf TDI</span></h3>
-    <small><span id="currentKm">13.000</span> {{ $user->setting->unit }} / <span id="currentCosts">13.000</span>{{ $user->setting->currency->symbol }}</small>
+    <h3>
+        <span id="currentMake">VW</span>
+        <span id="currentModel">Golf TDI</span>
+    </h3>
+    <small>
+        <span id="currentKm">13.000</span> {{ $user->setting->unit }}
+        /
+        <span id="currentCosts">13.000</span>{{ $user->setting->currency->symbol }}
+    </small>
     <div class="plate" id="currentPlate">W 92493</div>
     <div class="actions">
         <a id="currentSelect" href="#">Select</a>
         <a id="currentMain" href="#">Set Main</a>
         <a id="currentEdit" href="#">Edit</a>
     </div>
+
     <form action="" method="post" style="display:none;" aria-hidden="true" id="selectForm">
     @csrf
         <input type="number" name="userID" value="{{ $user->id }}">
     </form>
+
     <form action="" method="post" style="display:none;" aria-hidden="true" id="mainForm">
     @csrf
         <input type="number" name="userID" value="{{ $user->id }}">

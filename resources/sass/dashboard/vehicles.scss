@@ -2,3 +2,12 @@
     opacity: 0;
     transform: scale(1.1);
 }
+
+.list.deleting {
+    .list-item {
+        &:hover {
+            color: tomato;
+            outline: 2px solid tomato !important;
+        }
+    }
+}

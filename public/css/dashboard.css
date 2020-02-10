@@ -245,3 +245,8 @@ a.return-button svg {
   opacity: 1;
 }
 
+.container.centered {
+  width: 600px !important;
+  margin: 0 auto;
+}
+
