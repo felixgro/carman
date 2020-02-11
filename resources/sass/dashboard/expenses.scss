@@ -1,12 +1,8 @@
-.expense-type-1 {
-    color: hsl(240, 30%, 35%);
+.toggle-scope {
+    width: fit-content;
+    position: absolute;
+    right: 0;
 }
-.expense-type-2 {
-    color: hsl(240, 30%, 35%);
-}
-.expense-type-3 {
-    color: hsl(240, 30%, 35%);
-}
-
-.fa-money-bill-wave {
+canvas {
+    position: relative;
 }

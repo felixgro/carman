@@ -12,11 +12,24 @@
   crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script defer src="{{ asset('js/expensesChart.js') }}"></script>
+<script defer src="{{ asset('js/form.js') }}"></script>
 
 <h1>Your Expenses</h1>
 
 <div class="container">
-    <div class="chart-container" style="padding-bottom: 50px">
+    <form class="toggle-scope basic-form">
+        <select name="scope" id="scope" class="select-scope">
+            <option value="all" selected>All</option>
+            <option value="week">Last Week</option>
+            <option value="year">Last Year</option>
+        </select>
+        <div class="multiple-choice" data-toggle=".select-scope">
+            <div class="option selected" data-value="1">All</div>
+            <div class="option" data-value="2">Last Week</div>
+            <div class="option" data-value="3">Last Year</div>
+        </div>
+    </form>
+    <div class="chart-container" style="padding: 50px; margin-bottom: -50px;">
         <canvas id="expensesChart" width="400" height="160" aria-label="Expenses Doughnut Chart" role="img"></canvas>
     </div>
 

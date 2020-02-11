@@ -1,12 +1,12 @@
-.expense-type-1 {
-  color: #3e3e74;
+.toggle-scope {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 0;
 }
 
-.expense-type-2 {
-  color: #3e3e74;
-}
-
-.expense-type-3 {
-  color: #3e3e74;
+canvas {
+  position: relative;
 }
 

@@ -19,6 +19,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/welcome/register.scss', 'public/css')
     .sass('resources/sass/dashboard.scss', 'public/css')
     .sass('resources/sass/dashboard/vehicles.scss', 'public/css')
+    .sass('resources/sass/dashboard/expenses.scss', 'public/css')
     
     .js('resources/js/welcome/welcomeLoad.js', 'public/js')
     .js('resources/js/dashboard/dashboardLoad.js', 'public/js')
