@@ -24,4 +24,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/dashboard/dashboardLoad.js', 'public/js')
     .js('resources/js/alert.js', 'public/js')
     .js('resources/js/form.js', 'public/js')
-    .js('resources/js/dashboard/vehicleList.js', 'public/js');
+    .js('resources/js/dashboard/vehicleList.js', 'public/js')
+    .js('resources/js/dashboard/expensesChart.js', 'public/js');

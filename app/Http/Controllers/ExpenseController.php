@@ -17,34 +17,10 @@ class ExpenseController extends Controller
     {
         $expenses = \DB::table('expenses')->where('vehicle_id', session('vehicle'))->get();
 
-        $ex_tik = [];
-        $ex_gas = [];
-        $ex_oth = [];
-
-        foreach($expenses as $ex) {
-            switch($ex->expense_type_id) {
-                case 1:
-                    $ex_gas[] = $ex;
-                break;
-                case 2:
-                    $ex_tik[] = $ex;
-                break;
-                case 3:
-                    $ex_oth[] = $ex;
-                break;
-                default:
-                dd('Oops.. Something went wrong!');
-            }
-        }
-
-
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
             'currentPage' => 'expenses',
-            'expenses' => $expenses,
-            'tickets' => $ex_tik,
-            'fuel' => $ex_gas,
-            'other' => $ex_oth
+            'expenses' => $expenses
         ]);
     }
 
@@ -171,5 +147,65 @@ class ExpenseController extends Controller
 
         $request->session()->flash('notification', ["Expense deleted", "{$expense->amount} {$expense->title}"]);
         return redirect('expenses');
+    }
+
+    /**
+     * Gibt die Summe aller einzelnen Ausgaben als Array zurück
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getData(Request $request)
+    {
+        $data = [];
+
+        if($request->scope == "all") {
+
+            $all = \DB::table('expenses')->where([
+                ['vehicle_id', session('vehicle')]
+            ])->get();
+            $sum = 0;
+            foreach($all as $a) {
+                $sum += $a->amount;
+            }
+    
+            $fuel = \DB::table('expenses')->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 1], 
+            ])->get();
+            $fuelSum = 0;
+            foreach($fuel as $f) {
+                $fuelSum += $f->amount;
+            }
+    
+            $tickets = \DB::table('expenses')->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 2], 
+            ])->get();
+            $ticketSum = 0;
+            foreach($tickets as $t) {
+                $ticketSum += $t->amount;
+            }
+    
+            $other = \DB::table('expenses')->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 3], 
+            ])->get();
+            $otherSum = 0;
+            foreach($other as $o) {
+                $otherSum += $o->amount;
+            }
+        }
+        
+
+        $data = [
+            'sum' => $sum,
+            'ticket_sum' => $ticketSum,
+            'fuel_sum' => $fuelSum,
+            'other_sum' => $otherSum
+        ];
+
+
+        return response()->json($data);;
     }
 }

@@ -15,6 +15,10 @@
         <button>Add</button>
         <button class="sub-action" id="quickDelete">Delete</button>
     </form>
+    <form action="/vehicles" method="post" id="quickDeleteForm" aria-hidden="true">
+            @method('DELETE')
+            @csrf
+    </form>
     <div class="list">
     @foreach($userVehicles as $entry)
         <div class="list-item load-in" data-id="{{ $entry->id }}">

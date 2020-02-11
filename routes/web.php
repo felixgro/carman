@@ -48,6 +48,8 @@ Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('ex
 Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
 Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');
 
+Route::get('/expenses/{id}/getData', 'ExpenseController@getData');
+
 // Dependency Routes
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
 Route::get('/dependencies/new', 'DependencyController@create');

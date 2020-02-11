@@ -237,7 +237,12 @@
   };
 
   var clickedOnVehicle = function clickedOnVehicle(event) {
-    if (confirm('Are you sure you want to delete ?')) {} else {}
+    if (confirm('Are you sure you want to delete this vehicle ?')) {
+      var deleteForm = document.getElementById('quickDeleteForm');
+      deleteForm.action = "vehicles/" + event.target.dataset.id;
+      deleteForm.submit();
+    } else {// Todo: Meldung ausgeben
+    }
   };
 
   var changeButtonStyle = function changeButtonStyle() {

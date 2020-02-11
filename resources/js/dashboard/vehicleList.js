@@ -154,10 +154,12 @@
     }
 
     const clickedOnVehicle = (event) => {
-        if (confirm('Are you sure you want to delete ?')) {
-
+        if (confirm('Are you sure you want to delete this vehicle ?')) {
+            let deleteForm = document.getElementById('quickDeleteForm');
+            deleteForm.action = "vehicles/" + event.target.dataset.id
+            deleteForm.submit();
         } else {
-
+            // Todo: Meldung ausgeben
         }
     }   
 

@@ -20,6 +20,7 @@ class VehicleController extends Controller
         return view('home.vehicles.all', [
             'title' => 'Vehicle Dashboard',
             'currentPage' => 'vehicles',
+            // Todo: User Specific Vehicles
             'userVehicles' => \App\Vehicle::orderBy('vehicle_manufacture_id')->get()
         ]);
     }
@@ -122,7 +123,7 @@ class VehicleController extends Controller
             return back();
         }
 
-        $request->session()->flash('notification', ["{$vehicle->vehicle_manufacture->title} {$vehicle->model}", "Deleted successfully."]);
+        $request->session()->flash('notification', ["Deleted successfully", "{$vehicle->vehicle_manufacture->title} {$vehicle->model}"]);
 
         \DB::table('vehicles')->where('id', $vehicle->id)->delete();
 
@@ -196,7 +197,6 @@ class VehicleController extends Controller
             'km' => $vehicle->km,
             'plate' => $vehicle->plate,
             'totalCost' => $totalCost,
-            'totalKM' => 13034
         ];
 
         return response()->json($data);

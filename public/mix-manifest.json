@@ -9,6 +9,7 @@
     "/css/dashboard.css": "/css/dashboard.css",
     "/css/vehicles.css": "/css/vehicles.css",
     "/js/dashboardLoad.js": "/js/dashboardLoad.js",
+    "/js/expensesChart.js": "/js/expensesChart.js",
     "/js/form.js": "/js/form.js",
     "/js/vehicleList.js": "/js/vehicleList.js",
     "/js/welcomeLoad.js": "/js/welcomeLoad.js"

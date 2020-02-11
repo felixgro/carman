@@ -6,17 +6,37 @@
 <link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
 <link rel="stylesheet" href=" {{ asset('css/expenses.css') }}">
 
-<h1>Expenses</h1>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore ea expedita assumenda sint voluptate, et iste accusamus repellat explicabo atque aut rem omnis molestiae. Quae aliquam maxime rem placeat error?</p>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script defer src="{{ asset('js/expensesChart.js') }}"></script>
+
+<h1>Your Expenses</h1>
 
 <div class="container">
     <div class="chart-container" style="padding-bottom: 50px">
         <canvas id="expensesChart" width="400" height="160" aria-label="Expenses Doughnut Chart" role="img"></canvas>
     </div>
-    <div class="sub-action">
-        <a href="/expenses/new"><i class="fas fa-plus-square"></i> Add Expense</a>
-    </div>
 
+    <div class="list">
+    @foreach($expenses as $entry)
+        <div class="list-item load-in" data-id="{{ $entry->id }}">
+            <div class="icon">
+                @include('vehicleTypes/car')
+                <br>
+                @include('vehicleIcons/bmw')
+            </div>
+            <div class="title">
+                <h3>{{ $entry->title }}</h3>
+                <small>{{ $entry->created_at }}</small>
+            </div>
+            <div class="side">
+                {{ $entry->amount }} {{ $user->setting->currency->symbol }}
+            </div>
+        </div>
+    @endforeach
     <table>
         <thead>
             <th></th>
@@ -46,59 +66,6 @@
     </table>
 </div>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-    let canvas = document.getElementById('expensesChart');
-    let ctx = canvas.getContext('2d');
-
-    let chart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: [
-                'Gas Station',
-                'Tickets',
-                'Other'
-                ],
-            datasets: [{
-                label: 'All Expenses',
-                data: [
-                    {{ count($fuel) ?? 0 }},
-                    {{ count($tickets) ?? 0 }},
-                    {{ count($other) ?? 0 }}
-                ],
-                borderWidth: 0,
-                backgroundColor: [
-                    'hsl(240, 30%, 35%)',
-                    'hsla(355, 80%, 58%, 1)',
-                    'hsl(40, 80%, 70%)'
-                ]
-            }]
-        },
-        options: {
-            cutoutPercentage: 50,
-            legend: {
-                position: 'bottom'
-            },
-            tooltips: {
-                enabled: true,
-                cornerRadius: 2,
-                /*
-                custom: (tooltipModel) => {
-                    var tooltipEl = document.getElementById('chart-tooltip');
-
-                    // Create element on first render
-                    if (!tooltipEl) {
-                        tooltipEl = document.createElement('div');
-                        tooltipEl.id = 'chart-tooltip';
-                        tooltipEl.innerHTML = '<table></table>';
-                        document.body.appendChild(tooltipEl);
-                    }
-                }*/
-            }
-        }
-    });
-
 </script>
 @endsection
