@@ -20,7 +20,12 @@
     <div class="spacer">
         <label for="fuel">Fuel</label>
         <p>Choose a Propellant</p>
-        <select name="fuel" id="fuel" class="fuel-select">
+        @error('fuel')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
+        <select name="fuel" id="fuel" class="fuel-select @error('fuel') error @enderror">
             @foreach($fuels as $fuel)
             <option value="{{ $fuel->id }}" @if($fuel->id == old('fuel')) selected @endif>{{ $fuel->title }}</option>
             @endforeach
@@ -34,7 +39,13 @@
     <div class="spacer">
         <label for="make">Manufacturer</label>
         <p>Choose a Brand</p>
-        <select id="make" name="make">
+        @error('make')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
+        <select id="make" name="make" @error('make') class="error" @enderror>
+            <option>...</option>
             @foreach($manufacturers as $man)
             <option value="{{ $man->id }}" @if($man->id == old('make')) selected @endif>{{ $man->title }}</option>
             @endforeach
@@ -43,17 +54,32 @@
     <div class="spacer">
         <label for="model">Model</label>
         <p>Model/Series Name</p>
-        <input name="model" id="model" type="text" value="{{ old('model') }}"></input>
+        @error('model')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
+        <input name="model" id="model" type="text" value="{{ old('model') }}" @error('model') class="error" @enderror></input>
     </div>
     <div class="spacer">
         <label for="plate">Plate</label>
         <p>Current Plate</p>
-        <input name="plate" id="plate" type="text" value="{{ old('plate') }}"></input>
+        @error('plate')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
+        <input name="plate" id="plate" type="text" value="{{ old('plate') }}"@error('plate') class="error" @enderror></input>
     </div>
     <div class="spacer">
         <label for="km">Millage</label>
         <p>Current Millage</p>
-        <input name="km" id="km" type="text" value="{{ old('km') }}"></input>
+        @error('km')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
+        <input name="km" id="km" type="text" value="{{ old('km') }}" @error('km') class="error" @enderror></input>
     </div>
     <div class="spacer">
         <button>Add Vehicle</button>

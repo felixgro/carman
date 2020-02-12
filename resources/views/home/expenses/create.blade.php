@@ -1,82 +1,24 @@
 @extends('dashboard')
 
 @section('content')
+
 <link rel="stylesheet" href="{{ asset('css/vehicles.css') }}">
 <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
 
-<a href="{{ route('expenses') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
-<h1>Add new Expense</h1>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore ea expedita assumenda sint voluptate, et iste accusamus repellat explicabo atque aut rem omnis molestiae. Quae aliquam maxime rem placeat error?</p>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<div class="container">
-    <form action="/expenses" method="post">
-        @csrf
-
-        <div>
-            <label for="type">Expense Type</label>
-            @error('type')
-                <p class="form-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </p>
-            @enderror
-            <p>What kind of Purchase do you want to add ?</p>
-            <select name="type" id="type" @error('type') class="error" @enderror>
-                <option value="">Choose a Type</option>
-                @foreach ($types as $type)
-                    <option value="{{ $type->id }}" @if($type->id == old('type')) selected="selected" @endif>{{ $type->title }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div>
-            <label for="title">Title</label>
-            @error('title')
-                <p class="form-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </p>
-            @enderror
-            <p>The Title of the expense (f.e. 'Motoroil')</p>
-            <input type="text" name="title" id="title" value="{{ old('title') }}" @error('title') class="error" @enderror>
-        </div>
-
-        <div>
-            <label for="amount">Amount</label>
-            @error('amount')
-                <p class="form-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </p>
-            @enderror
-            <p>The Amount of the Expense without currency (f.e. '13.4')</p>
-            <input type="text" name="amount" id="amount" value="{{ old('amount') }}" @error('amount') class="error" @enderror>
-        </div>
-
-        <div>
-            <label for="description">Description</label>
-            @error('description')
-                <p class="form-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </p>
-            @enderror
-            <p>You may add some details to the purchase. (not required)</p>
-            <textarea name="description" id="description" rows="10" @error('description') class="error" @enderror>{{ old('description') }}</textarea>
-        </div>
-
-        <div>
-            <label for="date">Date</label>
-            @error('date')
-                <p class="form-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </p>
-            @enderror
-            <p>The Date of Purchase. If it's today, leave this field empty.</p>
-            <input type="date" name="date" id="date" value="{{ old('date') }}" @error('date') class="error" @enderror>
-        </div>
-
-        <div>
-            <input type="submit" value="Add new Expense" name="submit">
-        </div>
-
-    </form>
+<div class="container centered">
+    <a href="{{ route('expenses') }}" class="return-button">
+        <svg enable-background="new 0 0 330 330" version="1.1" viewBox="0 0 330 330" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <path d="m165 0c-90.981 0-165 74.019-165 165s74.019 165 165 165 165-74.019 165-165-74.019-165-165-165zm40.606 234.39c5.858 5.857 5.858 15.355 0 21.213-2.928 2.928-6.767 4.393-10.606 4.393s-7.678-1.464-10.606-4.394l-80-79.998c-2.813-2.813-4.394-6.628-4.394-10.606s1.58-7.794 4.394-10.607l80-80.002c5.857-5.858 15.355-5.858 21.213 0 5.858 5.857 5.858 15.355 0 21.213l-69.393 69.396 69.392 69.392z"/>
+        </svg>
+    </a>
+    @include('../../forms/addExpense')
 </div>
+
+
+
+
 
 @endsection

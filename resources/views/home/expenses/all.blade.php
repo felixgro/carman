@@ -32,7 +32,10 @@
     <div class="chart-container" style="padding: 50px; margin-bottom: -50px;">
         <canvas id="expensesChart" width="400" height="160" aria-label="Expenses Doughnut Chart" role="img"></canvas>
     </div>
-
+    <form action="/expenses/new" class="basic-form">
+        <button>Add Expense</button>
+        <!--button-- class="sub-action" id="quickDelete">Delete</!--button-->
+    </form>
     <div class="list">
     @foreach($expenses as $entry)
         <div class="list-item load-in" data-id="{{ $entry->id }}">
@@ -50,34 +53,7 @@
             </div>
         </div>
     @endforeach
-    <table>
-        <thead>
-            <th></th>
-            <th>Purchase</th>
-            <th>Costs</th>
-        </thead>
-        <tbody>
-            @foreach($expenses as $expense)
-            <tr tabindex="0">
-                <td><i class="fas fa-money-bill-wave-alt expense-type-{{ $expense->expense_type_id }}"></i></td>
-                <td class="title">
-                    <a href="/expenses/{{ $expense->id }}" tabindex="-1">
-                        <strong>{{ $expense->title }}</strong>
-                    </a>
-                    <br>
-                        <span>
-                            @php
-                                $timestamp = new \Carbon\Carbon($expense->created_at);
-                                echo $timestamp->toFormattedDateString();
-                            @endphp
-                        </span>
-                </td>
-                <td><strong>{{ $expense->amount }}</strong> EUR</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+    </div>
 
 <script>
 </script>

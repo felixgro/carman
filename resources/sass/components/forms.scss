@@ -17,6 +17,9 @@ form.basic-form {
     }
     select, input, textarea {
       margin-top: 1px;
+      &.error {
+        border-color: tomato;
+      }
     }
     input, textarea {
       background-color: #fff;
@@ -32,10 +35,13 @@ form.basic-form {
         border-color: $color-main;
         box-shadow: 0 0 20px rgba(0,0,0,0.07);
       }
+      &.error {
+        border-color: tomato !important;
+      }
     }
     textarea {
-      max-width: 450px;
-      min-width: 450px;
+      max-width: 350px;
+      min-width: 350px;
       min-height: 100px;
     }
     fieldset {
@@ -107,7 +113,22 @@ form.basic-form {
       margin-top: -5px;
       opacity: .9;
       font-weight: 500;
+      max-width: 350px;
+      line-height: 1.3em;
       letter-spacing: 1px;
+      &.form-error {
+        font-size: .5em;
+        margin: 2px;
+        border-radius: 2px;
+        padding: 2px 12px;
+        background: tomato;
+        color:#eee;
+        height: auto;
+        max-width: 260px;
+        line-height: 16px;
+        width: fit-content;
+      }
+
     }
     select {
         border: 2px solid #ddd;

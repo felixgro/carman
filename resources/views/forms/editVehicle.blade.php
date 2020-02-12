@@ -6,6 +6,11 @@
     <div class="spacer">
         <label for="type">Vehicle Type</label>
         <p>Choose a Type</p>
+        @error('type')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <select name="type" id="type" class="type-select">
             @foreach($types as $type)
             <option value="{{ $type->id }}" @if($type->id == $editVehicle->vehicle_type->id) selected @endif>{{ $type->title }}</option>
@@ -20,6 +25,11 @@
     <div class="spacer">
         <label for="fuel">Fuel</label>
         <p>Choose a Propellant</p>
+        @error('fuel')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <select name="fuel" id="fuel" class="fuel-select">
             @foreach($fuels as $fuel)
             <option value="{{ $fuel->id }}" @if($fuel->id == $editVehicle->vehicle_fuel->id) selected @endif>{{ $fuel->title }}</option>
@@ -34,6 +44,11 @@
     <div class="spacer">
         <label for="make">Manufacturer</label>
         <p>Choose a Brand</p>
+        @error('make')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <select id="make" name="make">
             @foreach($manufacturers as $man)
             <option value="{{ $man->id }}" @if($man->id == $editVehicle->vehicle_manufacture->id) selected @endif>{{ $man->title }}</option>
@@ -43,16 +58,31 @@
     <div class="spacer">
         <label for="model">Model</label>
         <p>Model/Series Name</p>
+        @error('model')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <input name="model" id="model" type="text" value="{{ $editVehicle->model }}"></input>
     </div>
     <div class="spacer">
         <label for="plate">Plate</label>
         <p>Current Plate</p>
+        @error('plate')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <input name="plate" id="plate" type="text" value="{{ $editVehicle->plate }}"></input>
     </div>
     <div class="spacer">
         <label for="km">Millage</label>
         <p>Current Millage</p>
+        @error('km')
+            <p class="form-error" role="alert">
+                {{ $message }}
+            </p>
+        @enderror
         <input name="km" id="km" type="text" value="{{ $editVehicle->km }}"></input>
     </div>
     <div class="spacer">
