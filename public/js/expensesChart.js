@@ -116,6 +116,7 @@
       options: {
         cutoutPercentage: 50,
         legend: {
+          display: false,
           position: 'bottom'
         },
         tooltips: {

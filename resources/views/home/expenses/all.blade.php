@@ -25,8 +25,8 @@
         </select>
         <div class="multiple-choice" data-toggle=".select-scope">
             <div class="option selected" data-value="1">All</div>
-            <div class="option" data-value="2">Last Week</div>
-            <div class="option" data-value="3">Last Year</div>
+            <div class="option" data-value="2">This Week</div>
+            <div class="option" data-value="3">This Year</div>
         </div>
     </form>
     <div class="chart-container" style="padding: 50px; margin-bottom: -50px;">
