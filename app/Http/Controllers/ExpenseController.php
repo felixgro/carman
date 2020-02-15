@@ -164,37 +164,82 @@ class ExpenseController extends Controller
             $all = \DB::table('expenses')->where([
                 ['vehicle_id', session('vehicle')]
             ])->get();
-            $sum = 0;
-            foreach($all as $a) {
-                $sum += $a->amount;
-            }
-    
+            
             $fuel = \DB::table('expenses')->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 1], 
             ])->get();
-            $fuelSum = 0;
-            foreach($fuel as $f) {
-                $fuelSum += $f->amount;
-            }
     
             $tickets = \DB::table('expenses')->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 2], 
             ])->get();
-            $ticketSum = 0;
-            foreach($tickets as $t) {
-                $ticketSum += $t->amount;
-            }
     
             $other = \DB::table('expenses')->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 3], 
             ])->get();
-            $otherSum = 0;
-            foreach($other as $o) {
-                $otherSum += $o->amount;
-            }
+            
+        } elseif ($request->scope == "week") {
+
+            $all = \App\Expense::thisWeek()->where('vehicle_id', session('vehicle'))->get();
+
+            $fuel = \App\Expense::thisWeek()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 1]
+            ])->get();
+
+            $tickets = \App\Expense::thisWeek()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 2]
+            ])->get();
+
+            $other = \App\Expense::thisWeek()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 3]
+            ])->get();
+
+        } else if ($request->scope == "year") {
+
+            $all = \App\Expense::thisYear()->where('vehicle_id', session('vehicle'))->get();
+
+            $fuel = \App\Expense::thisYear()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 1]
+            ])->get();
+
+            $tickets = \App\Expense::thisYear()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 2]
+            ])->get();
+
+            $other = \App\Expense::thisYear()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 3]
+            ])->get();
+
+        } else {
+            return response()->json('Invalid Scope');
+        }
+
+        $sum = 0;
+        foreach($all as $a) {
+            $sum += $a->amount;
+        }
+
+        $fuelSum = 0;
+        foreach($fuel as $f) {
+            $fuelSum += $f->amount;
+        }
+
+        $ticketSum = 0;
+        foreach($tickets as $t) {
+            $ticketSum += $t->amount;
+        }
+
+        $otherSum = 0;
+        foreach($other as $o) {
+            $otherSum += $o->amount;
         }
         
 
