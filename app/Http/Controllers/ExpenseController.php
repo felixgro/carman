@@ -15,7 +15,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = \DB::table('expenses')->where('vehicle_id', session('vehicle'))->get();
+        $expenses = \DB::table('expenses')
+                        ->where('vehicle_id', session('vehicle'))
+                        ->get();
 
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
@@ -173,28 +175,38 @@ class ExpenseController extends Controller
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 2], 
             ])->get();
+
+            $service = \DB::table('expenses')->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 3]
+            ])->get();
     
             $other = \DB::table('expenses')->where([
                 ['vehicle_id', session('vehicle')],
-                ['expense_type_id', 3], 
+                ['expense_type_id', 4], 
             ])->get();
             
-        } elseif ($request->scope == "week") {
-            $all = \App\Expense::thisWeek()->where('vehicle_id', session('vehicle'))->get();
+        } elseif ($request->scope == "month") {
+            $all = \App\Expense::thisMonth()->where('vehicle_id', session('vehicle'))->get();
 
-            $fuel = \App\Expense::thisWeek()->where([
+            $fuel = \App\Expense::thisMonth()->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 1]
             ])->get();
 
-            $tickets = \App\Expense::thisWeek()->where([
+            $tickets = \App\Expense::thisMonth()->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 2]
             ])->get();
 
-            $other = \App\Expense::thisWeek()->where([
+            $service = \App\Expense::thisMonth()->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 3]
+            ])->get();
+
+            $other = \App\Expense::thisMonth()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 4]
             ])->get();
 
         } else if ($request->scope == "year") {
@@ -210,9 +222,14 @@ class ExpenseController extends Controller
                 ['expense_type_id', 2]
             ])->get();
 
-            $other = \App\Expense::thisYear()->where([
+            $service = \App\Expense::thisYear()->where([
                 ['vehicle_id', session('vehicle')],
                 ['expense_type_id', 3]
+            ])->get();
+
+            $other = \App\Expense::thisYear()->where([
+                ['vehicle_id', session('vehicle')],
+                ['expense_type_id', 4]
             ])->get();
 
         } else {
@@ -223,6 +240,7 @@ class ExpenseController extends Controller
         $sum        = $this->getSum($all);
         $fuelSum    = $this->getSum($fuel);
         $ticketSum  = $this->getSum($tickets);
+        $serviceSum = $this->getSum($service);
         $otherSum   = $this->getSum($other);
         
         $data = [
@@ -230,6 +248,7 @@ class ExpenseController extends Controller
             'sum'           => round($sum, 2),
             'ticket_sum'    => round($ticketSum, 2),
             'fuel_sum'      => round($fuelSum, 2),
+            'service_sum'   => round($serviceSum, 2),
             'other_sum'     => round($otherSum, 2)
         ];
 

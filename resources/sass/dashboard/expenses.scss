@@ -11,3 +11,43 @@
 canvas {
     position: relative;
 }
+
+#noExpenses {
+    display: none;
+    position: absolute;
+    width: fit-content;
+    color: #ccc;
+    font-size: .8em;
+}
+
+.scope-data {
+    position: absolute;
+    line-height: 1.1em;
+    letter-spacing: 1px;
+    text-align: left;
+    margin-top: 15px;
+    transition: all .3s ease-out;
+    .main {
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        padding: 2px 40px 10px 10px;
+    }
+    .smaller {
+        transform: scale(.9);
+        h2 {
+            font-size: 1.2em;
+            opacity: .8;
+        }
+    }
+    h2 {
+        font-size: 1.5em;
+        opacity: .8;
+    }
+    small {
+        font-size: .5em;
+        opacity: .2;
+        font-weight: 900;
+    }
+    small.currency {
+        font-size: .8em;
+    }
+}

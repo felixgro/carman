@@ -83,7 +83,7 @@
         </a>
         <a href="" class="item current-vehicle">
             @include($vehicle->vehicle_manufacture->icon)
-            <span class="menu-txt">{{ $vehicle->model }}</span>
+            <span class="menu-txt"></span>
         </a>
     </div>
     <div class="wrapper">

@@ -16,11 +16,11 @@ class Expense extends Model
         return $this->belongsTo('App\Vehicle');
     }
 
-    public function scopeThisWeek($query)
+    public function scopeThisMonth($query)
     {
         $now = \Carbon\Carbon::now();
 
-        return $query->where('created_at', '>', $now->startOfWeek()->format('Y-m-d H:i:s'));
+        return $query->where('created_at', '>', $now->startOfMonth()->format('Y-m-d H:i:s'));
     }
 
     public function scopeThisYear($query)

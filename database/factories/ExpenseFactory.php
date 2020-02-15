@@ -11,7 +11,7 @@ $factory->define(Expense::class, function (Faker $faker) {
         'expense_type_id' => $faker->numberBetween(1, count(\App\ExpenseType::all())),
         'title' => $faker->company,
         'description' => $faker->text,
-        'created_at' => $faker->dateTimeBetween($startDate = '-5 years', $endDate = 'now'),
+        'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
         'amount' => $faker->randomFloat(Null, $min = 3, $max = 500)
     ];
 });

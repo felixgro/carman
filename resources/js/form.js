@@ -5,6 +5,7 @@
     const container = document.querySelectorAll('.multiple-choice');
 
     const click = (event) => {
+
         const element = event.target;
         const parent = event.target.parentElement;
 

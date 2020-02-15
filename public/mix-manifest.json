@@ -12,6 +12,7 @@
     "/js/dashboardLoad.js": "/js/dashboardLoad.js",
     "/js/expensesChart.js": "/js/expensesChart.js",
     "/js/form.js": "/js/form.js",
+    "/js/numberConverter.js": "/js/numberConverter.js",
     "/js/vehicleList.js": "/js/vehicleList.js",
     "/js/welcomeLoad.js": "/js/welcomeLoad.js"
 }

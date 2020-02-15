@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -99,10 +99,10 @@
 */
 (function () {
   var options = document.querySelectorAll('.multiple-choice .option');
+  var dataContainer = document.querySelector('.scope-data');
   var canvas = document.getElementById('expensesChart');
   var ctx = canvas.getContext('2d');
   var chart;
-  console.dir(options);
 
   var drawChart = function drawChart(data) {
     var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
@@ -111,12 +111,12 @@
       chart = new Chart(ctx, {
         type: 'pie',
         data: {
-          labels: ['Gas Station', 'Tickets', 'Other'],
+          labels: ['Gas Station', 'Tickets', 'Service', 'Other'],
           datasets: [{
             label: 'All Expenses',
-            data: [data.fuel, data.ticket, data.other],
+            data: [data.fuel, data.ticket, data.service, data.other],
             borderWidth: 0,
-            backgroundColor: ['hsl(240, 30%, 35%)', 'hsla(355, 80%, 58%, 1)', 'hsl(40, 80%, 70%)']
+            backgroundColor: ['hsl(240, 30%, 35%)', 'hsla(355, 80%, 58%, 1)', 'hsl(40, 80%, 70%)', 'lightgrey']
           }]
         },
         options: {
@@ -127,15 +127,24 @@
           },
           tooltips: {
             enabled: true,
-            cornerRadius: 2
+            cornerRadius: 2,
+            callbacks: {
+              label: function label(tooltipItems, data) {
+                var value = " " + data.datasets[0].data[tooltipItems.index];
+                return value + ' €';
+              }
+            }
           }
         }
       });
     } else {
-      chart.data.datasets[0].data = [data.fuel, data.ticket, data.other];
+      chart.data.datasets[0].data = [data.fuel, data.ticket, data.service, data.other];
       chart.update();
     }
-  };
+
+    updateScopeData(data);
+  }; // Sendet AJAX-Request mit Scope und UserID and /expenses/userID/getData
+
 
   var getData = function getData(id, scope) {
     var url = "/expenses/" + id + "/getData";
@@ -152,14 +161,24 @@
       },
       success: function success(res) {
         var data = {
+          'total': res.sum,
           'fuel': res.fuel_sum,
           'ticket': res.ticket_sum,
+          'service': res.service_sum,
           'other': res.other_sum
-        };
+        }; // Falls im angefragten Scope keine Ausgaben existieren
+
+        if (res.sum === 0) {
+          nothingToShow();
+        } else {
+          somethingToShow();
+        }
+
         drawChart(data, ctx);
       }
     });
-  };
+  }; // Wenn auf Scope Button geklickt wurde
+
 
   var scopeClicked = function scopeClicked(event) {
     var value = parseInt(event.target.dataset.value);
@@ -172,7 +191,7 @@
       // This Week
 
       case 2:
-        getData(1, 'week');
+        getData(1, 'month');
         break;
       // This Year
 
@@ -185,7 +204,78 @@
     }
   };
 
-  getData(1, 'all');
+  var updateScopeData = function updateScopeData(data) {
+    var total = dataContainer.querySelector('h2');
+    var totalSum = getConvertedNumber(data.total);
+    total.innerHTML = totalSum;
+    document.querySelector('small.currency').innerHTML = getUserCurrency()["short"];
+    positionScopeData();
+    var percent = calculatePercentages(data);
+    document.getElementById('gasPercent').innerHTML = percent.fuel + "%";
+    document.getElementById('ticketPercent').innerHTML = percent.ticket + "%";
+    document.getElementById('servicePercent').innerHTML = percent.service + "%";
+    document.getElementById('otherPercent').innerHTML = percent.other + "%";
+    console.log(percent);
+  };
+
+  var positionScopeData = function positionScopeData() {
+    return 0;
+  };
+
+  var calculatePercentages = function calculatePercentages(data) {
+    var sum = data.total;
+    var fuel = data.fuel;
+    var ticket = data.ticket;
+    var service = data.service;
+    var other = data.other;
+    var onePercent = sum / 100;
+    return {
+      fuel: Math.round(fuel / onePercent),
+      service: Math.round(service / onePercent),
+      ticket: Math.round(ticket / onePercent),
+      other: Math.round(other / onePercent)
+    };
+  }; // Wird aufgerufen wenn eine Request die Summe 0 als Response geliefert hat
+
+
+  var nothingToShow = function nothingToShow() {
+    var msg = document.getElementById('noExpenses');
+    msg.style.display = 'block';
+    msg.style.opacity = 0;
+    setTimeout(function () {
+      var canvasRect = canvas.getBoundingClientRect();
+      var msgRect = msg.getBoundingClientRect(); // Ausrechnen der Position
+
+      var x = canvasRect.left + canvasRect.width / 2 - msgRect.width / 2;
+      var y = canvasRect.top + canvasRect.height / 2 - msgRect.height / 2; // Position Text
+
+      msg.style.left = x + "px";
+      msg.style.top = y + "px";
+      msg.style.opacity = 1;
+    }, 100);
+  };
+
+  var somethingToShow = function somethingToShow() {
+    var msg = document.getElementById('noExpenses');
+    msg.style.opacity = 0;
+    msg.style.display = 'none';
+  };
+
+  var getConvertedNumber = function getConvertedNumber(num) {
+    var knum = Math.abs(num) > 999 ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k' : Math.sign(num) * Math.abs(num);
+    return knum;
+  };
+
+  var getUserCurrency = function getUserCurrency() {
+    var symbol = document.getElementById('userCurrency').value;
+    var _short = document.getElementById('userCurrencyShort').value;
+    return {
+      symbol: symbol,
+      "short": _short
+    };
+  };
+
+  getData(1, 'all'); // Event-Listener Zuweisungen
 
   for (var i = 0; i < options.length; i++) {
     options[i].onclick = scopeClicked;
@@ -194,7 +284,7 @@
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!*******************************************************!*\
   !*** multi ./resources/js/dashboard/expensesChart.js ***!
   \*******************************************************/

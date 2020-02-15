@@ -6,7 +6,6 @@
         <label for="type">Expense Type</label>
         <p>Choose a Type</p>
         <select name="type" id="type" class="type-select @error('type') error @enderror">
-            <option value="">Choose a Type</option>
             @foreach ($types as $type)
                 <option value="{{ $type->id }}" @if($type->id == old('type')) selected="selected" @endif>{{ $type->title }}</option>
             @endforeach
