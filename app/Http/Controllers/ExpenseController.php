@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ExpenseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Zeigt Expenses Dashboard
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,7 +25,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Zeigt Formular zum Erstellen einer Expense
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,7 +40,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Speichert neuen Expenses Eintrag in der Datenbank
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -53,11 +53,6 @@ class ExpenseController extends Controller
         if($date === NULL) {
             $date = new \Carbon\Carbon();
             $date = $date->toDateString();
-        }
-
-        if (!$request->session()->has('vehicle')) {
-            $request->session()->flash('notification', ["Action Failed", "Please select a Vehicle."]);
-            return redirect('expenses');
         }
 
         \DB::table('expenses')->insert([
@@ -75,7 +70,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Zeigt eine einzelne Ausgabe
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -90,7 +85,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Zeigt das Bearbeitungsformular für Ausgaben
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -106,7 +101,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Expense wird nach Bearbeitung gespeichert
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -136,7 +131,7 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Expense $expense wird aus der Datenbank entfernt
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -150,7 +145,10 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Gibt die Summe aller einzelnen Ausgaben als Array zurück
+     * Gibt die Summer aller einzelnen Ausgabenkategorien für den Expenses Donut zurück-
+     * Als Get Request muss hierbei der Parameter scope mitgeschickt werden.
+     * Dieser kann 'all', 'week' oder 'year' enthalten
+     * Die Summen werden je nach Scope ausgerechnet und zurückgegeben
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -159,6 +157,7 @@ class ExpenseController extends Controller
     {
         $data = [];
 
+        // Daten werden dem Scope entsprechend gelesen
         if($request->scope == "all") {
 
             $all = \DB::table('expenses')->where([
@@ -222,6 +221,7 @@ class ExpenseController extends Controller
             return response()->json('Invalid Scope');
         }
 
+        // Summen werden ausgerechnet
         $sum = 0;
         foreach($all as $a) {
             $sum += $a->amount;
@@ -242,15 +242,13 @@ class ExpenseController extends Controller
             $otherSum += $o->amount;
         }
         
-
+        // Datenzuweisung und Response
         $data = [
             'sum' => $sum,
             'ticket_sum' => $ticketSum,
             'fuel_sum' => $fuelSum,
             'other_sum' => $otherSum
         ];
-
-
         return response()->json($data);;
     }
 }
