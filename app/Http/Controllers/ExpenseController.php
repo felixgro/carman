@@ -157,7 +157,7 @@ class ExpenseController extends Controller
     {
         $data = [];
 
-        // Daten werden dem Scope entsprechend gelesen
+        // Daten werden dem Scope entsprechend aus Datenbank gelesen
         if($request->scope == "all") {
 
             $all = \DB::table('expenses')->where([
@@ -180,7 +180,6 @@ class ExpenseController extends Controller
             ])->get();
             
         } elseif ($request->scope == "week") {
-
             $all = \App\Expense::thisWeek()->where('vehicle_id', session('vehicle'))->get();
 
             $fuel = \App\Expense::thisWeek()->where([
@@ -199,7 +198,6 @@ class ExpenseController extends Controller
             ])->get();
 
         } else if ($request->scope == "year") {
-
             $all = \App\Expense::thisYear()->where('vehicle_id', session('vehicle'))->get();
 
             $fuel = \App\Expense::thisYear()->where([
@@ -221,34 +219,38 @@ class ExpenseController extends Controller
             return response()->json('Invalid Scope');
         }
 
-        // Summen werden ausgerechnet
-        $sum = 0;
-        foreach($all as $a) {
-            $sum += $a->amount;
-        }
-
-        $fuelSum = 0;
-        foreach($fuel as $f) {
-            $fuelSum += $f->amount;
-        }
-
-        $ticketSum = 0;
-        foreach($tickets as $t) {
-            $ticketSum += $t->amount;
-        }
-
-        $otherSum = 0;
-        foreach($other as $o) {
-            $otherSum += $o->amount;
-        }
+        // Summen werden ausgerechnet um anschließend gerundet zu werden
+        $sum        = $this->getSum($all);
+        $fuelSum    = $this->getSum($fuel);
+        $ticketSum  = $this->getSum($tickets);
+        $otherSum   = $this->getSum($other);
         
-        // Datenzuweisung und Response
         $data = [
-            'sum' => $sum,
-            'ticket_sum' => $ticketSum,
-            'fuel_sum' => $fuelSum,
-            'other_sum' => $otherSum
+            // Runden der Daten auf 2 Dezimalstellen und Datenzuweisung
+            'sum'           => round($sum, 2),
+            'ticket_sum'    => round($ticketSum, 2),
+            'fuel_sum'      => round($fuelSum, 2),
+            'other_sum'     => round($otherSum, 2)
         ];
-        return response()->json($data);;
+
+        // Senden der Daten im JSON Format
+        return response()->json( $data );
+    }
+
+    /**
+     * Addiert alle Ausgaben einer Expense Query zusammen und gibt Summe als Float zurück
+     *
+     * @param  \App\Expense[]  $expenses
+     * @return float
+     */
+    private function getSum( $expenses )
+    {
+        $sum = 0;
+
+        foreach($expenses as $e) {
+            $sum += $e->amount;
+        }
+
+        return $sum;
     }
 }

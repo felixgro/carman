@@ -15,7 +15,10 @@
 <script defer src="{{ asset('js/form.js') }}"></script>
 
 <h1>Your Expenses</h1>
-
+<form action="/expenses/new" class="basic-form">
+        <button>Add Expense</button>
+        <!--button-- class="sub-action" id="quickDelete">Delete</!--button-->
+    </form>
 <div class="container">
     <form class="toggle-scope basic-form">
         <select name="scope" id="scope" class="select-scope">
@@ -32,10 +35,6 @@
     <div class="chart-container" style="padding: 50px; margin-bottom: -50px;">
         <canvas id="expensesChart" width="400" height="160" aria-label="Expenses Doughnut Chart" role="img"></canvas>
     </div>
-    <form action="/expenses/new" class="basic-form">
-        <button>Add Expense</button>
-        <!--button-- class="sub-action" id="quickDelete">Delete</!--button-->
-    </form>
     <div class="list">
     @foreach($expenses as $entry)
         <div class="list-item load-in" data-id="{{ $entry->id }}">
