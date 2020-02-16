@@ -19,6 +19,7 @@ class CreateSettingsTable extends Migration
             $table->unsignedBigInteger('vehicle_id');
             $table->unsignedBigInteger('currency_id');
             $table->boolean('select_main');
+            $table->boolean('show_expenses_percent');
             $table->string('unit');
             $table->integer('home')->nullable();
         });
@@ -27,6 +28,7 @@ class CreateSettingsTable extends Migration
             'user_id' => 1,
             'vehicle_id' => 1,
             'select_main' => true,
+            'show_expenses_percent' => true,
             'unit' => 'km',
             'currency_id' => 1
         ];

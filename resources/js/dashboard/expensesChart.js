@@ -52,7 +52,7 @@
                         callbacks: {
                             label: function(tooltipItems, data) { 
                                 let value = " " + data.datasets[0].data[ tooltipItems.index ];
-                                return value + ' €';
+                                return value + ' ' + getUserCurrency().symbol;
                             }
                         }
                     },
@@ -146,12 +146,12 @@
 
         let percent = calculatePercentages(data);
 
+
         document.getElementById('gasPercent').innerHTML = percent.fuel + "%";
         document.getElementById('ticketPercent').innerHTML = percent.ticket + "%";
         document.getElementById('servicePercent').innerHTML = percent.service + "%";
         document.getElementById('otherPercent').innerHTML = percent.other + "%";
 
-        console.log(percent);
     }
 
     const positionScopeData = () => {
@@ -159,19 +159,34 @@
     }
 
     const calculatePercentages = (data) => {
-        const sum     = data.total;
-        const fuel    = data.fuel;
-        const ticket  = data.ticket;
-        const service = data.service;
-        const other   = data.other;
+
+        const sum     = data.total ? data.total : 0;
+        const fuel    = data.fuel ? data.fuel : 0;
+        const ticket  = data.ticket ? data.ticket : 0;
+        const service = data.service ? data.service : 0;
+        const other   = data.other ? data.other : 0;
 
         const onePercent = sum / 100;
 
-        return {
-            fuel: Math.round(fuel / onePercent),
-            service: Math.round(service / onePercent),
-            ticket: Math.round(ticket / onePercent),
-            other: Math.round(other / onePercent)
+        // Um die Anzeige von NaN im UI zu vermeiden
+        if(onePercent === 0) {
+
+            return {
+                fuel: 0,
+                service: 0,
+                ticket: 0,
+                other: 0
+            }
+
+        } else {
+
+            // Ausgabe der Prozent
+            return {
+                fuel: Math.round(fuel / onePercent),
+                service: Math.round(service / onePercent),
+                ticket: Math.round(ticket / onePercent),
+                other: Math.round(other / onePercent)
+            }
         }
     }
 

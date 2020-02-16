@@ -28,6 +28,7 @@ class ExpenseRequest extends FormRequest
             'title' => 'required|string',
             'amount' => 'required|numeric',
             'description' => 'nullable|string',
+            'current_timestamp' => 'required',
             'date' => 'nullable|date'
         ];
     }

@@ -131,7 +131,7 @@
             callbacks: {
               label: function label(tooltipItems, data) {
                 var value = " " + data.datasets[0].data[tooltipItems.index];
-                return value + ' €';
+                return value + ' ' + getUserCurrency().symbol;
               }
             }
           }
@@ -215,7 +215,6 @@
     document.getElementById('ticketPercent').innerHTML = percent.ticket + "%";
     document.getElementById('servicePercent').innerHTML = percent.service + "%";
     document.getElementById('otherPercent').innerHTML = percent.other + "%";
-    console.log(percent);
   };
 
   var positionScopeData = function positionScopeData() {
@@ -223,18 +222,29 @@
   };
 
   var calculatePercentages = function calculatePercentages(data) {
-    var sum = data.total;
-    var fuel = data.fuel;
-    var ticket = data.ticket;
-    var service = data.service;
-    var other = data.other;
-    var onePercent = sum / 100;
-    return {
-      fuel: Math.round(fuel / onePercent),
-      service: Math.round(service / onePercent),
-      ticket: Math.round(ticket / onePercent),
-      other: Math.round(other / onePercent)
-    };
+    var sum = data.total ? data.total : 0;
+    var fuel = data.fuel ? data.fuel : 0;
+    var ticket = data.ticket ? data.ticket : 0;
+    var service = data.service ? data.service : 0;
+    var other = data.other ? data.other : 0;
+    var onePercent = sum / 100; // Um die Anzeige von NaN im UI zu vermeiden
+
+    if (onePercent === 0) {
+      return {
+        fuel: 0,
+        service: 0,
+        ticket: 0,
+        other: 0
+      };
+    } else {
+      // Ausgabe der Prozent
+      return {
+        fuel: Math.round(fuel / onePercent),
+        service: Math.round(service / onePercent),
+        ticket: Math.round(ticket / onePercent),
+        other: Math.round(other / onePercent)
+      };
+    }
   }; // Wird aufgerufen wenn eine Request die Summe 0 als Response geliefert hat
 
 

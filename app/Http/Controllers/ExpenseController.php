@@ -17,6 +17,7 @@ class ExpenseController extends Controller
     {
         $expenses = \DB::table('expenses')
                         ->where('vehicle_id', session('vehicle'))
+                        ->orderBy('created_at', 'desc')
                         ->get();
 
         return view('home.expenses.all', [
@@ -50,11 +51,16 @@ class ExpenseController extends Controller
     public function store(ExpenseRequest $request)
     {
         $data = $request->validated();
-        $date = $data['date'];
 
-        if($date === NULL) {
-            $date = new \Carbon\Carbon();
-            $date = $date->toDateString();
+        $requestDate = \Carbon\Carbon::create($data['date'] . " 00:00:00");
+        $currentDate = \Carbon\Carbon::now();
+
+        $compareDateRequest = $requestDate->format('Y-m-d');
+        $compareDateCurrent = $currentDate->format('Y-m-d');
+        if($compareDateCurrent == $compareDateRequest) {
+            $date = $data['current_timestamp'];
+        } else {
+            $date = $requestDate->format('Y-m-d') . " 00:00:00";
         }
 
         \DB::table('expenses')->insert([

@@ -48,10 +48,13 @@ class DashboardController extends Controller
 
             // $request->select_main: wenn nicht gesetzt: null, wenn gesetzt: "on" -> wird in 0 od. 1 umgewandelt
             $selectMain = $request->select_main ? 1 : 0;
+            $showExpensesPercent = $request->show_expenses_percent ? 1 : 0;
+
             $currency = \App\Currency::findOrFail($request->currency);
 
             \DB::table('settings')->where('id', $setting->id)->update([
                 'select_main' => $selectMain,
+                'show_expenses_percent' => $showExpensesPercent,
                 'unit' => $request->unit,
                 'currency_id' => $currency->id
             ]);

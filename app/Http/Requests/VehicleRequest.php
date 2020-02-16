@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class VehicleRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Nur angemeldete User sind für diese Request authorisiert
      *
      * @return bool
      */
@@ -17,22 +17,27 @@ class VehicleRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Die Validierungregeln
      *
      * @return array
      */
     public function rules()
     {
         return [
-            'type' => 'required|integer',
-            'fuel' => 'required|integer',
-            'make' => 'required|integer',
+            'type'  => 'required|integer',
+            'fuel'  => 'required|integer',
+            'make'  => 'required|integer',
             'model' => 'required',
-            'km' => 'required|integer',
+            'km'    => 'required|integer',
             'plate' => 'required'
         ];
     }
     
+
+
+
+
+
     public function attributes()
     {
         return [

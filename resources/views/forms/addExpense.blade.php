@@ -1,4 +1,3 @@
-<script defer src="{{ asset('js/form.js') }}"></script>
 <form action="/expenses" method="post" class="basic-form">
     @csrf
 
@@ -40,15 +39,17 @@
     </div>
 
     <div class="spacer">
-        <label for="date">Date (dd.mm.yyyy)</label>
+        <label for="date">Date (mm/dd/yyyy)</label>
         <p>The Date of Purchase</p>
         @error('date')
             <p class="form-error" role="alert">
                 {{ $message }}
             </p>
         @enderror
-        <input type="text" name="date" id="date" value="{{ old('date') }}" @error('date') class="error" @enderror>
+        <input type="text" name="date" id="date" value="{{ old('date') ? old('date') : \Carbon\Carbon::now()->format('m/d/Y') }}" class="date-picker @error('date') error @enderror">
     </div>
+
+        <input type="hidden" aria-hidden="true" name="current_timestamp" value="{{ \Carbon\Carbon::now() }}">
 
     <div class="spacer">
         <label for="description">Description</label>

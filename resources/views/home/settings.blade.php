@@ -44,6 +44,12 @@
         </label>
     </div>
     <div class="spacer">
+        <label>
+        <input type="checkbox" name="show_expenses_percent" @if($user->setting->show_expenses_percent == 1) checked @endif>
+        show Percent in Expenses Chart
+        </label>
+    </div>
+    <div class="spacer">
         <button>Save Changes</button>
     </div>
 </form>

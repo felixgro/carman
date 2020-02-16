@@ -104,7 +104,7 @@
             </div>
             <div class="title">
                 <h3>{{ $entry->title }}</h3>
-                <small>{{ $entry->created_at }}</small>
+                <small>{{ dynamicDate($entry->created_at) }}</small>
             </div>
             <div class="side">
                 {{ $entry->amount }} {{ $user->setting->currency->symbol }}
