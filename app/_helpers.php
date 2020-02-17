@@ -40,3 +40,27 @@ function dynamicDate( $date )
 
     return $dd;
 }
+
+
+/**
+ * Kürtzt Text für Latest Expenses Liste auf 20 Zeichen inkl '..' am Ende
+ * 
+ * @param string $value
+ * @return string
+ */
+function oneRowText (string $value)
+{
+    $length =  strlen($value);
+
+    if($length > 20) {
+
+        $new = substr($value, 0, 18) . '..';
+
+
+        return $new;
+
+    } else {
+        return $value;
+    }
+
+}

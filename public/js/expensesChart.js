@@ -120,6 +120,7 @@
           }]
         },
         options: {
+          responsive: false,
           cutoutPercentage: 50,
           legend: {
             display: false,

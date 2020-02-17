@@ -18,7 +18,7 @@ class ExpenseController extends Controller
         $expenses = \DB::table('expenses')
                         ->where('vehicle_id', session('vehicle'))
                         ->orderBy('created_at', 'desc')
-                        ->get();
+                        ->simplePaginate(6);
 
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
