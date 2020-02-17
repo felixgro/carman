@@ -53,6 +53,7 @@
             <small class="currency"></small>
         </div>
 
+        @if($user->setting->show_expenses_percent == 1)
         <div class="smaller load-in">
             <small>Gas Station</small>
             <h2 id="gasPercent"></h2>
@@ -70,6 +71,8 @@
             <small>Other</small>
             <h2 id="otherPercent"></h2>
         </div>
+        @endif
+
     </div>
 
 
