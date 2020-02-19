@@ -184,6 +184,50 @@ canvas {
   letter-spacing: 1px;
 }
 
+.expenses-navigation {
+  position: relative;
+  margin: 20px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.expenses-navigation a {
+  margin: 0 30px;
+  color: #080816;
+  opacity: 0.3;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 0.6em;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+.expenses-navigation a:hover {
+  opacity: 0.9;
+}
+
+.search-box {
+  width: 380px;
+  height: auto;
+  background: #fff;
+}
+
+.search-box a {
+  box-sizing: border-box;
+  padding: 10px 16px;
+  font-size: 0.8em;
+  display: block;
+  color: #080816;
+  opacity: 0.6;
+  font-weight: bolder;
+}
+
+.search-box a:hover {
+  opacity: 1;
+}
+
 @media screen and (max-width: 1500px) {
   .expenses-list .item {
     width: calc(50% - 20px);

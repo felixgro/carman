@@ -16,7 +16,7 @@ class CreateExpenseTypesTable extends Migration
         Schema::create('expense_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('icon')->nullable();
+            $table->string('color')->nullable();
             $table->text('description')->nullable();
         });
 
@@ -24,19 +24,19 @@ class CreateExpenseTypesTable extends Migration
         $defaultTypes = [
             [
                 'title' => 'Gas Station',
-                'icon'  => 'expensesIcons/fuel'
+                'color'  => 'hsl(240, 30%, 35%)'
             ],
             [
                 'title' => 'Ticket',
-                'icon' => 'expensesIcons/ticket'
+                'color' => 'hsla(355, 80%, 58%, 1)'
             ],
             [
                 'title' => 'Service',
-                'icon' => 'expensesIcons/service'
+                'color' => 'hsl(40, 80%, 70%)'
             ],
             [
                 'title' => 'Other',
-                'icon' => 'expensesIcons/other'
+                'color' => 'lightgrey'
             ]
         ];
 

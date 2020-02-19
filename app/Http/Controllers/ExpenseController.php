@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Expense;
@@ -18,7 +17,7 @@ class ExpenseController extends Controller
         $expenses = \DB::table('expenses')
                         ->where('vehicle_id', session('vehicle'))
                         ->orderBy('created_at', 'desc')
-                        ->simplePaginate(6);
+                        ->paginate(6);
 
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
@@ -277,5 +276,17 @@ class ExpenseController extends Controller
         }
 
         return $sum;
+    }
+
+    /**
+     * Sucht nach Titeln, die die geg. Query enthalten, in allen Expenses des aktuellen Fahrzeugs
+     *
+     * @param  string  $query
+     * @return \Illuminate\Http\Response
+     */
+    public function getSearchResults(Request $request)
+    {   
+        return $request->query;
+        return 0;
     }
 }

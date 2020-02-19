@@ -103,16 +103,8 @@
             <div class="icon">
                     <svg viewBox="0 0 2 2" version="1.1"
                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="1" cy="1" r="1" style="fill: 
-                            @if($entry->expense_type_id == 1)
-                            hsl(240, 30%, 35%)
-                            @elseif($entry->expense_type_id == 2)
-                            hsla(355, 80%, 58%, 1)
-                            @elseif($entry->expense_type_id == 3)
-                            hsl(40, 80%, 70%)
-                            @else
-                            lightgrey
-                            @endif
+                        <circle cx="1" cy="1" r="1" style="fill:
+                            {{ \App\ExpenseType::find($entry->expense_type_id)->color }} 
                         "/>
                     </svg>
                 </div>
@@ -129,6 +121,28 @@
             
         </div>
     @endforeach
+    </div>
+    <div class="expenses-navigation">
+        @if($expenses->currentPage() !== 1)
+            <a href="{{ $expenses->previousPageURL() }}">< Back</a>
+        @endif
+
+        @if($expenses->currentPage() !== $expenses->lastPage())
+            <a href="{{ $expenses->nextPageURL() }}">Next ></a>
+        @endif
+    </div>
+    <div class="expemses-search">
+        Advanced Search
+        <form class="basic-form">
+            <div class="spacer">
+                <label for="search">Search</label>
+                <input type="text" id="search">
+            </div>
+            <div class="search-box">
+                <a href="#">Item 1</a>
+                <a href="#">Item 2</a>
+            </div>
+        </form>
     </div>
 </div>
 
