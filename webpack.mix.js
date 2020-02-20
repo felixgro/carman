@@ -27,4 +27,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/form.js', 'public/js')
     .js('resources/js/dashboard/vehicleList.js', 'public/js')
     .js('resources/js/dashboard/datepicker.js', 'public/js')
+    .js('resources/js/dashboard/expensesSearch.js', 'public/js')
     .js('resources/js/dashboard/expensesChart.js', 'public/js');

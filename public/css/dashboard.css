@@ -132,6 +132,16 @@ header #logoutBtn:hover {
   opacity: 1 !important;
 }
 
+@media screen and (min-width: 2200px) {
+  .nav {
+    width: 240px;
+  }
+
+  .nav span.menu-txt {
+    opacity: 0.2 !important;
+  }
+}
+
 .wrapper {
   margin: 170px auto;
 }

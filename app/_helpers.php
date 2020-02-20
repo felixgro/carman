@@ -14,7 +14,11 @@
 function dynamicDate( $date )
 {
     $now = \Carbon\Carbon::now();
-    $request = \Carbon\Carbon::create($date);
+    if(is_string($date)) {
+        $request = \Carbon\Carbon::create($date);
+    } else {
+        $request = \Carbon\Carbon::create($date->toDateTimeString());
+    }
 
     $dd = $request->format('M. d, Y');
 
@@ -52,9 +56,9 @@ function oneRowText (string $value)
 {
     $length =  strlen($value);
 
-    if($length > 20) {
+    if($length > 18) {
 
-        $new = substr($value, 0, 18) . '..';
+        $new = substr($value, 0, 16) . '..';
 
 
         return $new;

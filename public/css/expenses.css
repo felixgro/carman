@@ -98,6 +98,7 @@ canvas {
 }
 
 .expenses-list .item {
+  overflow: hidden;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -128,12 +129,13 @@ canvas {
 }
 
 .expenses-list .item:hover .icon svg {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(50);
+          transform: scale(50);
 }
 
 .expenses-list .item:hover .amount {
   width: 110px;
+  z-index: 10;
 }
 
 .expenses-list .icon svg {
@@ -141,6 +143,11 @@ canvas {
   transition: all 120ms ease-out;
   width: 10px;
   margin-bottom: 3px;
+  z-index: 0;
+}
+
+.expenses-list .upper {
+  z-index: 10;
 }
 
 .expenses-list .title h3 {

@@ -11,19 +11,25 @@
 |
 */
 
-// Landing Page
 Route::get('/', 'WelcomeController@index')->name('landing');
 
-// Basic Dashboard Routes
+
+/**
+ * Dashboard Routes
+ * 
+ */
 Route::get('/home', 'DashboardController@index')->name('home');
 Route::get('/settings', 'DashboardController@settings')->name('settings');
 Route::put('/settings/{id}', 'DashboardController@updateSettings');
 
-// Vehicle Routes
+
+/**
+ * Vehicle Routes
+ * 
+ */
 Route::get('/vehicles', 'VehicleController@index')->name('vehicles');
 Route::get('/vehicles/new', 'VehicleController@create');
 Route::post('/vehicles', 'VehicleController@store');
-// Vehicle Middleware (app/Http/Middleware/Expense)
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('vehicle');
 Route::put('/vehicles/{vehicle}', 'VehicleController@update')->middleware('vehicle');
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('vehicle');
@@ -31,26 +37,39 @@ Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy')->middleware('v
 Route::post('/vehicles/{vehicle}/select', 'VehicleController@select')->middleware('vehicle');
 Route::post('/vehicles/{vehicle}/main', 'VehicleController@main')->middleware('vehicle');
 
-Route::get('/vehicles/{vehicle}/getData', 'VehicleController@getData');
+Route::get('/vehicles/{vehicle}/getData', 'VehicleController@getData'); // AJAX
 
-// Route Routes
+/**
+ * Route Routes
+ * 
+ */
 Route::get('/routes', 'RouteController@index')->name('routes');
 // TODO: CRUD Operations
 // TODO: Route Middleware (app/Http/Middleware/Route)
 
-// Expenses Routes
+
+/**
+ * Expenses Routes
+ * 
+ */
 Route::get('/expenses', 'ExpenseController@index')->name('expenses');
 Route::get('/expenses/new', 'ExpenseController@create');
 Route::post('/expenses', 'ExpenseController@store');
-// Expense Middleware (app/Http/Middleware/Expense)
+
 Route::get('/expenses/{expense}', 'ExpenseController@show')->middleware('expense');;
 Route::get('/expenses/{expense}/edit', 'ExpenseController@edit')->middleware('expense');
 Route::put('/expenses/{expense}', 'ExpenseController@update')->middleware('expense');
 Route::delete('/expenses/{expense}', 'ExpenseController@destroy')->middleware('expense');
 
-Route::get('/expenses/{id}/getData', 'ExpenseController@getData');
+Route::get('/expenses/{id}/getData', 'ExpenseController@getData'); // für Ajax in ExpensesChart.js
 
-// Dependency Routes
+Route::post('/expenses/search', 'ExpenseController@getSearchResults');
+
+
+/**
+*  Dependency Routes
+* 
+*/
 Route::get('/dependencies', 'DependencyController@index')->name('dependencies');
 Route::get('/dependencies/new', 'DependencyController@create');
 Route::post('/dependencies', 'DependencyController@store');
@@ -60,6 +79,11 @@ Route::get('/dependencies/{dependency}/edit', 'DependencyController@edit')->midd
 Route::put('/dependencies/{dependency}', 'DependencyController@update')->middleware('dependency');
 Route::delete('/dependencies/{dependency}', 'DependencyController@destroy')->middleware('dependency');
 
+
+/**
+ * Auth Routes
+ * 
+ */
 Auth::routes();
 /*
 +--------+----------+------------------------+------------------+------------------------------------------------------------------------+--------------+

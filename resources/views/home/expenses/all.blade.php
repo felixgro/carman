@@ -131,18 +131,10 @@
             <a href="{{ $expenses->nextPageURL() }}">Next ></a>
         @endif
     </div>
+
     <div class="expemses-search">
         Advanced Search
-        <form class="basic-form">
-            <div class="spacer">
-                <label for="search">Search</label>
-                <input type="text" id="search">
-            </div>
-            <div class="search-box">
-                <a href="#">Item 1</a>
-                <a href="#">Item 2</a>
-            </div>
-        </form>
+        @include('../forms/searchExpense')
     </div>
 </div>
 

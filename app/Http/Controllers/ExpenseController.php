@@ -36,7 +36,7 @@ class ExpenseController extends Controller
         $types = \App\ExpenseType::all();
         return view('home.expenses.create', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense',
+            'currentPage' => 'expenses',
             'types' => $types
         ]);
     }
@@ -86,7 +86,7 @@ class ExpenseController extends Controller
     {
         return view('home.expenses.show', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense',
+            'currentPage' => 'expenses',
             'expense' => $expense
         ]);
     }
@@ -101,7 +101,7 @@ class ExpenseController extends Controller
     {
         return view('home.expenses.edit', [
             'title' => 'Expenses Dashboard',
-            'currentPage' => 'expense',
+            'currentPage' => 'expenses',
             'expense' => $expense,
             'types' => \App\ExpenseType::all()
         ]);
@@ -286,7 +286,21 @@ class ExpenseController extends Controller
      */
     public function getSearchResults(Request $request)
     {   
-        return $request->query;
+        $results = \App\Expense::where([
+            ['title', 'LIKE', "%".$request->q."%"],
+            ['vehicle_id', session('vehicle')],
+        ])->paginate(50);
+
+        return view('home.expenses.showSearch', [
+            'title' => 'Expenses Dashboard',
+            'currentPage' => 'expenses',
+            'expenses' => $results,
+            'prevQuery' => $request->q
+        ]);
+    }
+
+    public function showResults()
+    {
         return 0;
     }
 }

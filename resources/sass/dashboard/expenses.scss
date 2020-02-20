@@ -80,6 +80,7 @@ canvas {
     margin-top: 20px;
     text-align: center;
     .item {
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -100,11 +101,12 @@ canvas {
             transform: scale(1.1);
             .icon {
                 svg {
-                    transform: scale(1.2);
+                    transform: scale(50);
                 }
             }
             .amount {
                 width: 110px;
+                z-index: 10;
             }
         }
     }
@@ -113,7 +115,11 @@ canvas {
             transition: $ui-transition;
             width: 10px;
             margin-bottom: 3px;
+            z-index: 0;
         }
+    }
+    .upper {
+        z-index: 10;
     }
     .title {
         h3 {
