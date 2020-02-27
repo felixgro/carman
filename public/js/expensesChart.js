@@ -98,7 +98,7 @@
     dep: Chart.js, JQuery
 */
 (function () {
-  var options = document.querySelectorAll('.multiple-choice .option');
+  var options = document.querySelectorAll('.multiple-choice .scope-option');
   var dataContainer = document.querySelector('.scope-data');
   var canvas = document.getElementById('expensesChart');
   var ctx = canvas.getContext('2d');

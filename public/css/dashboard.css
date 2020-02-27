@@ -1,3 +1,82 @@
+.main-wrapper {
+  display: -webkit-box;
+  display: flex;
+}
+
+.main-wrapper aside {
+  background: rgba(255, 255, 255, 0.3);
+  height: 500px;
+  width: 30%;
+  margin: 0 30px;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.main-wrapper aside .reminder-item {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  height: auto;
+  margin: 4px 0;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+  cursor: pointer;
+}
+
+.main-wrapper aside .reminder-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.main-wrapper aside .reminder-item:hover .done {
+  /*opacity: 1;*/
+}
+
+.main-wrapper aside .reminder-item:nth-of-type(1) {
+  margin-top: 0;
+}
+
+.main-wrapper aside .reminder-item div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  position: relative;
+  line-height: 32px;
+  -webkit-transition: all 120ms ease-out;
+  transition: all 120ms ease-out;
+}
+
+.main-wrapper aside .reminder-item div.until {
+  border: none;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.05);
+  width: 40px;
+  text-align: center;
+  font-size: 10pt;
+  font-weight: bolder;
+}
+
+.main-wrapper aside .reminder-item div.title {
+  width: 60%;
+  font-weight: bolder;
+}
+
+.main-wrapper aside .reminder-item div.done {
+  font-size: 9pt;
+  opacity: 0;
+}
+
+.main-wrapper aside .reminder-item div.done:hover {
+  text-decoration: underline;
+}
+
 header {
   background: #080816;
   height: 65px;

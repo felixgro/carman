@@ -86,9 +86,29 @@
             <span class="menu-txt"></span>
         </a>
     </div>
-    <div class="wrapper">
+
+    <div class="wrapper main-wrapper">
         @yield('content')
+        <aside>
+            <h1>Reminder</h1>
+            <div class="reminder-item">
+                <div class="until">2d</div>
+                <div class="title">Test</div>
+                <div class="done">done</div>
+            </div>
+            <div class="reminder-item">
+                <div class="until">2d</div>
+                <div class="title">Test</div>
+                <div class="done">done</div>
+            </div>
+            <div class="reminder-item">
+                <div class="until">2d</div>
+                <div class="title">TestTestTes</div>
+                <div class="done">done</div>
+            </div>
+        </aside>
     </div>
+
     @if(session('notification'))
     @component('components.alertSuccess')
         @slot('title')

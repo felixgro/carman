@@ -14,12 +14,21 @@ class DependencyController extends Controller
      */
     public function index()
     {
-        $dep = \DB::table('dependencies')->where('vehicle_id', session('vehicle'))->get();
+        $deps = \DB::table('dependencies')->where('vehicle_id', session('vehicle'))->get();
+
+        $nextDep = NULL;
+
+        foreach($deps as $d) {
+            if($nextDep == NULL || $nextDep->until > $d->until) {
+                $nextDep = $d;
+            }
+        }
 
         return view('home.dependencies.all', [
             'title' => 'Dependencies Dashboard',
             'currentPage' => 'reminder',
-            'dep' => $dep
+            'deps' => $deps,
+            'nextDep' => $nextDep
         ]);
     }
 

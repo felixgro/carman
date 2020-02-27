@@ -93,7 +93,12 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/**
+ * Script für AutoComplete bei der Expenses Suche
+ * und für Click Events bzgl. Expenses Cards
+ */
 (function () {
+  // Autocomplete
   var txtSearch = document.getElementById("search");
   txtSearch.addEventListener('keyup', function (event) {
     var value = txtSearch.value;
@@ -105,7 +110,17 @@
 
   var sendSearchRequest = function sendSearchRequest(value) {
     console.log(value);
-  };
+  }; // Expenses Klick Events
+
+
+  var cards = document.querySelectorAll('.card-item');
+
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function (event) {
+      console.dir(event.target.dataset.id);
+      window.location.href = "/expenses/" + event.target.dataset.id;
+    });
+  }
 })();
 
 /***/ }),

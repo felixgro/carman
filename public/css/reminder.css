@@ -1,0 +1,19 @@
+.dependency {
+  height: auto;
+  width: 400px;
+  background: #fff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 20px 50px;
+  margin: 12px 0;
+}
+
+.dependency h3 {
+  font-size: 0.95em;
+}
+
+.dependency p {
+  font-size: 0.8em;
+  line-height: 1.3em;
+}
+

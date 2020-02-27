@@ -1,19 +1,37 @@
 @extends('dashboard')
 
 @section('content')
-<a href="{{ route('expenses') }}" class="return-button"><i class="fas fa-arrow-left"></i> return</a>
-<h1>{{ $expense->amount }}€ {{ $expense->title }}</h1>
-<small>{{ $expense->created_at }}</small>
-<p>{{ $expense->description }}</p>
+<style>
+    .container {
+        line-height: 1.8em !important;
+    }
+</style>
+<div class="container">
 
-<form action="/expenses/{{ $expense->id }}/edit" method="GET">
-    @csrf
-    <input type="submit" value="Edit Expense">
-</form>
-<form action="/expenses/{{ $expense->id }}" method="POST">
-    @method('DELETE')
-    @csrf
-    <input type="submit" value="Delete Expense">
-</form>
+    <small>{{ dynamicDate($expense->created_at) }}</small>
+    <h1>{{ $expense->title }}</h1>
+    <h4 class="price-tag">{{ $expense->amount }} {{ $user->setting->currency->short }}</h4>
+    
+    
+    <p>{{ $expense->description }}</p>
+
+    <form action="/expenses/{{ $expense->id }}/edit" class="basic-form">
+        <button>Edit</button>
+        <button class="sub-action" id="deleteButton">Delete</button>
+    </form>
+    <form action="/expenses/{{ $expense->id }}" method="post" aria-hidden="true" id="deleteForm">
+        @method('DELETE')
+        @csrf
+    </form>
+</div>
+
+
+
+<script>
+    document.getElementById('deleteButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById('deleteForm').submit();
+    });
+</script>
 
 @endsection

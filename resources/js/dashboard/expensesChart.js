@@ -3,7 +3,7 @@
     dep: Chart.js, JQuery
 */
 (() => {
-    const options = document.querySelectorAll('.multiple-choice .option');
+    const options = document.querySelectorAll('.multiple-choice .scope-option');
     const dataContainer = document.querySelector('.scope-data');
     const canvas = document.getElementById('expensesChart');
     const ctx = canvas.getContext('2d');

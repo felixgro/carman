@@ -24,6 +24,7 @@ body a {
 
 div.wrapper {
   width: 80%;
+  position: relative;
   max-width: 1500px;
 }
 
@@ -94,6 +95,10 @@ a.main-button:focus {
   outline-color: #fca500;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.global-spacer {
+  margin: 60px 0;
 }
 
 .alert {

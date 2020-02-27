@@ -19,10 +19,16 @@ class ExpenseController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->paginate(6);
 
+        $rData = $this->getMaxAndStep($expenses);
+
         return view('home.expenses.all', [
             'title' => 'Expenses Dashboard',
             'currentPage' => 'expenses',
-            'expenses' => $expenses
+            'expenses' => $expenses,
+            'maxAmount' => $rData['max'],
+            'step' => $rData['step'],
+            'prevQuery' => '',
+            'prevSort' => '',
         ]);
     }
 
@@ -118,11 +124,9 @@ class ExpenseController extends Controller
     {
         $data = $request->validated();
 
-        $date = $expense->created_at;
+        $requestDate = $data['date'];
 
-        if($data['date'] !== NULL) {
-            $date = $data['date'];
-        }
+        $date = \Carbon\Carbon::create($requestDate)->format('Y-m-d h:i:s');
 
         \DB::table('expenses')->where('id', $expense->id)->update([
             'expense_type_id' => $data['type'],
@@ -132,7 +136,7 @@ class ExpenseController extends Controller
             'created_at' => $date
         ]);
 
-        $request->session()->flash('notification', ["Expense changed", "{$data['amount']} {$data['title']}"]);
+        $request->session()->flash('notification', ["Expense saved", "{$data['amount']} {$data['title']}"]);
 
         return redirect('expenses');
     }
@@ -147,7 +151,7 @@ class ExpenseController extends Controller
     {
         \DB::table('expenses')->where('id', $expense->id)->delete();
 
-        $request->session()->flash('notification', ["Expense deleted", "{$expense->amount} {$expense->title}"]);
+        $request->session()->flash('notification', ["Expense deleted", "{$expense->title}"]);
         return redirect('expenses');
     }
 
@@ -286,21 +290,55 @@ class ExpenseController extends Controller
      */
     public function getSearchResults(Request $request)
     {   
+
+        if($request->sort === 'date') {
+            $sort = 'created_at';
+        } else {
+            $sort = $request->sort;
+        }
+
+        $amountRange = explode(',', $request->amountRange);
+        $amountMin = $amountRange[0];
+        $amountMax = $amountRange[1];
+
         $results = \App\Expense::where([
             ['title', 'LIKE', "%".$request->q."%"],
             ['vehicle_id', session('vehicle')],
-        ])->paginate(50);
+            ['amount', '>', $amountMin],
+            ['amount', '<', $amountMax],
+        ])->orderBy($sort, 'desc')->paginate(50);
+
+        $allExpenses = \App\Expense::where('vehicle_id', session('vehicle'))->get();
+
+        $rData = $this->getMaxAndStep($allExpenses);
 
         return view('home.expenses.showSearch', [
             'title' => 'Expenses Dashboard',
             'currentPage' => 'expenses',
             'expenses' => $results,
-            'prevQuery' => $request->q
+            'prevQuery' => $request->q,
+            'prevSort' => $request->sort,
+            'prevAmountRange' => [$amountMin, $amountMax],
+            'maxAmount' => $rData['max'],
+            'step' => $rData['step']
         ]);
     }
 
-    public function showResults()
-    {
-        return 0;
+    public function getMaxAndStep($expenses) {
+        $data = [];
+
+        $maxAmount = 0;
+        foreach($expenses as $entry) {
+            if($entry->amount > $maxAmount) {
+                $maxAmount = ceil($entry->amount);
+            }
+        }
+
+        $step = ceil($maxAmount / 10);
+
+        return [
+            'max' => $maxAmount,
+            'step' => $step
+        ];
     }
 }

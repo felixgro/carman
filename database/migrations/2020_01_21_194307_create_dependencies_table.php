@@ -19,6 +19,8 @@ class CreateDependenciesTable extends Migration
             $table->unsignedBigInteger('reminder_id')->nullable();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('until')->nullable();
+            $table->float('costs')->nullable();
             $table->timestamps();
         });
     }

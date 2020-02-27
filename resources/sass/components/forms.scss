@@ -11,6 +11,11 @@ form.basic-form {
       &.spacer {
         margin: 20px 0;
       }
+      &.slider-container {
+        width: 350px;
+        margin-top: 50px;
+        position: relative;
+      }
       &:first-of-type {
           margin-top: 0;
       }
@@ -173,4 +178,16 @@ form.basic-form {
   }
 }
 
-  
+@media screen and (min-width: 1650px) {
+  form.basic-form {
+    div {
+      &.slider-container {
+        width: 350px;
+        margin-top: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}

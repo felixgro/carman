@@ -5,6 +5,7 @@
 <link rel="stylesheet" href=" {{ asset('css/tables.css') }}">
 <link rel="stylesheet" href=" {{ asset('css/forms.css') }}">
 <link rel="stylesheet" href=" {{ asset('css/expenses.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/cards.css') }}">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -24,12 +25,15 @@
 
 
 
+<div class="container">
 <h1>Your Expenses</h1>
-
+    <form action="/expenses/new" class="basic-form">
+        <button>Add Expense</button>
+        <!--button-- class="sub-action" id="quickDelete">Delete</!--button-->
+    </form>
 <div id="noExpenses">
     Nothing to show..
 </div>
-<div class="container">
 
     <form class="toggle-scope basic-form">
         <select name="scope" id="scope" class="select-scope">
@@ -38,9 +42,9 @@
             <option value="year">Last Year</option>
         </select>
         <div class="multiple-choice" data-toggle=".select-scope">
-            <div class="option selected load-in" data-value="1">All</div>
-            <div class="option load-in" data-value="2">This Month</div>
-            <div class="option load-in" data-value="3">This Year</div>
+            <div class="option selected load-in scope-option" data-value="1">All</div>
+            <div class="option load-in scope-option" data-value="2">This Month</div>
+            <div class="option load-in scope-option" data-value="3">This Year</div>
         </div>
     </form>
     
@@ -79,50 +83,43 @@
     <div class="chart-container">
         <canvas id="expensesChart" width="400px" height="300px" aria-label="Expenses Doughnut Chart" role="img"></canvas>
     </div>
+    <div class="global-spacer">
+        <h4 class="load-in">Latest Expenses</h4>
+        <div class="cards-list">
+        @foreach($expenses as $entry)
 
-    <form action="/expenses/new" class="basic-form">
-        <button class="load-in">Add Expense</button>
-        <!--button-- class="sub-action" id="quickDelete">Delete</!--button-->
-    </form>
+            <div class="item load-in card-item" data-id="{{ $entry->id }}">
 
-    <!--div>
-        <h4 class="load-in">Latest</h4>
-    <div-->
-    <div class="expenses-list">
-    @foreach($expenses as $entry)
-
-        <div class="item load-in" data-id="{{ $entry->id }}">
-
-            <div class="upper">
-            <div class="title">
-                    <h3>{{ oneRowText( $entry->title ) }}</h3>
+                <div class="upper">
+                    <div class="title">
+                        <h3>{{ oneRowText( $entry->title ) }}</h3>
+                    </div>
                 </div>
 
+                <div class="under">
+                    <div class="icon">
+                        <svg viewBox="0 0 2 2" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="1" cy="1" r="1" style="fill:
+                                {{ \App\ExpenseType::find($entry->expense_type_id)->color }} 
+                            "/>
+                        </svg>
+                    </div>
+
+                    <div class="amount">
+                        {{ $entry->amount }} {{ $user->setting->currency->symbol }}
+                    </div>
+
+                    <div class="date">
+                    {{ dynamicDate($entry->created_at) }}
+                    </div>
+                </div>
             </div>
-            <div class="under">
-            <div class="icon">
-                    <svg viewBox="0 0 2 2" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="1" cy="1" r="1" style="fill:
-                            {{ \App\ExpenseType::find($entry->expense_type_id)->color }} 
-                        "/>
-                    </svg>
-                </div>
-
-                <div class="amount">
-                    {{ $entry->amount }} {{ $user->setting->currency->symbol }}
-                </div>
-
-                <div class="date">
-                {{ dynamicDate($entry->created_at) }}
-                </div>
-    
-            </div>
-            
+        @endforeach
         </div>
-    @endforeach
     </div>
-    <div class="expenses-navigation">
+    
+    <!--div class="expenses-navigation load-in">
         @if($expenses->currentPage() !== 1)
             <a href="{{ $expenses->previousPageURL() }}">< Back</a>
         @endif
@@ -130,11 +127,15 @@
         @if($expenses->currentPage() !== $expenses->lastPage())
             <a href="{{ $expenses->nextPageURL() }}">Next ></a>
         @endif
-    </div>
+    </div-->
 
-    <div class="expemses-search">
-        Advanced Search
-        @include('../forms/searchExpense')
+    <div class="global-spacer">
+        <div class="expenses-search">
+            <h4 class="load-in">Advanced Search</h4>
+            <div class="load-in">
+                @include('../forms/searchExpense')
+            </div>
+        </div>
     </div>
 </div>
 

@@ -78,119 +78,6 @@ canvas {
   font-size: 0.8em;
 }
 
-.expenses-list {
-  position: relative;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-          justify-content: center;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  line-height: 1.3em;
-  font-size: 13pt;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.expenses-list .item {
-  overflow: hidden;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  width: calc(33% - 20px);
-  height: calc(150px - 20px);
-  min-width: 230px;
-  border-radius: 3px;
-  box-sizing: border-box;
-  padding: 23px;
-  margin: 10px;
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  -webkit-transition: all 120ms ease-out;
-  transition: all 120ms ease-out;
-}
-
-.expenses-list .item:hover {
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.expenses-list .item:hover .icon svg {
-  -webkit-transform: scale(50);
-          transform: scale(50);
-}
-
-.expenses-list .item:hover .amount {
-  width: 110px;
-  z-index: 10;
-}
-
-.expenses-list .icon svg {
-  -webkit-transition: all 120ms ease-out;
-  transition: all 120ms ease-out;
-  width: 10px;
-  margin-bottom: 3px;
-  z-index: 0;
-}
-
-.expenses-list .upper {
-  z-index: 10;
-}
-
-.expenses-list .title h3 {
-  margin-top: 3px;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  letter-spacing: 1px;
-  line-height: 1.3em;
-}
-
-.expenses-list .under {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-}
-
-.expenses-list .amount {
-  -webkit-transition: all 120ms ease-out;
-  transition: all 120ms ease-out;
-  display: block;
-  background: rgba(0, 0, 0, 0.04);
-  width: 100px;
-  height: 30px;
-  letter-spacing: 1px;
-  line-height: 30px;
-  font-size: 0.9em;
-  color: #080816;
-  font-weight: bolder;
-}
-
-.expenses-list .date {
-  font-size: 0.6em;
-  font-weight: bolder;
-  opacity: 0.2;
-  letter-spacing: 1px;
-}
-
 .expenses-navigation {
   position: relative;
   margin: 20px auto;
@@ -213,6 +100,10 @@ canvas {
 
 .expenses-navigation a:hover {
   opacity: 0.9;
+}
+
+.expenses-search {
+  position: relative;
 }
 
 .search-box {

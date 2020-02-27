@@ -23,6 +23,7 @@ body {
 
 div.wrapper {
     width: 80%;
+    position: relative;
     max-width: 1500px;
 }
 
@@ -85,7 +86,9 @@ a.main-button {
         transform: scale(1);
     }
 }
-
+.global-spacer {
+    margin: 60px 0;
+}
 .alert {
     position: fixed;
     bottom: 20px;

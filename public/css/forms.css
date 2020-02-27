@@ -13,6 +13,12 @@ form.basic-form div.spacer {
   margin: 20px 0;
 }
 
+form.basic-form div.slider-container {
+  width: 350px;
+  margin-top: 50px;
+  position: relative;
+}
+
 form.basic-form div:first-of-type {
   margin-top: 0;
 }
@@ -212,5 +218,15 @@ form.basic-form select.hidden {
 .multiple-choice .option:hover {
   color: #aaa;
   border-color: #aaa;
+}
+
+@media screen and (min-width: 1650px) {
+  form.basic-form div.slider-container {
+    width: 350px;
+    margin-top: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 

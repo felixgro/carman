@@ -174,6 +174,17 @@ anime({
 
 /***/ }),
 
+/***/ "./resources/sass/components/cards.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/components/cards.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/components/forms.scss":
 /*!**********************************************!*\
   !*** ./resources/sass/components/forms.scss ***!
@@ -218,6 +229,17 @@ anime({
 
 /***/ }),
 
+/***/ "./resources/sass/dashboard/reminder.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/dashboard/reminder.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/dashboard/vehicles.scss":
 /*!************************************************!*\
   !*** ./resources/sass/dashboard/vehicles.scss ***!
@@ -252,9 +274,9 @@ anime({
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/components/forms.scss ./resources/sass/components/tables.scss ./resources/sass/welcome/landing.scss ./resources/sass/welcome/register.scss ./resources/sass/dashboard.scss ./resources/sass/dashboard/vehicles.scss ./resources/sass/dashboard/expenses.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/components/forms.scss ./resources/sass/components/tables.scss ./resources/sass/components/cards.scss ./resources/sass/welcome/landing.scss ./resources/sass/welcome/register.scss ./resources/sass/dashboard.scss ./resources/sass/dashboard/vehicles.scss ./resources/sass/dashboard/expenses.scss ./resources/sass/dashboard/reminder.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -262,11 +284,13 @@ __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/js/app.js */"./
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/components/forms.scss */"./resources/sass/components/forms.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/components/tables.scss */"./resources/sass/components/tables.scss");
+__webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/components/cards.scss */"./resources/sass/components/cards.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/welcome/landing.scss */"./resources/sass/welcome/landing.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/welcome/register.scss */"./resources/sass/welcome/register.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
 __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/dashboard/vehicles.scss */"./resources/sass/dashboard/vehicles.scss");
-module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/dashboard/expenses.scss */"./resources/sass/dashboard/expenses.scss");
+__webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/dashboard/expenses.scss */"./resources/sass/dashboard/expenses.scss");
+module.exports = __webpack_require__(/*! /Users/felixgrohs/Server/rider/resources/sass/dashboard/reminder.scss */"./resources/sass/dashboard/reminder.scss");
 
 
 /***/ })

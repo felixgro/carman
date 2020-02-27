@@ -3,15 +3,18 @@
 @section('content')
 
 <link rel="stylesheet" href=" {{ asset('css/expenses.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/cards.css') }}">
 
-<h1>Search Results</h1>
+<h1>Search Expenses</h1>
 
-@include('../forms/searchExpense')
+<div class="container">
+    @include('../forms/searchExpense')
+</div>
 
-<div class="expenses-list">
+<div class="expenses-list cards-list">
     @foreach($expenses as $entry)
 
-        <div class="item load-in" data-id="{{ $entry->id }}">
+        <div class="item load-in card-item" data-id="{{ $entry->id }}">
 
             <div class="upper">
 
@@ -24,23 +27,22 @@
             <div class="under">
 
                 <div class="icon">
-                        <svg viewBox="0 0 2 2" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="1" cy="1" r="1" style="fill:
-                                {{ \App\ExpenseType::find($entry->expense_type_id)->color }} 
-                            "/>
-                        </svg>
-                    </div>
 
-                    <div class="amount">
-                        {{ $entry->amount }} {{ $user->setting->currency->symbol }}
-                    </div>
+                    <svg viewBox="0 0 2 2" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="1" cy="1" r="1" style="fill: {{ \App\ExpenseType::findorFail($entry->expense_type_id)->color }} "/>
+                    </svg>
 
-                    <div class="date">
-                        {{ dynamicDate($entry->created_at) }}
-                    </div>
-    
                 </div>
+
+                <div class="amount">
+                    {{ $entry->amount }} {{ $user->setting->currency->symbol }}
+                </div>
+
+                <div class="date">
+                    {{ dynamicDate( $entry->created_at ) }}
+                </div>
+    
+            </div>
             
         </div>
     @endforeach

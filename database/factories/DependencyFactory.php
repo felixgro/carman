@@ -10,6 +10,7 @@ $factory->define(Dependency::class, function (Faker $faker) {
         'vehicle_id' => 1,
         'reminder_id' => 1,
         'title' => $faker->company,
-        'description' => $faker->text
+        'description' => $faker->text,
+        'until' => $faker->dateTimeBetween('+0 days', '+2 years'),
     ];
 });
