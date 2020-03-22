@@ -1,6 +1,6 @@
-## Rider
+## Carman
 
-Mit Rider behält man allzeit den Überblick über jegliche verkehrsbezogenen Ausgaben, vergangene Fahrten und verpflichtende Notwendigkeiten, wie den TÜV-Check beispielsweise.
+Mit Carman behält man allzeit den Überblick über jegliche verkehrsbezogenen Ausgaben, vergangene Fahrten und verpflichtende Notwendigkeiten, wie den TÜV-Check beispielsweise.
 
 ### Notwendige Schritte um Prototypen zu sehen (MAC OS):
 
